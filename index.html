@@ -8,7 +8,7 @@
 </head>
 
 <body>
-    <header>
+    <header id="header">
         <a href="">
             <img src="" alt="Logo of Tittle">
         </a>
@@ -89,7 +89,7 @@
 
             <div class="stat">
                 <span class="stat_label">Errors</span>
-                <span id="errors"></span>
+                <span id="errors">---</span>
             </div>
 
             <div id="timer">--:--</div>
@@ -114,14 +114,20 @@
             </div>
             <div class="setting_sound">
                 <button class="btn_setting" data-sound=true>On</button>
-                <button class="btn_setting" data-sound=false></button>
+                <button class="btn_setting" data-sound=false>Off</button>
             </div>
         </section>
 
     </main>
 
     <footer>
-
+        <p>Tittle · a typing test that sweats the small stuff.</p>
+        <p>
+            Built by <a href="https://github.com/Rui-S13">Rui Silva</a>, 2026 ·
+            <a href="https://github.com/Rui-S13/tittle-typing-test">Source on GitHub</a>
+        </p>
+        <p>Quotes from [source]. Your results are stored only in this browser.</p>
+        <button type="button" id="btn_back_to_top">Back to top</button>
     </footer>
 </body>
 
