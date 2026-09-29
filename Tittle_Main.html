@@ -17,6 +17,13 @@
             <p class="user_name"></p>
             <p class="user_username"></p>
         </a>
+        <button id="btn_logout" hidden>Logout</button>
+        <button id="btn_dark_mode">
+            <svg viewBox="0 0 24 24" fill="none">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+        </button>
     </header>
 
     <div id="modal" class="modal_overlay" hidden>
@@ -70,7 +77,8 @@
         <section id="typing_test">
             <h2>Typing test</h2>
             <div class="test_quote"></div>
-            <textarea name="typing_test_input" id="typing_test_input" placeholder="Press ENTER to begin the test"></textarea>
+            <textarea name="typing_test_input" id="typing_test_input"
+                placeholder="Press ENTER to begin the test"></textarea>
         </section>
 
         <section id="test_status">
