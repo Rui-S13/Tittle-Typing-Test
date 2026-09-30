@@ -5,13 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tittle</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <header id="header">
-        <a href="">
-            <img src="" alt="Logo of Tittle">
-        </a>
+        <div id="logo_container">
+            <a href="">
+                <img src="./assets/tittle-logo.svg" alt="Tittle" height="32">
+            </a>
+        </div>
         <button id="btn_login">Login</button>
         <a href="" hidden>
             <p class="user_name"></p>
@@ -70,34 +73,67 @@
 
     <main>
         <section id="typing_test">
-            <h2>Typing test</h2>
             <div id="test_area">
                 <div id="test_quote"></div>
                 <p id="test_guide">Press ENTER to begin the test</p>
             </div>
-            <textarea name="typing_test_input" id="typing_test_input" autocomplete="off" autocorrect="off"
-                autocapitalize="off" spellcheck="false" disabled></textarea>
+            <p id="quote_author"></p>
+            <textarea name="test_input" id="test_input" autocomplete="off" autocorrect="off" autocapitalize="off"
+                spellcheck="false" disabled></textarea>
         </section>
 
         <section id="test_status">
-            <div class="stat">
-                <span class="stat_label">WPM</span>
-                <span id="wpm">---</span>
+            <div id="test_stats">
+                <div class="stat">
+                    <span class="stat_label">WPM</span>
+                    <span id="wpm">---</span>
+                </div>
+
+                <div class="stat">
+                    <span class="stat_label">Accuracy</span>
+                    <span id="accuracy">---</span>
+                </div>
+
+                <div class="stat">
+                    <span class="stat_label">Errors</span>
+                    <span id="errors">---</span>
+                </div>
             </div>
 
-            <div class="stat">
-                <span class="stat_label">Accuracy</span>
-                <span id="accuracy">---</span>
-            </div>
-
-            <div class="stat">
-                <span class="stat_label">Errors</span>
-                <span id="errors">---</span>
-            </div>
-
-            <div id="timer">--:--</div>
+            <div id="timer">----</div>
 
             <div id="test_state">Awaiting</div>
+        </section>
+
+        <section id="test_settings">
+            <h2>Settings</h2>
+            <div id="settings_container">
+
+                <div class="setting">
+                    <h3>Timer</h3>
+                    <form id="setting_timer" class="setting_option_list">
+                        <input type="radio" id="timer_quote" name="timer" value="off" checked>
+                        <label class="btn_setting" for="timer_quote">Off</label>
+
+                        <input type="radio" id="timer_30" name="timer" value="30">
+                        <label class="btn_setting" for="timer_30">30 sec</label>
+
+                        <input type="radio" id="timer_60" name="timer" value="60">
+                        <label class="btn_setting" for="timer_60">60 sec</label>
+                    </form>
+                </div>
+
+                <div class="setting">
+                    <h3>Sound</h3>
+                    <form id="setting_sound" class="setting_option_list">
+                        <input type="radio" id="sound_off" name="sound" value="false" checked>
+                        <label class="btn_setting" for="sound_off">Off</label>
+
+                        <input type="radio" id="sound_on" name="sound" value="true">
+                        <label class="btn_setting" for="sound_on">On</label>
+                    </form>
+                </div>
+            </div>
         </section>
 
         <section id="session_top_3">
@@ -106,31 +142,33 @@
 
             </ol>
         </section>
-
-        <section id="test_settings">
-            <h2>Settings</h2>
-            <div class="setting_timer">
-                <button class="btn_setting" data-timer="30">30 sec</button>
-                <button class="btn_setting" data-timer="60">60 sec</button>
-                <button class="btn_setting" data-timer="120">120 sec</button>
-                <button class="btn_setting" data-timer="quote">Entire quote</button>
-            </div>
-            <div class="setting_sound">
-                <button class="btn_setting" data-sound=true>On</button>
-                <button class="btn_setting" data-sound=false>Off</button>
-            </div>
-        </section>
-
     </main>
 
     <footer>
-        <p>Tittle · a typing test that sweats the small stuff.</p>
-        <p>
-            Built by <a href="https://github.com/Rui-S13">Rui Silva</a>, 2026 ·
+        <div id="footer_brand">
+            <svg id="footer_logo" viewBox="0 0 280 110" role="img" aria-hidden="true">
+                <g fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 26H68M43 26V90" />
+                    <path d="M97 52V90" />
+                    <path d="M127 26V90M110 52H144" />
+                    <path d="M167 26V90M150 52H184" />
+                    <path d="M203 22V90" />
+                    <path d="M226 70H266A20 20 0 1 0 260.1 84.1" />
+                </g>
+                <circle cx="97" cy="29" r="8" fill="var(--accent, #2F5D8A)" />
+            </svg>
+            <p>A typing test that sweats the small stuff.</p>
+        </div>
+
+        <nav class="footer_links" aria-label="Footer">
             <a href="https://github.com/Rui-S13/tittle-typing-test">Source on GitHub</a>
+            <a href="https://github.com/Rui-S13">Rui Silva</a>
+            <button type="button" id="btn_back_to_top">Back to top</button>
+        </nav>
+
+        <p class="footer_small">
+            Built by Rui Silva, 2026. Quotes from [source]. Your results are stored only in this browser.
         </p>
-        <p>Quotes from [source]. Your results are stored only in this browser.</p>
-        <button type="button" id="btn_back_to_top">Back to top</button>
     </footer>
 </body>
 
