@@ -145,7 +145,7 @@ main {
     column-gap: 100px;
     row-gap: 50px;
 
-    padding: 50px 15%;
+    padding: 50px 10%;
 }
 
 main h2 {
@@ -194,4 +194,57 @@ main h2 {
 
     height: 0px;
     margin: 0px;
+}
+
+
+/* ==================================================
+   TEST STATUS AREA
+   ================================================== */
+
+#test_status {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 350px;
+
+    padding: 30px;
+
+    border: solid var(--border_color) var(--broder_weight);
+    border-radius: var(--border_radius);
+    background-color: var(--surface_color);
+}
+
+#test_stats {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 5px;
+
+    width: 100%;
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.stat_label {
+    font-weight: var(--font_weight_bold);
+}
+
+#timer {
+    margin-top: auto;
+    margin-bottom: auto;
+
+    color: var(--accent_color);
+    font-size: 2rem;
+
+    letter-spacing: 5px;
+}
+
+#test-state {
+    margin-top: auto;
 }
