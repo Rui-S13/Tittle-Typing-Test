@@ -314,3 +314,64 @@ input[type="radio"]:checked+.btn_setting {
     border-color: var(--accent_color);
     color: var(--background_color);
 }
+
+
+/* ==================================================
+   SESSION TOP 3
+   ================================================== */
+
+#session_top_3 {
+    list-style-type: none;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 350px;
+    padding: 30px;
+
+    border: solid var(--border_color) var(--broder_weight);
+    border-radius: var(--border_radius);
+    background-color: var(--surface_color);
+}
+
+#session_top_3_list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+
+    width: 100%;
+}
+
+.top_test {
+    list-style-type: none;
+
+    display: grid;
+    grid-template-columns: 40px auto auto;
+    align-items: center;
+    justify-items: center;
+
+    width: 90%;
+    padding: 5px;
+
+    border: solid var(--border_color) var(--broder_weight);
+    border-radius: var(--border_radius);
+    background-color: var(--surface_color);
+}
+
+.top_test_position {
+    font-size: 2rem;
+}
+
+[data-position="1"] {
+    color: gold;
+}
+
+[data-position="2"] {
+    color: silver;
+}
+
+[data-position="3"] {
+    color: #CD7F32;
+}
