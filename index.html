@@ -7,14 +7,25 @@
     <title>Tittle - Typing Test</title>
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="assets/tittle-icon.svg" type="image/x-icon">
-    <script src="script.js"></script>
+    <script type="module" src="main.js"></script>
 </head>
 
 <body>
     <header id="header">
         <div id="logo_container">
             <a href="">
-                <img src="./assets/tittle-logo.svg" alt="Tittle" height="32">
+                <svg id="footer_logo" viewBox="0 0 280 110" role="img" aria-hidden="true">
+                    <g fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M18 26H68M43 26V90" />
+                        <path d="M97 52V90" />
+                        <path d="M127 26V90M110 52H144" />
+                        <path d="M167 26V90M150 52H184" />
+                        <path d="M203 22V90" />
+                        <path d="M226 70H266A20 20 0 1 0 260.1 84.1" />
+                    </g>
+                    <circle cx="97" cy="29" r="8" fill="var(--accent, #2F5D8A)" />
+                </svg>
             </a>
         </div>
         <button id="btn_login">Login</button>
@@ -79,7 +90,7 @@
                 <div id="test_quote"></div>
                 <p id="test_guide">Press ENTER to begin the test</p>
             </div>
-            <p id="quote_author"></p>
+            <span id="quote_author"></span>
             <textarea name="test_input" id="test_input" autocomplete="off" autocorrect="off" autocapitalize="off"
                 spellcheck="false" disabled></textarea>
         </section>
