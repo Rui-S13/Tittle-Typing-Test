@@ -33,7 +33,7 @@
     --font_weight_bold: 600;
 }
 
-[data-theme="dark"] {
+.dark_mode {
     --background_color: #0F0F10;
     --surface_color: #171718;
     --border_color: #2A2A2C;
@@ -72,6 +72,10 @@ header {
 
     background-color: var(--background_color);
     border-bottom: solid var(--border_color) var(--broder_weight);
+}
+
+#logo_container a {
+    color: var(--primary_color);
 }
 
 #btn_login {
@@ -115,6 +119,7 @@ header {
     border: solid var(--primary_color) var(--broder_weight);
     border-radius: var(--border_radius);
     background-color: var(--background_color);
+    color: var(--primary_color);
 }
 
 #btn_dark_mode svg {
