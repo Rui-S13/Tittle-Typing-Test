@@ -375,3 +375,78 @@ input[type="radio"]:checked+.btn_setting {
 [data-position="3"] {
     color: #CD7F32;
 }
+
+
+/* ==================================================
+   FOOTER
+   ================================================== */
+
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+
+    width: 100%;
+    padding: 32px 24px;
+
+    border-top: solid var(--broder_weight) var(--border_color);
+    background: var(--bg);
+
+    color: var(--muted_color);
+    font-size: 0.875rem;
+}
+
+#footer_brand {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 5px;
+    color: var(--primary_color);
+}
+
+.footer_brand p {
+    margin: 0;
+    color: var(--muted_color);
+}
+
+#footer_logo {
+    height: 28px;
+    width: auto;
+}
+
+.footer_links {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+}
+
+.footer_links a,
+.footer_links button {
+    color: var(--muted_color);
+    text-decoration: none;
+    background: none;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+}
+
+.footer_links a+a,
+.footer_links a+button {
+    border-left: solid var(--border_color) var(--broder_weight);
+    padding-left: 24px;
+}
+
+.footer_links a:hover,
+.footer_links button:hover {
+    color: var(--primary_color);
+}
+
+.footer_small {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: solid var(--border_color) var(--broder_weight);
+
+    font-size: 0.8125rem;
+}

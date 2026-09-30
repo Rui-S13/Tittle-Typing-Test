@@ -77,7 +77,7 @@
                 <div id="test_quote"></div>
                 <p id="test_guide">Press ENTER to begin the test</p>
             </div>
-            <p id="quote_author">Quote Author</p>
+            <p id="quote_author"></p>
             <textarea name="test_input" id="test_input" autocomplete="off" autocorrect="off" autocapitalize="off"
                 spellcheck="false" disabled></textarea>
         </section>
@@ -139,33 +139,36 @@
         <section id="session_top_3">
             <h2>Top tests of this session</h2>
             <ol id="session_top_3_list">
-                <li class="top_test">
-                    <span class="top_test_position" data-position="1">1</span>
-                    <span class="top_test_stat">65 WPM</span>
-                    <span class="top_test_stat">98%</span>
-                </li>
-                <li class="top_test">
-                    <span class="top_test_position" data-position="2">2</span>
-                    <span class="top_test_stat">65 WPM</span>
-                    <span class="top_test_stat">98%</span>
-                </li>
-                <li class="top_test">
-                    <span class="top_test_position" data-position="3">3</span>
-                    <span class="top_test_stat">65 WPM</span>
-                    <span class="top_test_stat">98%</span>
-                </li>
+
             </ol>
         </section>
     </main>
 
     <footer>
-        <p>Tittle · a typing test that sweats the small stuff.</p>
-        <p>
-            Built by <a href="https://github.com/Rui-S13">Rui Silva</a>, 2026 ·
+        <div id="footer_brand">
+            <svg id="footer_logo" viewBox="0 0 280 110" role="img" aria-hidden="true">
+                <g fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 26H68M43 26V90" />
+                    <path d="M97 52V90" />
+                    <path d="M127 26V90M110 52H144" />
+                    <path d="M167 26V90M150 52H184" />
+                    <path d="M203 22V90" />
+                    <path d="M226 70H266A20 20 0 1 0 260.1 84.1" />
+                </g>
+                <circle cx="97" cy="29" r="8" fill="var(--accent, #2F5D8A)" />
+            </svg>
+            <p>A typing test that sweats the small stuff.</p>
+        </div>
+
+        <nav class="footer_links" aria-label="Footer">
             <a href="https://github.com/Rui-S13/tittle-typing-test">Source on GitHub</a>
+            <a href="https://github.com/Rui-S13">Rui Silva</a>
+            <button type="button" id="btn_back_to_top">Back to top</button>
+        </nav>
+
+        <p class="footer_small">
+            Built by Rui Silva, 2026. Quotes from [source]. Your results are stored only in this browser.
         </p>
-        <p>Quotes from [source]. Your results are stored only in this browser.</p>
-        <button type="button" id="btn_back_to_top">Back to top</button>
     </footer>
 </body>
 
