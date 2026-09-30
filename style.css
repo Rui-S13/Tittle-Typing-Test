@@ -1,3 +1,10 @@
+@font-face {
+    font-family: "Inter";
+    src: url("fonts/Inter/static/Inter_28pt-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -5,3 +12,115 @@
     font-size: 16px;
 }
 
+:root {
+    --background_color: #FAFAFA;
+    --surface_color: #FFFFFF;
+    --border_color: #E5E5E5;
+    --primary_color: #2B2B2B;
+    --accent_color: #2F5D8A;
+    --muted_color: #737373;
+    --error_color: #C4402F;
+
+    --border_radius: 8px;
+    --broder_weight: 1px;
+
+    --font_weight_light: 400;
+    --font_weight_regular: 500;
+    --font_weight_bold: 600;
+}
+
+[data-theme="dark"] {
+    --background_color: #0F0F10;
+    --surface_color: #171718;
+    --border_color: #2A2A2C;
+    --primary_color: #EDEDED;
+    --accent_color: #7AA7D6;
+    --muted_color: #8A8A8E;
+    --error_color: #F87171;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+
+    background-color: var(--background_color);
+    color: var(--primary_color);
+
+    font-family: Inter;
+}
+
+header {
+    position: sticky;
+    top: 0;
+
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    align-items: center;
+    column-gap: 20px;
+
+    height: 64px;
+    padding: 0px 30px;
+
+    background-color: var(--background_color);
+    border-bottom: solid var(--border_color) var(--broder_weight);
+}
+
+#btn_login {
+    justify-self: center;
+
+    font-size: 1.2rem;
+    font-weight: var(--font_weight_light);
+
+    height: 36px;
+    width: auto;
+    padding: 0px 10px;
+
+    border: solid var(--primary_color) var(--broder_weight);
+    border-radius: var(--border_radius);
+    background-color: var(--primary_color);
+    color: var(--background_color)
+}
+
+#btn_login:hover {
+    background-color: var(--primary_color);
+    color: var(--background_color);
+    cursor: pointer;
+}
+
+#btn_login:active {
+    background-color: var(--accent_color);
+    border-color: var(--accent_color);
+    color: var(--background_color)
+}
+
+#btn_dark_mode {
+    justify-self: center;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 36px;
+    width: 36px;
+
+    border: solid var(--primary_color) var(--broder_weight);
+    border-radius: var(--border_radius);
+    background-color: var(--background_color);
+}
+
+#btn_dark_mode svg {
+    height: 20px;
+    width: auto;
+}
+
+#btn_dark_mode:hover {
+    background-color: var(--primary_color);
+    color: var(--background_color);
+    cursor: pointer;
+}
+
+#btn_dark_mode:active {
+    background-color: var(--accent_color);
+    border-color: var(--accent_color);
+    color: var(--background_color)
+}
