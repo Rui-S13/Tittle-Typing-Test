@@ -77,6 +77,7 @@
                 <div id="test_quote"></div>
                 <p id="test_guide">Press ENTER to begin the test</p>
             </div>
+            <p id="quote_author">hello there</p>
             <textarea name="test_input" id="test_input" autocomplete="off" autocorrect="off" autocapitalize="off"
                 spellcheck="false" disabled></textarea>
         </section>
@@ -99,47 +100,40 @@
                 </div>
             </div>
 
-            <div id="timer">--:--</div>
+            <div id="timer">----</div>
 
             <div id="test_state">Awaiting</div>
         </section>
 
         <section id="test_settings">
             <h2>Settings</h2>
-            <h3>Timer</h3>
-            <form class="setting_timer">
-                <label class="btn_setting">
-                    <input type="radio" name="timer" value="30">
-                    30 sec
-                </label>
+            <div id="settings_container">
 
-                <label class="btn_setting">
-                    <input type="radio" name="timer" value="60">
-                    60 sec
-                </label>
+                <div class="setting">
+                    <h3>Timer</h3>
+                    <form id="setting_timer" class="setting_option_list">
+                        <input type="radio" id="timer_quote" name="timer" value="off" checked>
+                        <label class="btn_setting" for="timer_quote">Off</label>
 
-                <label class="btn_setting">
-                    <input type="radio" name="timer" value="120">
-                    120 sec
-                </label>
+                        <input type="radio" id="timer_30" name="timer" value="30">
+                        <label class="btn_setting" for="timer_30">30 sec</label>
 
-                <label class="btn_setting">
-                    <input type="radio" name="timer" value="quote" checked>
-                    Entire quote
-                </label>
-            </form>
-            <h3>Sound</h3>
-            <form class="setting_sound">
-                <label class="btn_setting">
-                    <input type="radio" name="sound" value="true" checked>
-                    On
-                </label>
+                        <input type="radio" id="timer_60" name="timer" value="60">
+                        <label class="btn_setting" for="timer_60">60 sec</label>
+                    </form>
+                </div>
 
-                <label class="btn_setting">
-                    <input type="radio" name="sound" value="false">
-                    Off
-                </label>
-            </form>
+                <div class="setting">
+                    <h3>Sound</h3>
+                    <form id="setting_sound" class="setting_option_list">
+                        <input type="radio" id="sound_off" name="sound" value="false" checked>
+                        <label class="btn_setting" for="sound_off">Off</label>
+
+                        <input type="radio" id="sound_on" name="sound" value="true">
+                        <label class="btn_setting" for="sound_on">On</label>
+                    </form>
+                </div>
+            </div>
         </section>
 
         <section id="session_top_3">
