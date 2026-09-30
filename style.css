@@ -139,11 +139,59 @@ header {
    MAIN
    ================================================== */
 
-   main {
+main {
     display: grid;
     grid-template-columns: 1fr auto;
     column-gap: 100px;
     row-gap: 50px;
 
     padding: 50px 15%;
-   }
+}
+
+main h2 {
+    font-size: 1.3rem;
+    font-weight: var(--font_weight_light);
+    margin-bottom: 20px;
+}
+
+
+/* ==================================================
+   TYPING TEST AREA
+   ================================================== */
+
+#typing_test {
+    width: 100%;
+}
+
+#test_area {
+    width: 100%;
+    height: 400px;
+    resize: vertical;
+
+    padding: 20px;
+
+    border: solid var(--border_color) var(--broder_weight);
+    border-radius: var(--border_radius);
+    background-color: var(--surface_color);
+
+    color: var(--muted_color);
+    text-wrap: wrap;
+    line-height: 40px;
+}
+
+#test_guide {
+    font-size: 1.3rem;
+}
+
+#test_quote {
+    font-size: 1.3rem;
+}
+
+#test_input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+
+    height: 0px;
+    margin: 0px;
+}
