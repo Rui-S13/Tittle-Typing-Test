@@ -106,16 +106,40 @@
 
         <section id="test_settings">
             <h2>Settings</h2>
-            <div class="setting_timer">
-                <button class="btn_setting" data-timer="30">30 sec</button>
-                <button class="btn_setting" data-timer="60">60 sec</button>
-                <button class="btn_setting" data-timer="120">120 sec</button>
-                <button class="btn_setting" data-timer="quote">Entire quote</button>
-            </div>
-            <div class="setting_sound">
-                <button class="btn_setting" data-sound=true>On</button>
-                <button class="btn_setting" data-sound=false>Off</button>
-            </div>
+            <h3>Timer</h3>
+            <form class="setting_timer">
+                <label class="btn_setting">
+                    <input type="radio" name="timer" value="30">
+                    30 sec
+                </label>
+
+                <label class="btn_setting">
+                    <input type="radio" name="timer" value="60">
+                    60 sec
+                </label>
+
+                <label class="btn_setting">
+                    <input type="radio" name="timer" value="120">
+                    120 sec
+                </label>
+
+                <label class="btn_setting">
+                    <input type="radio" name="timer" value="quote" checked>
+                    Entire quote
+                </label>
+            </form>
+            <h3>Sound</h3>
+            <form class="setting_sound">
+                <label class="btn_setting">
+                    <input type="radio" name="sound" value="true" checked>
+                    On
+                </label>
+
+                <label class="btn_setting">
+                    <input type="radio" name="sound" value="false">
+                    Off
+                </label>
+            </form>
         </section>
 
         <section id="session_top_3">
