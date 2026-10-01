@@ -12,9 +12,9 @@
 
 <body>
     <header id="header">
-        <div id="logo_container">
+        <div id="logo-container">
             <a href="">
-                <svg id="footer_logo" viewBox="0 0 280 110" role="img" aria-hidden="true">
+                <svg id="footer-logo" viewBox="0 0 280 110" role="img" aria-hidden="true">
                     <g fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path d="M18 26H68M43 26V90" />
@@ -28,13 +28,13 @@
                 </svg>
             </a>
         </div>
-        <button id="btn_login">Login</button>
+        <button id="btn-login">Login</button>
         <a href="" hidden>
-            <p class="user_name"></p>
-            <p class="user_username"></p>
+            <p class="user-name"></p>
+            <p class="user-username"></p>
         </a>
-        <button id="btn_logout" hidden>Logout</button>
-        <button id="btn_dark_mode">
+        <button id="btn-logout" hidden>Logout</button>
+        <button id="btn-dark-mode">
             <svg viewBox="0 0 24 24" fill="none">
                 <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" stroke="currentColor" stroke-width="2"
                     stroke-linecap="round" stroke-linejoin="round"></path>
@@ -42,124 +42,124 @@
         </button>
     </header>
 
-    <div id="modal" class="modal_overlay" hidden>
-        <div class="modal_box">
-            <div class="modal_tabs">
-                <label for="modal_tab_login">Log In</label>
-                <input type="radio" name="modal_tab" id="modal_tab_login" checked>
+    <div id="modal" class="modal-overlay" hidden>
+        <div class="modal-box">
+            <div class="modal-tabs">
+                <label for="modal-tab-login">Log In</label>
+                <input type="radio" name="modal-tab" id="modal-tab-login" checked>
 
-                <label for="modal_tab_signup">Sign Up</label>
-                <input type="radio" name="modal_tab" id="modal_tab_signup">
+                <label for="modal-tab-signup">Sign Up</label>
+                <input type="radio" name="modal-tab" id="modal-tab-signup">
             </div>
 
-            <form id="modal_login">
-                <div class="modal_field">
-                    <label for="login_username">Username</label>
-                    <input type="text" name="login_username" id="login_username" class="field" required>
+            <form id="modal-login">
+                <div class="modal-field">
+                    <label for="login-username">Username</label>
+                    <input type="text" name="login-username" id="login-username" class="field" required>
                 </div>
 
-                <div class="modal_field">
-                    <label for="login_password">Password</label>
-                    <input type="password" name="login_password" id="login_password" class="field" required>
+                <div class="modal-field">
+                    <label for="login-password">Password</label>
+                    <input type="password" name="login-password" id="login-password" class="field" required>
                 </div>
 
-                <button type="submit" id="btn_submit_login">Submit</button>
-                <p class="modal_error"></p>
+                <button type="submit" id="btn-submit-login">Submit</button>
+                <p class="modal-error"></p>
             </form>
 
-            <form id="modal_signup">
-                <div class="modal_field">
-                    <label for="signup_username">Username</label>
-                    <input type="text" name="signup_username" id="signup_username" class="field" required>
+            <form id="modal-signup">
+                <div class="modal-field">
+                    <label for="signup-username">Username</label>
+                    <input type="text" name="signup-username" id="signup-username" class="field" required>
                 </div>
 
-                <div class="modal_field">
-                    <label for="signup_username">Password</label>
-                    <input type="password" name="signup_password" id="signup_password" class="field" required>
+                <div class="modal-field">
+                    <label for="signup-username">Password</label>
+                    <input type="password" name="signup-password" id="signup-password" class="field" required>
                 </div>
 
-                <button type="submit" id="btn_submit_signup">Submit</button>
-                <p class="modal_error"></p>
+                <button type="submit" id="btn-submit-signup">Submit</button>
+                <p class="modal-error"></p>
             </form>
         </div>
     </div>
 
     <main>
-        <section id="typing_test">
-            <div id="test_area">
-                <div id="test_quote"></div>
-                <p id="test_guide">Press ENTER to begin the test</p>
+        <section id="typing-test">
+            <div id="test-area">
+                <div id="test-quote"></div>
+                <p id="test-guide">Press ENTER to begin the test</p>
             </div>
-            <span id="quote_author"></span>
-            <textarea name="test_input" id="test_input" autocomplete="off" autocorrect="off" autocapitalize="off"
+            <span id="quote-author"></span>
+            <textarea name="test-input" id="test-input" autocomplete="off" autocorrect="off" autocapitalize="off"
                 spellcheck="false" disabled></textarea>
         </section>
 
-        <section id="test_status">
-            <div id="test_stats">
+        <section id="test-status">
+            <div id="test-stats">
                 <div class="stat">
-                    <span class="stat_label">WPM</span>
+                    <span class="stat-label">WPM</span>
                     <span id="wpm">---</span>
                 </div>
 
                 <div class="stat">
-                    <span class="stat_label">Accuracy</span>
+                    <span class="stat-label">Accuracy</span>
                     <span id="accuracy">---</span>
                 </div>
 
                 <div class="stat">
-                    <span class="stat_label">Errors</span>
+                    <span class="stat-label">Errors</span>
                     <span id="errors">---</span>
                 </div>
             </div>
 
             <div id="timer">----</div>
 
-            <div id="test_state">Awaiting</div>
+            <div id="test-state">Awaiting</div>
         </section>
 
-        <section id="test_settings">
+        <section id="test-settings">
             <h2>Settings</h2>
-            <div id="settings_container">
+            <div id="settings-container">
 
                 <div class="setting">
                     <h3>Timer</h3>
-                    <form id="setting_timer" class="setting_option_list">
-                        <input type="radio" id="timer_quote" name="timer" value="off" checked>
-                        <label class="btn_setting" for="timer_quote">Off</label>
+                    <form id="setting-timer" class="setting-option-list">
+                        <input type="radio" id="timer-quote" name="timer" value="off" checked>
+                        <label class="btn-setting" for="timer-quote">Off</label>
 
-                        <input type="radio" id="timer_30" name="timer" value="30">
-                        <label class="btn_setting" for="timer_30">30 sec</label>
+                        <input type="radio" id="timer-30" name="timer" value="30">
+                        <label class="btn-setting" for="timer-30">30 sec</label>
 
-                        <input type="radio" id="timer_60" name="timer" value="60">
-                        <label class="btn_setting" for="timer_60">60 sec</label>
+                        <input type="radio" id="timer-60" name="timer" value="60">
+                        <label class="btn-setting" for="timer-60">60 sec</label>
                     </form>
                 </div>
 
                 <div class="setting">
                     <h3>Sound</h3>
-                    <form id="setting_sound" class="setting_option_list">
-                        <input type="radio" id="sound_off" name="sound" value="false" checked>
-                        <label class="btn_setting" for="sound_off">Off</label>
+                    <form id="setting-sound" class="setting-option-list">
+                        <input type="radio" id="sound-off" name="sound" value="false" checked>
+                        <label class="btn-setting" for="sound-off">Off</label>
 
-                        <input type="radio" id="sound_on" name="sound" value="true">
-                        <label class="btn_setting" for="sound_on">On</label>
+                        <input type="radio" id="sound-on" name="sound" value="true">
+                        <label class="btn-setting" for="sound-on">On</label>
                     </form>
                 </div>
             </div>
         </section>
 
-        <section id="session_top_3">
+        <section id="session-top-3">
             <h2>Top tests of this session</h2>
-            <ol id="session_top_3_list">
+            <ol id="session-top-3-list">
 
             </ol>
         </section>
     </main>
 
     <footer>
-        <div id="footer_brand">
-            <svg id="footer_logo" viewBox="0 0 280 110" role="img" aria-hidden="true">
+        <div id="footer-brand">
+            <svg id="footer-logo" viewBox="0 0 280 110" role="img" aria-hidden="true">
                 <g fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M18 26H68M43 26V90" />
                     <path d="M97 52V90" />
@@ -173,13 +173,13 @@
             <p>A typing test that sweats the small stuff.</p>
         </div>
 
-        <nav class="footer_links" aria-label="Footer">
-            <a href="https://github.com/Rui-S13/tittle-typing-test" target="_blank">Source on GitHub</a>
-            <a href="https://github.com/Rui-S13" target="_blank">Rui Silva</a>
-            <button type="button" id="btn_back_to_top">Back to top</button>
+        <nav class="footer-links" aria-label="Footer">
+            <a href="https://github.com/Rui-S13/tittle-typing-test" target="-blank">Source on GitHub</a>
+            <a href="https://github.com/Rui-S13" target="-blank">Rui Silva</a>
+            <button type="button" id="btn-back-to-top">Back to top</button>
         </nav>
 
-        <p class="footer_small">
+        <p class="footer-small">
             Built by Rui Silva, 2026. Quotes from [source]. Your results are stored only in this browser.
         </p>
     </footer>
