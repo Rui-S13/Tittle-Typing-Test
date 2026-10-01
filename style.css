@@ -174,8 +174,7 @@ main h3 {
 
 #test-area {
     width: 100%;
-    height: 400px;
-    resize: vertical;
+    min-height: 400px;
 
     padding: 20px;
 
@@ -184,6 +183,7 @@ main h3 {
     background-color: var(--surface-color);
 
     color: var(--muted-color);
+    text-align: justify;
     text-wrap: wrap;
     line-height: 40px;
 }
@@ -196,12 +196,25 @@ main h3 {
     font-size: 1.3rem;
 }
 
-#quote-author {
-    padding: 20px;
+#quote-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 
+    padding: 20px;
+}
+
+#quote-author {
     text-wrap: wrap;
     font-style: italic;
     font-size: 1.2rem;
+}
+
+#quote-book {
+    color: var(--muted-color);
+    text-wrap: wrap;
+    font-style: italic;
+    font-size: 0.9rem;
 }
 
 #test-input {

@@ -53,11 +53,13 @@ function formatAuthors(names) {
 function displayQuote(quote, book) {
     const TEST_QUOTE = document.querySelector("#test-quote");
     const QUOTE_AUTHOR = document.querySelector("#quote-author");
-    const TEST_GUIDE = document.querySelector("#test-guide")
+    const QUOTE_BOOK = document.querySelector("#quote-book");
+    const TEST_GUIDE = document.querySelector("#test-guide");
 
     TEST_GUIDE.hidden = true;
     TEST_QUOTE.textContent = quote.text;
     QUOTE_AUTHOR.textContent = formatAuthors(book.authors);
+    QUOTE_BOOK.textContent = book.title;
 };
 
 export default async function initQuote () {
