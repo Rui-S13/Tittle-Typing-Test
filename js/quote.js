@@ -52,9 +52,9 @@ function formatAuthors(names) {
 }
 
 function fillQuoteArea(quote, book) {
-    const TEST_QUOTE = document.querySelector("#test_quote");
-    const QUOTE_AUTHOR = document.querySelector("#quote_author");
-    const TEST_GUIDE = document.querySelector("#test_guide")
+    const TEST_QUOTE = document.querySelector("#test-quote");
+    const QUOTE_AUTHOR = document.querySelector("#quote-author");
+    const TEST_GUIDE = document.querySelector("#test-guide")
 
     TEST_GUIDE.hidden = true;
     TEST_QUOTE.textContent = quote.text;
