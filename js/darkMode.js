@@ -3,14 +3,14 @@ const DARK_MODE = {
         const CURRENT_MODE = localStorage.getItem("darkMode");
 
         if (CURRENT_MODE === "on") {
-            document.body.classList.add("dark_mode");
+            document.body.classList.add("dark-mode");
         }
     },
 
     toggleDarkMode() {
-        document.body.classList.toggle("dark_mode");
+        document.body.classList.toggle("dark-mode");
 
-        const MODE = document.body.classList.contains("dark_mode")
+        const MODE = document.body.classList.contains("dark-mode")
             ? "on"
             : "off";
 
