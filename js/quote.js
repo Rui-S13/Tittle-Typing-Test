@@ -40,9 +40,8 @@ function getRandomQuote(quoteList) {
     return quoteList[randomNumber(0, quoteList.length - 1)];
 };
 
-async function findQuoteBook(quote) {
-    const BOOK_LIST = await getBookList();
-    return BOOK_LIST.find((book) => book.idBook === quote.idBook);
+async function findBookByQuote(quote, bookList) {
+    return bookList.find((book) => book.idBook === quote.idBook);
 };
 
 function formatAuthors(names) {
@@ -51,7 +50,7 @@ function formatAuthors(names) {
         : `${names.slice(0, -1).join(", ")} & ${names.at(-1)}`;
 }
 
-function fillQuoteArea(quote, book) {
+function displayQuote(quote, book) {
     const TEST_QUOTE = document.querySelector("#test-quote");
     const QUOTE_AUTHOR = document.querySelector("#quote-author");
     const TEST_GUIDE = document.querySelector("#test-guide")
@@ -61,10 +60,12 @@ function fillQuoteArea(quote, book) {
     QUOTE_AUTHOR.textContent = formatAuthors(book.authors);
 };
 
-export default async function main () {
+export default async function initQuote () {
     const QUOTE_LIST = await getQuoteList();
-    const QUOTE = getRandomQuote(QUOTE_LIST);
-    const BOOK = await findQuoteBook(QUOTE);
+    const BOOK_LIST = await getBookList();
 
-    fillQuoteArea(QUOTE, BOOK);
+    const QUOTE = getRandomQuote(QUOTE_LIST);
+    const BOOK = await findBookByQuote(QUOTE, BOOK_LIST);
+
+    displayQuote(QUOTE, BOOK);
 };

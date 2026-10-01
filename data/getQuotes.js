@@ -33,7 +33,7 @@ async function getFullText(bookLinkFullText) {
     }
 };
 
-function selectBooks(bookList) {
+function filterBooks(bookList) {
     return bookList
         .filter((book) => { return book.languages.find((n) => n === 'en') && book.copyright === false && book.media_type === 'Text' })
         .sort((a, b) => b.download_count - a.download_count)
@@ -43,9 +43,9 @@ function selectBooks(bookList) {
 function formatAuthor(name) {
     const [last, ...first] = name.split(", ");
     return first.length ? `${first.join(" ")} ${last}` : last;
-}
+};
 
-async function getBookInfo(bookList) {
+async function buildBookList(bookList) {
     return Promise.all(
         bookList.map(async (book, index) => {
             return {
@@ -62,12 +62,11 @@ async function getBookInfo(bookList) {
 
 async function getBooks() {
     const FULL_BOOK_LIST = await getFullBookList();
-    const SELECTED_BOOK_LIST = selectBooks(FULL_BOOK_LIST.results);
-    const BOOK_LIST = await getBookInfo(SELECTED_BOOK_LIST);
+    const SELECTED_BOOK_LIST = filterBooks(FULL_BOOK_LIST.results);
+    const BOOK_LIST = await buildBookList(SELECTED_BOOK_LIST);
 
     return BOOK_LIST
-}
-
+};
 
 function getParagraphs(html) {
     const DOC = new JSDOM(html, { virtualConsole: new VirtualConsole() }).window.document;
@@ -77,8 +76,7 @@ function getParagraphs(html) {
 
     return Array.from(DOC.querySelectorAll("p"))
         .map((p) => p.textContent);
-}
-
+};
 
 function cleanText(text) {
     return text
@@ -90,7 +88,7 @@ function cleanText(text) {
         .replace(/_/g, "")
         .replace(/\s+/g, " ")
         .trim();
-}
+};
 
 function isValidQuote(text) {
     const IS_ASCII = /^[\x20-\x7E]+$/.test(text);
@@ -99,7 +97,7 @@ function isValidQuote(text) {
     const BALANCED_QUOTES = (text.match(/"/g) ?? []).length % 2 === 0;
 
     return IS_ASCII && !HAS_NOISE && !IS_HEADING && BALANCED_QUOTES;
-}
+};
 
 function pickSpread(items, limit) {
     if (items.length <= limit) return items;
@@ -107,20 +105,20 @@ function pickSpread(items, limit) {
     return Array.from({ length: limit }, (_, i) =>
         items[Math.floor((i * items.length) / limit)]
     );
-}
+};
 
 function selectQuotes(book) {
     if (!book.fullText) return [];
 
     const VALID = getParagraphs(book.fullText)
         .map(cleanText)
-        .filter((text) => text.length >= 300 && text.length <= 400)
+        .filter((text) => text.length >= 450 && text.length <= 550)
         .filter(isValidQuote);
 
     return pickSpread(VALID, 100);
-}
+};
 
-function getQuotes(bookList) {
+function buildQuoteList(bookList) {
     let idQuote = 1;
 
     return bookList.reduce((arr, book) => {
@@ -133,11 +131,11 @@ function getQuotes(bookList) {
         }));
         return arr;
     }, []);
-}
+};
 
 function getBooksWithoutText(bookList) {
     return bookList.map(({ fullText, ...book }) => book);
-}
+};
 
 async function saveJson(fileName, data) {
     try {
@@ -147,16 +145,16 @@ async function saveJson(fileName, data) {
     } catch (error) {
         console.error(`Failed to save ${fileName}:`, error);
     }
-}
+};
 
-async function main() {
+async function generateData() {
     const BOOK_LIST = await getBooks();
 
-    const QUOTES = getQuotes(BOOK_LIST);
+    const QUOTES = buildQuoteList(BOOK_LIST);
     const BOOKS = getBooksWithoutText(BOOK_LIST);
 
     await saveJson("books.json", BOOKS);
     await saveJson("quotes.json", QUOTES);
-}
+};
 
-main();
+generateData();
