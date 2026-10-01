@@ -4,7 +4,7 @@
     "gutenbergId": 1342,
     "title": "Pride and Prejudice",
     "authors": [
-      "Austen, Jane"
+      "Jane Austen"
     ],
     "linkFullText": "https://www.gutenberg.org/ebooks/1342.html.images"
   },
@@ -13,7 +13,7 @@
     "gutenbergId": 2701,
     "title": "Moby Dick; Or, The Whale",
     "authors": [
-      "Melville, Herman"
+      "Herman Melville"
     ],
     "linkFullText": "https://www.gutenberg.org/ebooks/2701.html.images"
   },
@@ -31,7 +31,7 @@
     "gutenbergId": 1661,
     "title": "The Adventures of Sherlock Holmes",
     "authors": [
-      "Doyle, Arthur Conan"
+      "Arthur Conan Doyle"
     ],
     "linkFullText": "https://www.gutenberg.org/ebooks/1661.html.images"
   },
@@ -40,7 +40,7 @@
     "gutenbergId": 3268,
     "title": "The Mysteries of Udolpho",
     "authors": [
-      "Radcliffe, Ann Ward"
+      "Ann Ward Radcliffe"
     ],
     "linkFullText": "https://www.gutenberg.org/ebooks/3268.html.images"
   },
@@ -49,7 +49,7 @@
     "gutenbergId": 1513,
     "title": "Romeo and Juliet",
     "authors": [
-      "Shakespeare, William"
+      "William Shakespeare"
     ],
     "linkFullText": "https://www.gutenberg.org/ebooks/1513.html.images"
   },
@@ -58,7 +58,7 @@
     "gutenbergId": 2641,
     "title": "A Room with a View",
     "authors": [
-      "Forster, E. M. (Edward Morgan)"
+      "E. M. (Edward Morgan) Forster"
     ],
     "linkFullText": "https://www.gutenberg.org/ebooks/2641.html.images"
   },
@@ -67,7 +67,7 @@
     "gutenbergId": 2465,
     "title": "Carmen",
     "authors": [
-      "Mérimée, Prosper"
+      "Prosper Mérimée"
     ],
     "linkFullText": "https://www.gutenberg.org/ebooks/2465.html.images"
   },
@@ -76,7 +76,7 @@
     "gutenbergId": 11,
     "title": "Alice's Adventures in Wonderland",
     "authors": [
-      "Carroll, Lewis"
+      "Lewis Carroll"
     ],
     "linkFullText": "https://www.gutenberg.org/ebooks/11.html.images"
   },
@@ -85,7 +85,7 @@
     "gutenbergId": 345,
     "title": "Dracula",
     "authors": [
-      "Stoker, Bram"
+      "Bram Stoker"
     ],
     "linkFullText": "https://www.gutenberg.org/ebooks/345.html.images"
   },
@@ -94,7 +94,7 @@
     "gutenbergId": 2868,
     "title": "The Green Mummy",
     "authors": [
-      "Hume, Fergus"
+      "Fergus Hume"
     ],
     "linkFullText": "https://www.gutenberg.org/ebooks/2868.html.images"
   },
@@ -103,7 +103,7 @@
     "gutenbergId": 43,
     "title": "The strange case of Dr. Jekyll and Mr. Hyde",
     "authors": [
-      "Stevenson, Robert Louis"
+      "Robert Louis Stevenson"
     ],
     "linkFullText": "https://www.gutenberg.org/ebooks/43.html.images"
   },
@@ -112,7 +112,7 @@
     "gutenbergId": 100,
     "title": "The Complete Works of William Shakespeare",
     "authors": [
-      "Shakespeare, William"
+      "William Shakespeare"
     ],
     "linkFullText": "https://www.gutenberg.org/ebooks/100.html.images"
   },
@@ -121,7 +121,7 @@
     "gutenbergId": 1260,
     "title": "Jane Eyre: An Autobiography",
     "authors": [
-      "Brontë, Charlotte"
+      "Charlotte Brontë"
     ],
     "linkFullText": "https://www.gutenberg.org/ebooks/1260.html.images"
   },
@@ -130,7 +130,7 @@
     "gutenbergId": 8492,
     "title": "The King in Yellow",
     "authors": [
-      "Chambers, Robert W. (Robert William)"
+      "Robert W. (Robert William) Chambers"
     ],
     "linkFullText": "https://www.gutenberg.org/ebooks/8492.html.images"
   },
@@ -139,7 +139,7 @@
     "gutenbergId": 2554,
     "title": "Crime and Punishment",
     "authors": [
-      "Dostoyevsky, Fyodor"
+      "Fyodor Dostoyevsky"
     ],
     "linkFullText": "https://www.gutenberg.org/ebooks/2554.html.images"
   },
@@ -148,7 +148,7 @@
     "gutenbergId": 145,
     "title": "Middlemarch",
     "authors": [
-      "Eliot, George"
+      "George Eliot"
     ],
     "linkFullText": "https://www.gutenberg.org/ebooks/145.html.images"
   },
@@ -157,7 +157,7 @@
     "gutenbergId": 1695,
     "title": "The Man Who Was Thursday: A Nightmare",
     "authors": [
-      "Chesterton, G. K. (Gilbert Keith)"
+      "G. K. (Gilbert Keith) Chesterton"
     ],
     "linkFullText": "https://www.gutenberg.org/ebooks/1695.html.images"
   },
@@ -166,7 +166,7 @@
     "gutenbergId": 564,
     "title": "The Mystery of Edwin Drood",
     "authors": [
-      "Dickens, Charles"
+      "Charles Dickens"
     ],
     "linkFullText": "https://www.gutenberg.org/ebooks/564.html.images"
   },
@@ -175,7 +175,7 @@
     "gutenbergId": 84,
     "title": "Frankenstein; or, the modern prometheus",
     "authors": [
-      "Shelley, Mary Wollstonecraft"
+      "Mary Wollstonecraft Shelley"
     ],
     "linkFullText": "https://www.gutenberg.org/ebooks/84.html.images"
   }

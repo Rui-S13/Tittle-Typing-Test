@@ -40,6 +40,11 @@ function selectBooks(bookList) {
         .slice(0, 20);
 };
 
+function formatAuthor(name) {
+    const [last, ...first] = name.split(", ");
+    return first.length ? `${first.join(" ")} ${last}` : last;
+}
+
 async function getBookInfo(bookList) {
     return Promise.all(
         bookList.map(async (book, index) => {
@@ -47,10 +52,7 @@ async function getBookInfo(bookList) {
                 idBook: index + 1,
                 gutenbergId: book.id,
                 title: book.title,
-                authors: book.authors.reduce((acc, n) => {
-                    acc.push(n.name);
-                    return acc;
-                }, []),
+                authors: book.authors.map((author) => formatAuthor(author.name)),
                 linkFullText: book.formats["text/html"],
                 fullText: await getFullText(book.formats["text/html"])
             };
