@@ -37,7 +37,7 @@ function filterBooks(bookList) {
     return bookList
         .filter((book) => { return book.languages.find((n) => n === 'en') && book.copyright === false && book.media_type === 'Text' })
         .sort((a, b) => b.download_count - a.download_count)
-        .slice(0, 20);
+        .slice(0, 30);
 };
 
 function formatAuthor(name) {
@@ -112,7 +112,7 @@ function selectQuotes(book) {
 
     const VALID = getParagraphs(book.fullText)
         .map(cleanText)
-        .filter((text) => text.length >= 450 && text.length <= 550)
+        .filter((text) => text.length >= 500 && text.length <= 600)
         .filter(isValidQuote);
 
     return pickSpread(VALID, 100);

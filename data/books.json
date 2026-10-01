@@ -178,5 +178,93 @@
       "Mary Wollstonecraft Shelley"
     ],
     "linkFullText": "https://www.gutenberg.org/ebooks/84.html.images"
+  },
+  {
+    "idBook": 21,
+    "gutenbergId": 6133,
+    "title": "The Extraordinary Adventures of Arsène Lupin, Gentleman-Burglar",
+    "authors": [
+      "Maurice Leblanc"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/6133.html.images"
+  },
+  {
+    "idBook": 22,
+    "gutenbergId": 42,
+    "title": "The strange case of Dr. Jekyll and Mr. Hyde",
+    "authors": [
+      "Robert Louis Stevenson"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/42.html.images"
+  },
+  {
+    "idBook": 23,
+    "gutenbergId": 601,
+    "title": "The Monk: A Romance",
+    "authors": [
+      "M. G. (Matthew Gregory) Lewis"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/601.html.images"
+  },
+  {
+    "idBook": 24,
+    "gutenbergId": 5197,
+    "title": "My Life — Volume 1",
+    "authors": [
+      "Richard Wagner"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/5197.html.images"
+  },
+  {
+    "idBook": 25,
+    "gutenbergId": 76639,
+    "title": "Eloisa : $b or, A series of original letters",
+    "authors": [
+      "Jean-Jacques Rousseau"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/76639.html.images"
+  },
+  {
+    "idBook": 26,
+    "gutenbergId": 831,
+    "title": "Four Arthurian Romances",
+    "authors": [
+      "de Troyes active 12th century Chrétien"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/831.html.images"
+  },
+  {
+    "idBook": 27,
+    "gutenbergId": 37683,
+    "title": "Chambers's Twentieth Century Dictionary (part 1 of 4: A-D)",
+    "authors": [],
+    "linkFullText": "https://www.gutenberg.org/ebooks/37683.html.images"
+  },
+  {
+    "idBook": 28,
+    "gutenbergId": 2680,
+    "title": "Meditations",
+    "authors": [
+      "Emperor of Rome Marcus Aurelius"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/2680.html.images"
+  },
+  {
+    "idBook": 29,
+    "gutenbergId": 2852,
+    "title": "The Hound of the Baskervilles",
+    "authors": [
+      "Arthur Conan Doyle"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/2852.html.images"
+  },
+  {
+    "idBook": 30,
+    "gutenbergId": 468,
+    "title": "Manon Lescaut",
+    "authors": [
+      "abbé Prévost"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/468.html.images"
   }
 ]
