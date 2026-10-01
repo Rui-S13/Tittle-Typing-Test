@@ -1,20 +1,25 @@
 import { JSDOM, VirtualConsole } from "jsdom";
 import { writeFile } from "node:fs/promises";
 
-async function getFullBookList() {
-    const LINK = "https://gutendex.com/books";
+const BOOK_IDS = [
+    1342, 158, 105, 2641, 64317, 67979, 16389, 308,
+    37106, 45, 113, 11, 12, 55, 16, 289,
+    120, 74, 236, 215, 103, 164,
+    1661, 2852, 244,
+    35, 36, 5230, 43, 84
+];
 
+async function getBookById(id) {
     try {
-        const RESPONSE = await fetch(LINK);
+        const RESPONSE = await fetch(`https://gutendex.com/books/${id}`);
 
         if (!RESPONSE.ok) {
             throw new Error(`HTTP error! Status: ${RESPONSE.status}`);
         }
 
-        const DATA = await RESPONSE.json();
-        return DATA
+        return await RESPONSE.json();
     } catch (error) {
-        console.error('Failed to fetch books:', error);
+        console.error(`Failed to fetch book ${id}:`, error);
     }
 };
 
@@ -33,25 +38,24 @@ async function getFullText(bookLinkFullText) {
     }
 };
 
-function filterBooks(bookList) {
-    return bookList
-        .filter((book) => { return book.languages.find((n) => n === 'en') && book.copyright === false && book.media_type === 'Text' })
-        .sort((a, b) => b.download_count - a.download_count)
-        .slice(0, 30);
-};
-
 function formatAuthor(name) {
     const [last, ...first] = name.split(", ");
     return first.length ? `${first.join(" ")} ${last}` : last;
 };
 
-async function buildBookList(bookList) {
+function cleanTitle(title) {
+    return title
+        .replace(/\s*:\s*\$b\s*/i, ": ")
+        .trim();
+}
+
+async function getBooksInfo(bookList) {
     return Promise.all(
         bookList.map(async (book, index) => {
             return {
                 idBook: index + 1,
                 gutenbergId: book.id,
-                title: book.title,
+                title: cleanTitle(book.title),
                 authors: book.authors.map((author) => formatAuthor(author.name)),
                 linkFullText: book.formats["text/html"],
                 fullText: await getFullText(book.formats["text/html"])
@@ -60,12 +64,13 @@ async function buildBookList(bookList) {
     );
 };
 
-async function getBooks() {
-    const FULL_BOOK_LIST = await getFullBookList();
-    const SELECTED_BOOK_LIST = filterBooks(FULL_BOOK_LIST.results);
-    const BOOK_LIST = await buildBookList(SELECTED_BOOK_LIST);
+async function buildBooksList() {
+    const RESULTS = await Promise.all(BOOK_IDS.map((id) => getBookById(id)));
+    const SELECTED_BOOK_LIST = RESULTS.filter(Boolean);
 
-    return BOOK_LIST
+    SELECTED_BOOK_LIST.forEach((book) => console.log(`${book.id}: ${book.title}`));
+
+    return getBooksInfo(SELECTED_BOOK_LIST);
 };
 
 function getParagraphs(html) {
@@ -133,7 +138,7 @@ function buildQuoteList(bookList) {
     }, []);
 };
 
-function getBooksWithoutText(bookList) {
+function getBooksListWithoutText(bookList) {
     return bookList.map(({ fullText, ...book }) => book);
 };
 
@@ -148,10 +153,9 @@ async function saveJson(fileName, data) {
 };
 
 async function generateData() {
-    const BOOK_LIST = await getBooks();
-
+    const BOOK_LIST = await buildBooksList();
     const QUOTES = buildQuoteList(BOOK_LIST);
-    const BOOKS = getBooksWithoutText(BOOK_LIST);
+    const BOOKS = getBooksListWithoutText(BOOK_LIST);
 
     await saveJson("books.json", BOOKS);
     await saveJson("quotes.json", QUOTES);

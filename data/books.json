@@ -10,51 +10,24 @@
   },
   {
     "idBook": 2,
-    "gutenbergId": 2701,
-    "title": "Moby Dick; Or, The Whale",
+    "gutenbergId": 158,
+    "title": "Emma",
     "authors": [
-      "Herman Melville"
+      "Jane Austen"
     ],
-    "linkFullText": "https://www.gutenberg.org/ebooks/2701.html.images"
+    "linkFullText": "https://www.gutenberg.org/ebooks/158.html.images"
   },
   {
     "idBook": 3,
-    "gutenbergId": 1727,
-    "title": "The Odyssey: Rendered into English prose for the use of those who cannot read the original",
+    "gutenbergId": 105,
+    "title": "Persuasion",
     "authors": [
-      "Homer"
+      "Jane Austen"
     ],
-    "linkFullText": "https://www.gutenberg.org/ebooks/1727.html.images"
+    "linkFullText": "https://www.gutenberg.org/ebooks/105.html.images"
   },
   {
     "idBook": 4,
-    "gutenbergId": 1661,
-    "title": "The Adventures of Sherlock Holmes",
-    "authors": [
-      "Arthur Conan Doyle"
-    ],
-    "linkFullText": "https://www.gutenberg.org/ebooks/1661.html.images"
-  },
-  {
-    "idBook": 5,
-    "gutenbergId": 3268,
-    "title": "The Mysteries of Udolpho",
-    "authors": [
-      "Ann Ward Radcliffe"
-    ],
-    "linkFullText": "https://www.gutenberg.org/ebooks/3268.html.images"
-  },
-  {
-    "idBook": 6,
-    "gutenbergId": 1513,
-    "title": "Romeo and Juliet",
-    "authors": [
-      "William Shakespeare"
-    ],
-    "linkFullText": "https://www.gutenberg.org/ebooks/1513.html.images"
-  },
-  {
-    "idBook": 7,
     "gutenbergId": 2641,
     "title": "A Room with a View",
     "authors": [
@@ -63,16 +36,70 @@
     "linkFullText": "https://www.gutenberg.org/ebooks/2641.html.images"
   },
   {
-    "idBook": 8,
-    "gutenbergId": 2465,
-    "title": "Carmen",
+    "idBook": 5,
+    "gutenbergId": 64317,
+    "title": "The Great Gatsby",
     "authors": [
-      "Prosper Mérimée"
+      "F. Scott (Francis Scott) Fitzgerald"
     ],
-    "linkFullText": "https://www.gutenberg.org/ebooks/2465.html.images"
+    "linkFullText": "https://www.gutenberg.org/ebooks/64317.html.images"
+  },
+  {
+    "idBook": 6,
+    "gutenbergId": 67979,
+    "title": "The Blue Castle: a novel",
+    "authors": [
+      "L. M. (Lucy Maud) Montgomery"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/67979.html.images"
+  },
+  {
+    "idBook": 7,
+    "gutenbergId": 16389,
+    "title": "The Enchanted April",
+    "authors": [
+      "Elizabeth Von Arnim"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/16389.html.images"
+  },
+  {
+    "idBook": 8,
+    "gutenbergId": 308,
+    "title": "Three men in a boat (to say nothing of the dog)",
+    "authors": [
+      "Jerome K. (Jerome Klapka) Jerome"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/308.html.images"
   },
   {
     "idBook": 9,
+    "gutenbergId": 37106,
+    "title": "Little Women; Or, Meg, Jo, Beth, and Amy",
+    "authors": [
+      "Louisa May Alcott"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/37106.html.images"
+  },
+  {
+    "idBook": 10,
+    "gutenbergId": 45,
+    "title": "Anne of Green Gables",
+    "authors": [
+      "L. M. (Lucy Maud) Montgomery"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/45.html.images"
+  },
+  {
+    "idBook": 11,
+    "gutenbergId": 113,
+    "title": "The Secret Garden",
+    "authors": [
+      "Frances Hodgson Burnett"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/113.html.images"
+  },
+  {
+    "idBook": 12,
     "gutenbergId": 11,
     "title": "Alice's Adventures in Wonderland",
     "authors": [
@@ -81,176 +108,106 @@
     "linkFullText": "https://www.gutenberg.org/ebooks/11.html.images"
   },
   {
-    "idBook": 10,
-    "gutenbergId": 345,
-    "title": "Dracula",
-    "authors": [
-      "Bram Stoker"
-    ],
-    "linkFullText": "https://www.gutenberg.org/ebooks/345.html.images"
-  },
-  {
-    "idBook": 11,
-    "gutenbergId": 2868,
-    "title": "The Green Mummy",
-    "authors": [
-      "Fergus Hume"
-    ],
-    "linkFullText": "https://www.gutenberg.org/ebooks/2868.html.images"
-  },
-  {
-    "idBook": 12,
-    "gutenbergId": 43,
-    "title": "The strange case of Dr. Jekyll and Mr. Hyde",
-    "authors": [
-      "Robert Louis Stevenson"
-    ],
-    "linkFullText": "https://www.gutenberg.org/ebooks/43.html.images"
-  },
-  {
     "idBook": 13,
-    "gutenbergId": 100,
-    "title": "The Complete Works of William Shakespeare",
+    "gutenbergId": 12,
+    "title": "Through the Looking-Glass",
     "authors": [
-      "William Shakespeare"
+      "Lewis Carroll"
     ],
-    "linkFullText": "https://www.gutenberg.org/ebooks/100.html.images"
+    "linkFullText": "https://www.gutenberg.org/ebooks/12.html.images"
   },
   {
     "idBook": 14,
-    "gutenbergId": 1260,
-    "title": "Jane Eyre: An Autobiography",
+    "gutenbergId": 55,
+    "title": "The Wonderful Wizard of Oz",
     "authors": [
-      "Charlotte Brontë"
+      "L. Frank (Lyman Frank) Baum"
     ],
-    "linkFullText": "https://www.gutenberg.org/ebooks/1260.html.images"
+    "linkFullText": "https://www.gutenberg.org/ebooks/55.html.images"
   },
   {
     "idBook": 15,
-    "gutenbergId": 8492,
-    "title": "The King in Yellow",
+    "gutenbergId": 16,
+    "title": "Peter Pan: [Peter and Wendy]",
     "authors": [
-      "Robert W. (Robert William) Chambers"
+      "J. M. (James Matthew) Barrie"
     ],
-    "linkFullText": "https://www.gutenberg.org/ebooks/8492.html.images"
+    "linkFullText": "https://www.gutenberg.org/ebooks/16.html.images"
   },
   {
     "idBook": 16,
-    "gutenbergId": 2554,
-    "title": "Crime and Punishment",
+    "gutenbergId": 289,
+    "title": "The Wind in the Willows",
     "authors": [
-      "Fyodor Dostoyevsky"
+      "Kenneth Grahame"
     ],
-    "linkFullText": "https://www.gutenberg.org/ebooks/2554.html.images"
+    "linkFullText": "https://www.gutenberg.org/ebooks/289.html.images"
   },
   {
     "idBook": 17,
-    "gutenbergId": 145,
-    "title": "Middlemarch",
-    "authors": [
-      "George Eliot"
-    ],
-    "linkFullText": "https://www.gutenberg.org/ebooks/145.html.images"
-  },
-  {
-    "idBook": 18,
-    "gutenbergId": 1695,
-    "title": "The Man Who Was Thursday: A Nightmare",
-    "authors": [
-      "G. K. (Gilbert Keith) Chesterton"
-    ],
-    "linkFullText": "https://www.gutenberg.org/ebooks/1695.html.images"
-  },
-  {
-    "idBook": 19,
-    "gutenbergId": 564,
-    "title": "The Mystery of Edwin Drood",
-    "authors": [
-      "Charles Dickens"
-    ],
-    "linkFullText": "https://www.gutenberg.org/ebooks/564.html.images"
-  },
-  {
-    "idBook": 20,
-    "gutenbergId": 84,
-    "title": "Frankenstein; or, the modern prometheus",
-    "authors": [
-      "Mary Wollstonecraft Shelley"
-    ],
-    "linkFullText": "https://www.gutenberg.org/ebooks/84.html.images"
-  },
-  {
-    "idBook": 21,
-    "gutenbergId": 6133,
-    "title": "The Extraordinary Adventures of Arsène Lupin, Gentleman-Burglar",
-    "authors": [
-      "Maurice Leblanc"
-    ],
-    "linkFullText": "https://www.gutenberg.org/ebooks/6133.html.images"
-  },
-  {
-    "idBook": 22,
-    "gutenbergId": 42,
-    "title": "The strange case of Dr. Jekyll and Mr. Hyde",
+    "gutenbergId": 120,
+    "title": "Treasure Island",
     "authors": [
       "Robert Louis Stevenson"
     ],
-    "linkFullText": "https://www.gutenberg.org/ebooks/42.html.images"
+    "linkFullText": "https://www.gutenberg.org/ebooks/120.html.images"
+  },
+  {
+    "idBook": 18,
+    "gutenbergId": 74,
+    "title": "The Adventures of Tom Sawyer, Complete",
+    "authors": [
+      "Mark Twain"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/74.html.images"
+  },
+  {
+    "idBook": 19,
+    "gutenbergId": 236,
+    "title": "The Jungle Book",
+    "authors": [
+      "Rudyard Kipling"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/236.html.images"
+  },
+  {
+    "idBook": 20,
+    "gutenbergId": 215,
+    "title": "The call of the wild",
+    "authors": [
+      "Jack London"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/215.html.images"
+  },
+  {
+    "idBook": 21,
+    "gutenbergId": 103,
+    "title": "Around the World in Eighty Days",
+    "authors": [
+      "Jules Verne"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/103.html.images"
+  },
+  {
+    "idBook": 22,
+    "gutenbergId": 164,
+    "title": "Twenty Thousand Leagues under the Sea",
+    "authors": [
+      "Jules Verne"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/164.html.images"
   },
   {
     "idBook": 23,
-    "gutenbergId": 601,
-    "title": "The Monk: A Romance",
+    "gutenbergId": 1661,
+    "title": "The Adventures of Sherlock Holmes",
     "authors": [
-      "M. G. (Matthew Gregory) Lewis"
+      "Arthur Conan Doyle"
     ],
-    "linkFullText": "https://www.gutenberg.org/ebooks/601.html.images"
+    "linkFullText": "https://www.gutenberg.org/ebooks/1661.html.images"
   },
   {
     "idBook": 24,
-    "gutenbergId": 5197,
-    "title": "My Life — Volume 1",
-    "authors": [
-      "Richard Wagner"
-    ],
-    "linkFullText": "https://www.gutenberg.org/ebooks/5197.html.images"
-  },
-  {
-    "idBook": 25,
-    "gutenbergId": 76639,
-    "title": "Eloisa : $b or, A series of original letters",
-    "authors": [
-      "Jean-Jacques Rousseau"
-    ],
-    "linkFullText": "https://www.gutenberg.org/ebooks/76639.html.images"
-  },
-  {
-    "idBook": 26,
-    "gutenbergId": 831,
-    "title": "Four Arthurian Romances",
-    "authors": [
-      "de Troyes active 12th century Chrétien"
-    ],
-    "linkFullText": "https://www.gutenberg.org/ebooks/831.html.images"
-  },
-  {
-    "idBook": 27,
-    "gutenbergId": 37683,
-    "title": "Chambers's Twentieth Century Dictionary (part 1 of 4: A-D)",
-    "authors": [],
-    "linkFullText": "https://www.gutenberg.org/ebooks/37683.html.images"
-  },
-  {
-    "idBook": 28,
-    "gutenbergId": 2680,
-    "title": "Meditations",
-    "authors": [
-      "Emperor of Rome Marcus Aurelius"
-    ],
-    "linkFullText": "https://www.gutenberg.org/ebooks/2680.html.images"
-  },
-  {
-    "idBook": 29,
     "gutenbergId": 2852,
     "title": "The Hound of the Baskervilles",
     "authors": [
@@ -259,12 +216,57 @@
     "linkFullText": "https://www.gutenberg.org/ebooks/2852.html.images"
   },
   {
-    "idBook": 30,
-    "gutenbergId": 468,
-    "title": "Manon Lescaut",
+    "idBook": 25,
+    "gutenbergId": 244,
+    "title": "A Study in Scarlet",
     "authors": [
-      "abbé Prévost"
+      "Arthur Conan Doyle"
     ],
-    "linkFullText": "https://www.gutenberg.org/ebooks/468.html.images"
+    "linkFullText": "https://www.gutenberg.org/ebooks/244.html.images"
+  },
+  {
+    "idBook": 26,
+    "gutenbergId": 35,
+    "title": "The Time Machine",
+    "authors": [
+      "H. G. (Herbert George) Wells"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/35.html.images"
+  },
+  {
+    "idBook": 27,
+    "gutenbergId": 36,
+    "title": "The war of the worlds",
+    "authors": [
+      "H. G. (Herbert George) Wells"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/36.html.images"
+  },
+  {
+    "idBook": 28,
+    "gutenbergId": 5230,
+    "title": "The Invisible Man: A Grotesque Romance",
+    "authors": [
+      "H. G. (Herbert George) Wells"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/5230.html.images"
+  },
+  {
+    "idBook": 29,
+    "gutenbergId": 43,
+    "title": "The strange case of Dr. Jekyll and Mr. Hyde",
+    "authors": [
+      "Robert Louis Stevenson"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/43.html.images"
+  },
+  {
+    "idBook": 30,
+    "gutenbergId": 84,
+    "title": "Frankenstein; or, the modern prometheus",
+    "authors": [
+      "Mary Wollstonecraft Shelley"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/84.html.images"
   }
 ]
