@@ -90,7 +90,6 @@ function cleanText(text) {
         .trim();
 }
 
-
 function isValidQuote(text) {
     const IS_ASCII = /^[\x20-\x7E]+$/.test(text);
     const HAS_NOISE = /[\[\]{}<>*#]/.test(text);
@@ -100,13 +99,23 @@ function isValidQuote(text) {
     return IS_ASCII && !HAS_NOISE && !IS_HEADING && BALANCED_QUOTES;
 }
 
+function pickSpread(items, limit) {
+    if (items.length <= limit) return items;
+
+    return Array.from({ length: limit }, (_, i) =>
+        items[Math.floor((i * items.length) / limit)]
+    );
+}
+
 function selectQuotes(book) {
     if (!book.fullText) return [];
 
-    return getParagraphs(book.fullText)
+    const VALID = getParagraphs(book.fullText)
         .map(cleanText)
         .filter((text) => text.length >= 300 && text.length <= 400)
         .filter(isValidQuote);
+
+    return pickSpread(VALID, 100);
 }
 
 function getQuotes(bookList) {
