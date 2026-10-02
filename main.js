@@ -1,6 +1,6 @@
 import {loadDarkMode, toggleDarkMode} from "./js/darkMode.js";
 import {saveSettings, loadSettings} from "./js/settings.js";
-import {startTest} from "./js/test.js";
+import {resetValues, startTest} from "./js/test.js";
 
 loadDarkMode();
 loadSettings();
@@ -22,13 +22,8 @@ TEST_AREA.addEventListener("click", () => {
     TEST_INPUT.focus();
 });
 
-TEST_AREA.addEventListener("pointerdown", (event) => {
-    event.preventDefault();
-});
-
 TEST_INPUT.addEventListener("focus", () => {
-    TEST_QUOTE.innerHTML = "";
-    TEST_GUIDE.textContent = "Press ENTER to begin the test";
+    startTest();
 });
 
 TEST_INPUT.addEventListener("keypress", (event) => {
@@ -38,6 +33,6 @@ TEST_INPUT.addEventListener("keypress", (event) => {
 });
 
 TEST_INPUT.addEventListener("blur", () => {
-    TEST_QUOTE.innerHTML = "";
-    TEST_GUIDE.textContent = "CLICK on this area to focus on the test";
+    resetValues();
+    TEST_GUIDE.textContent = "CLICK on this area to start the test";
 });
