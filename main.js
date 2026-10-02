@@ -1,9 +1,9 @@
 import DARK_MODE from "./js/darkMode.js";
-import SETTINGS from "./js/settings.js";
+import {saveSettings, loadSettings} from "./js/settings.js";
 import getQuote from "./js/getQuote.js";
 
 DARK_MODE.loadDarkMode();
-SETTINGS.loadSettings();
+loadSettings();
 
 
 const BTN_DARK_MODE = document.querySelector("#btn-dark-mode");
@@ -16,7 +16,7 @@ const QUOTE_BOOK = document.querySelector("#quote-book")
 const SETTING_INPUTS = document.querySelectorAll(".setting-input");
 
 SETTING_INPUTS.forEach((option) => {
-    option.addEventListener("change", SETTINGS.saveSettings);
+    option.addEventListener("change", saveSettings);
 });
 
 async function updateQuote() {

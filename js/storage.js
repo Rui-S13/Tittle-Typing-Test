@@ -1,4 +1,3 @@
-// storage.js
 export function readJson(key, fallback) {
     try {
         const RAW = localStorage.getItem(key);
