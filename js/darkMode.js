@@ -1,21 +1,23 @@
-const DARK_MODE = {
-    loadDarkMode() {
-        const CURRENT_MODE = localStorage.getItem("darkMode");
+import { readJson, writeJson } from "./storage.js";
 
-        if (CURRENT_MODE === "on") {
-            document.body.classList.add("dark-mode");
-        }
-    },
+const KEY = "darkMode"
+const DEFAULT = "false";
+const BODY = document.querySelector("body")
 
-    toggleDarkMode() {
-        document.body.classList.toggle("dark-mode");
+export function loadDarkMode() {
+    const CURRENT_MODE = readJson(KEY, DEFAULT);
 
-        const MODE = document.body.classList.contains("dark-mode")
-            ? "on"
-            : "off";
-
-        localStorage.setItem("darkMode", MODE);
-    }
+    if (CURRENT_MODE === "true") {
+        document.body.classList.add("dark-mode");
+    };
 };
 
-export default DARK_MODE;
+export function toggleDarkMode() {
+    BODY.classList.toggle("dark-mode");
+
+    const MODE = BODY.classList.contains("dark-mode")
+        ? "true"
+        : "false";
+
+    writeJson(KEY, MODE);
+};

@@ -1,8 +1,8 @@
-import DARK_MODE from "./js/darkMode.js";
+import {loadDarkMode, toggleDarkMode} from "./js/darkMode.js";
 import {saveSettings, loadSettings} from "./js/settings.js";
 import updateQuote from "./js/quotes.js";
 
-DARK_MODE.loadDarkMode();
+loadDarkMode();
 loadSettings();
 
 const BTN_DARK_MODE = document.querySelector("#btn-dark-mode");
@@ -15,7 +15,7 @@ SETTING_INPUTS.forEach((option) => {
     option.addEventListener("change", saveSettings);
 });
 
-BTN_DARK_MODE.addEventListener("click", DARK_MODE.toggleDarkMode);
+BTN_DARK_MODE.addEventListener("click", toggleDarkMode);
 
 TEST_AREA.addEventListener("click", () => {
     TEST_INPUT.focus();
