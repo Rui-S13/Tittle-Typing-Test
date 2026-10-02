@@ -68,7 +68,7 @@ async function getQuote() {
     };
 };
 
-export default async function updateQuote() {
+export async function updateQuote() {
     TEST_QUOTE.textContent = "";
     const QUOTE = await getQuote();
 
