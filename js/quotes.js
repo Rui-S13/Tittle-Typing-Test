@@ -68,8 +68,13 @@ async function getQuote() {
     };
 };
 
+export function resetQuote () {
+    TEST_QUOTE.innerHTML = "";
+    QUOTE_AUTHOR.textContent = "";
+    QUOTE_BOOK.textContent = "";
+};
+
 export async function updateQuote() {
-    TEST_QUOTE.textContent = "";
     const QUOTE = await getQuote();
 
     QUOTE.text.split('').forEach((char) => {
