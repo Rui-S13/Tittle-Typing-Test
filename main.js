@@ -1,5 +1,9 @@
 import DARK_MODE from "./js/darkMode.js";
+import SETTINGS from "./js/settings.js";
 import getQuote from "./js/getQuote.js";
+
+DARK_MODE.loadDarkMode();
+SETTINGS.loadSettings();
 
 
 const BTN_DARK_MODE = document.querySelector("#btn-dark-mode");
@@ -8,22 +12,12 @@ const TEST_INPUT = document.querySelector("#test-input");
 const TEST_GUIDE = document.querySelector("#test-guide");
 const TEST_QUOTE = document.querySelector("#test-quote");
 const QUOTE_AUTHOR = document.querySelector("#quote-author");
-const QUOTE_BOOK = document.querySelector("#quote-book");
-
+const QUOTE_BOOK = document.querySelector("#quote-book")
 const SETTING_INPUTS = document.querySelectorAll(".setting-input");
 
 SETTING_INPUTS.forEach((option) => {
-    option.addEventListener("change", saveSettings);
+    option.addEventListener("change", SETTINGS.saveSettings);
 });
-
-function saveSettings() {
-    const SETTINGS = {
-        timer: document.querySelector('input[name="timer"]:checked').value,
-        sound: document.querySelector('input[name="sound"]:checked').value
-    };
-
-    localStorage.setItem("settings", JSON.stringify(SETTINGS));
-}
 
 async function updateQuote() {
     TEST_QUOTE.textContent = "";
@@ -40,7 +34,7 @@ async function updateQuote() {
     QUOTE_BOOK.textContent = QUOTE.bookTitle;
 };
 
-DARK_MODE.loadDarkMode();
+
 BTN_DARK_MODE.addEventListener("click", DARK_MODE.toggleDarkMode);
 
 TEST_AREA.addEventListener("click", () => {
