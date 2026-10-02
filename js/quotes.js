@@ -69,7 +69,7 @@ async function getQuote() {
 };
 
 export async function updateQuote() {
-    TEST_QUOTE.textContent = "";
+    TEST_QUOTE.innerHTML = "";
     const QUOTE = await getQuote();
 
     QUOTE.text.split('').forEach((char) => {

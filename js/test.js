@@ -15,4 +15,5 @@ export async function startTest () {
     resetValues();
     TEST_GUIDE.textContent = "Starting the test...";
     await updateQuote();
+    TEST_GUIDE.textContent = ""
 };
