@@ -10,6 +10,20 @@ const TEST_QUOTE = document.querySelector("#test-quote");
 const QUOTE_AUTHOR = document.querySelector("#quote-author");
 const QUOTE_BOOK = document.querySelector("#quote-book");
 
+const SETTING_INPUTS = document.querySelectorAll(".setting-input");
+
+SETTING_INPUTS.forEach((option) => {
+    option.addEventListener("change", saveSettings);
+});
+
+function saveSettings() {
+    const SETTINGS = {
+        timer: document.querySelector('input[name="timer"]:checked').value,
+        sound: document.querySelector('input[name="sound"]:checked').value
+    };
+
+    localStorage.setItem("settings", JSON.stringify(SETTINGS));
+}
 
 async function updateQuote() {
     TEST_QUOTE.textContent = "";
