@@ -482,3 +482,24 @@ footer {
 .footer-small a:hover {
     color: var(--primary-color);
 }
+
+
+/* ==================================================
+   TYPING TEST UTILITIES
+   ================================================== */
+
+.char {
+    font-size: 1.3rem;
+}
+
+.char-idle {
+    color: var(--muted-color);
+};
+
+.char-mistake {
+    color: var(--error-color);
+}
+
+.char-correct {
+    color: var(--primary-color);
+}
