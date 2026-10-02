@@ -1,6 +1,6 @@
 import {loadDarkMode, toggleDarkMode} from "./js/darkMode.js";
 import {saveSettings, loadSettings} from "./js/settings.js";
-import updateQuote from "./js/quotes.js";
+import {resetValues} from "./js/test.js";
 
 loadDarkMode();
 loadSettings();
@@ -27,6 +27,12 @@ TEST_AREA.addEventListener("pointerdown", (event) => {
 
 TEST_INPUT.addEventListener("focus", () => {
     TEST_GUIDE.textContent = "Press ENTER to begin the test";
+});
+
+TEST_INPUT.addEventListener("keypress", (event) => {
+    if (event.key === "Enter") {
+        
+    };
 });
 
 TEST_INPUT.addEventListener("blur", () => {
