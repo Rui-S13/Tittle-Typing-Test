@@ -1,5 +1,5 @@
 async function getQuoteList() {
-    const LOCATION = 'data/quotes.json'
+    const LOCATION = './data/quotes.json'
 
     try {
         const RESPONSE = await fetch(LOCATION);
@@ -40,7 +40,7 @@ function getRandomQuote(quoteList) {
     return quoteList[randomNumber(0, quoteList.length - 1)];
 };
 
-async function findBookByQuote(quote, bookList) {
+function findBookByQuote(quote, bookList) {
     return bookList.find((book) => book.idBook === quote.idBook);
 };
 
