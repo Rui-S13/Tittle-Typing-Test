@@ -1,6 +1,6 @@
 import {loadDarkMode, toggleDarkMode} from "./js/darkMode.js";
 import {saveSettings, loadSettings} from "./js/settings.js";
-import {resetValues} from "./js/test.js";
+import {startTest} from "./js/test.js";
 
 loadDarkMode();
 loadSettings();
@@ -31,7 +31,7 @@ TEST_INPUT.addEventListener("focus", () => {
 
 TEST_INPUT.addEventListener("keypress", (event) => {
     if (event.key === "Enter") {
-        
+        startTest();
     };
 });
 
