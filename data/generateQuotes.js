@@ -8,6 +8,9 @@ const BOOK_IDS = [
     1661, 2852, 244,
     35, 36, 5230, 43, 84
 ];
+const MIN_LENGTH = 500;
+const MAX_LENGTH = 600;
+const QUOTES_PER_BOOK = 100;
 
 async function getBookById(id) {
     try {
@@ -117,10 +120,10 @@ function selectQuotes(book) {
 
     const VALID = getParagraphs(book.fullText)
         .map(cleanText)
-        .filter((text) => text.length >= 500 && text.length <= 600)
+        .filter((text) => text.length >= MIN_LENGTH && text.length <= MAX_LENGTH)
         .filter(isValidQuote);
 
-    return pickSpread(VALID, 100);
+    return pickSpread(VALID, QUOTES_PER_BOOK);
 };
 
 function buildQuoteList(bookList) {

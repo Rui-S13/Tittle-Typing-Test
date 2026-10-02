@@ -15,8 +15,12 @@ export function saveSettings() {
     writeJson(KEY, SETTINGS);
 }
 
+export function getSettings() {
+    return readJson(KEY, DEFAULTS)
+};
+
 export function loadSettings() {
-    const CURRENT_SETTINGS = readJson(KEY, DEFAULTS);
+    const CURRENT_SETTINGS = getSettings();
 
     document.querySelector(
         `input[name="timer"][value="${CURRENT_SETTINGS.timer}"]`
