@@ -70,4 +70,6 @@ export default async function initQuote () {
     const BOOK = await findBookByQuote(QUOTE, BOOK_LIST);
 
     displayQuote(QUOTE, BOOK);
+
+    return QUOTE;
 };
