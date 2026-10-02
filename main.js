@@ -1,39 +1,19 @@
 import DARK_MODE from "./js/darkMode.js";
 import {saveSettings, loadSettings} from "./js/settings.js";
-import getQuote from "./js/getQuote.js";
+import updateQuote from "./js/quotes.js";
 
 DARK_MODE.loadDarkMode();
 loadSettings();
-
 
 const BTN_DARK_MODE = document.querySelector("#btn-dark-mode");
 const TEST_AREA = document.querySelector("#test-area");
 const TEST_INPUT = document.querySelector("#test-input");
 const TEST_GUIDE = document.querySelector("#test-guide");
-const TEST_QUOTE = document.querySelector("#test-quote");
-const QUOTE_AUTHOR = document.querySelector("#quote-author");
-const QUOTE_BOOK = document.querySelector("#quote-book")
 const SETTING_INPUTS = document.querySelectorAll(".setting-input");
 
 SETTING_INPUTS.forEach((option) => {
     option.addEventListener("change", saveSettings);
 });
-
-async function updateQuote() {
-    TEST_QUOTE.textContent = "";
-    const QUOTE = await getQuote();
-
-    QUOTE.text.split('').forEach((char) => {
-        const charSpan = document.createElement('span');
-        charSpan.classList.add("char", "char-idle");
-        charSpan.innerText = char;
-        TEST_QUOTE.appendChild(charSpan);
-    });
-
-    QUOTE_AUTHOR.textContent = QUOTE.authors;
-    QUOTE_BOOK.textContent = QUOTE.bookTitle;
-};
-
 
 BTN_DARK_MODE.addEventListener("click", DARK_MODE.toggleDarkMode);
 

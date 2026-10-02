@@ -1,3 +1,7 @@
+const TEST_QUOTE = document.querySelector("#test-quote");
+const QUOTE_AUTHOR = document.querySelector("#quote-author");
+const QUOTE_BOOK = document.querySelector("#quote-book")
+
 async function getQuoteList() {
     const LOCATION = './data/quotes.json'
 
@@ -50,7 +54,7 @@ function formatAuthors(names) {
         : `${names.slice(0, -1).join(", ")} & ${names.at(-1)}`;
 }
 
-export default async function getQuote() {
+async function getQuote() {
     const QUOTE_LIST = await getQuoteList();
     const BOOK_LIST = await getBookList();
 
@@ -62,4 +66,19 @@ export default async function getQuote() {
         authors: formatAuthors(BOOK.authors),
         bookTitle: BOOK.title
     };
+};
+
+export default async function updateQuote() {
+    TEST_QUOTE.textContent = "";
+    const QUOTE = await getQuote();
+
+    QUOTE.text.split('').forEach((char) => {
+        const charSpan = document.createElement('span');
+        charSpan.classList.add("char", "char-idle");
+        charSpan.innerText = char;
+        TEST_QUOTE.appendChild(charSpan);
+    });
+
+    QUOTE_AUTHOR.textContent = QUOTE.authors;
+    QUOTE_BOOK.textContent = QUOTE.bookTitle;
 };
