@@ -17,6 +17,7 @@ async function updateQuote() {
 
     QUOTE.text.split('').forEach((char) => {
         const charSpan = document.createElement('span');
+        charSpan.classList.add("char", "char-idle");
         charSpan.innerText = char;
         TEST_QUOTE.appendChild(charSpan);
     });
@@ -24,7 +25,6 @@ async function updateQuote() {
     QUOTE_AUTHOR.textContent = QUOTE.authors;
     QUOTE_BOOK.textContent = QUOTE.bookTitle;
 };
-
 
 DARK_MODE.loadDarkMode();
 BTN_DARK_MODE.addEventListener("click", DARK_MODE.toggleDarkMode);
@@ -45,4 +45,3 @@ TEST_INPUT.addEventListener("blur", () => {
     TEST_QUOTE.style.display = "none";
     TEST_GUIDE.textContent = "CLICK on this area to focus on the test";
 });
-
