@@ -186,10 +186,19 @@ main h3 {
    ================================================== */
 
 #typing-test {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    row-gap: 20px;
+    grid-template-areas:
+        "test-area test-area"
+        "quote-info btn-refresh";
+    
     width: 100%;
 }
 
 #test-area {
+    grid-area: test-area;
+    
     position: relative;
 
     width: 100%;
@@ -224,11 +233,13 @@ main h3 {
 }
 
 #quote-info {
+    grid-area: quote-info;
+    
     display: flex;
     flex-direction: column;
     gap: 10px;
 
-    padding: 20px;
+    padding: 0px 20px;
 }
 
 #quote-author {
@@ -242,6 +253,47 @@ main h3 {
     text-wrap: wrap;
     font-style: italic;
     font-size: 0.9rem;
+}
+
+#btn-refresh {
+    grid-area: btn-refresh;
+    
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+    text-align: center;
+    gap: 2px;
+
+    height: 50px;
+    width: 50px;
+    padding: 3px;
+
+    border: solid var(--primary-color) var(--broder-weight);
+    border-radius: var(--border-radius);
+    background-color: var(--background-color);
+    color: var(--primary-color);
+}
+
+#btn-refresh:hover {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    cursor: pointer;
+}
+
+#btn-refresh:active {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    color: var(--background-color)
+}
+
+#refresh-icon {
+    width: 24px;
+    height: 24px;
+}
+
+#key-refresh {
+    font-size: 0.9rem;
+    font-weight: bold;
 }
 
 #test-input {
