@@ -5,18 +5,14 @@ const QUOTE_BOOK = document.querySelector("#quote-book")
 async function getQuoteList() {
     const LOCATION = './data/quotes.json'
 
-    try {
-        const RESPONSE = await fetch(LOCATION);
+    const RESPONSE = await fetch(LOCATION);
 
-        if (!RESPONSE.ok) {
-            throw new Error(`HTTP error! Status: ${RESPONSE.status}`);
-        };
-
-        const DATA = await RESPONSE.json();
-        return DATA;
-    } catch (error) {
-        console.error('Failed to fetch quote list:', error);
+    if (!RESPONSE.ok) {
+        throw new Error(`HTTP error! Status: ${RESPONSE.status}`);
     };
+
+    const DATA = await RESPONSE.json();
+    return DATA;
 };
 
 async function getBookList() {
@@ -68,7 +64,7 @@ async function getQuote() {
     };
 };
 
-export function resetQuote () {
+export function resetQuote() {
     TEST_QUOTE.innerHTML = "";
     QUOTE_AUTHOR.textContent = "";
     QUOTE_BOOK.textContent = "";

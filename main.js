@@ -14,14 +14,6 @@ const TEST_INPUT = document.querySelector("#test-input");
 const BTN_REFRESH = document.querySelector("#btn-refresh");
 const SETTING_INPUTS = document.querySelectorAll(".setting-input");
 
-let failedTest = false;
-try {
-    refreshTest();
-} catch (error) {
-    failedTest = true;
-    TEST_GUIDE
-};
-
 SETTING_INPUTS.forEach((option) => {
     option.addEventListener("change", saveSettings);
 });
