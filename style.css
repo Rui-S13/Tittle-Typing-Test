@@ -271,7 +271,7 @@ main h3 {
 #btn-refresh {
     grid-area: btn-refresh;
     align-self: start;
-    
+
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -450,171 +450,172 @@ input[type="radio"]:checked+.btn-setting {
 input[type="radio"]:focus-visible+.btn-setting {
     outline: 2px solid var(--accent-color);
     outline-offset: 2px;
+}
 
 
-    /* ==================================================
+/* ==================================================
    SESSION TOP 3
    ================================================== */
 
-    #test-history {
-        grid-area: test-history;
+#test-history {
+    grid-area: test-history;
 
-        list-style-type: none;
+    list-style-type: none;
 
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-        width: 100%;
-    }
+    width: 100%;
+}
 
-    #test-history-list {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
+#test-history-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
 
-        width: 100%;
-    }
+    width: 100%;
+}
 
-    .top-test {
-        list-style-type: none;
+.top-test {
+    list-style-type: none;
 
-        display: grid;
-        grid-template-columns: 40px auto auto;
-        align-items: center;
-        justify-items: center;
+    display: grid;
+    grid-template-columns: 40px auto auto;
+    align-items: center;
+    justify-items: center;
 
-        width: 90%;
-        padding: 5px;
+    width: 90%;
+    padding: 5px;
 
-        border: solid var(--border-color) var(--broder-weight);
-        border-radius: var(--border-radius);
-        background-color: var(--surface-color);
-    }
+    border: solid var(--border-color) var(--broder-weight);
+    border-radius: var(--border-radius);
+    background-color: var(--surface-color);
+}
 
-    .top-test-position {
-        font-size: 2rem;
-    }
+.top-test-position {
+    font-size: 2rem;
+}
 
-    [data-position="1"] {
-        color: gold;
-    }
+[data-position="1"] {
+    color: gold;
+}
 
-    [data-position="2"] {
-        color: silver;
-    }
+[data-position="2"] {
+    color: silver;
+}
 
-    [data-position="3"] {
-        color: #CD7F32;
-    }
+[data-position="3"] {
+    color: #CD7F32;
+}
 
 
-    /* ==================================================
+/* ==================================================
    FOOTER
    ================================================== */
 
-    footer {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
 
-        width: 100%;
-        padding: 32px 24px;
+    width: 100%;
+    padding: 32px 24px;
 
-        border-top: solid var(--broder-weight) var(--border-color);
-        background: var(--background-color);
+    border-top: solid var(--broder-weight) var(--border-color);
+    background: var(--background-color);
 
-        color: var(--muted-color);
-        font-size: 0.875rem;
-    }
+    color: var(--muted-color);
+    font-size: 0.875rem;
+}
 
-    #footer-brand {
-        display: flex;
-        flex-direction: column;
-        text-align: center;
-        gap: 5px;
-        color: var(--primary-color);
-    }
+#footer-brand {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 5px;
+    color: var(--primary-color);
+}
 
-    .footer-brand p {
-        margin: 0;
-        color: var(--muted-color);
-    }
+.footer-brand p {
+    margin: 0;
+    color: var(--muted-color);
+}
 
-    #footer-logo {
-        height: 28px;
-        width: auto;
-    }
+#footer-logo {
+    height: 28px;
+    width: auto;
+}
 
-    .footer-links {
-        display: flex;
-        flex-direction: row;
-        gap: 24px;
-    }
+.footer-links {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+}
 
-    .footer-links a,
-    .footer-links button {
-        color: var(--muted-color);
-        text-decoration: none;
-        background: none;
-        border: none;
-        padding: 0;
-        font: inherit;
-        cursor: pointer;
-    }
+.footer-links a,
+.footer-links button {
+    color: var(--muted-color);
+    text-decoration: none;
+    background: none;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+}
 
-    .footer-links a+a,
-    .footer-links a+button {
-        border-left: solid var(--border-color) var(--broder-weight);
-        padding-left: 24px;
-    }
+.footer-links a+a,
+.footer-links a+button {
+    border-left: solid var(--border-color) var(--broder-weight);
+    padding-left: 24px;
+}
 
-    .footer-links a:hover,
-    .footer-links button:hover {
-        color: var(--primary-color);
-    }
+.footer-links a:hover,
+.footer-links button:hover {
+    color: var(--primary-color);
+}
 
-    .footer-small {
-        margin-top: 10px;
-        padding-top: 10px;
-        border-top: solid var(--border-color) var(--broder-weight);
+.footer-small {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: solid var(--border-color) var(--broder-weight);
 
-        font-size: 0.8125rem;
-    }
+    font-size: 0.8125rem;
+}
 
-    .footer-small a {
-        color: var(--muted-color);
-        text-decoration: none;
-        background: none;
-        border: none;
-        padding: 0;
-        font: inherit;
-        cursor: pointer;
-    }
+.footer-small a {
+    color: var(--muted-color);
+    text-decoration: none;
+    background: none;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+}
 
-    .footer-small a:hover {
-        color: var(--primary-color);
-    }
+.footer-small a:hover {
+    color: var(--primary-color);
+}
 
 
-    /* ==================================================
+/* ==================================================
    TYPING TEST UTILITIES
    ================================================== */
 
-    .char {
-        font-size: 1.3rem;
-    }
+.char {
+    font-size: 1.3rem;
+}
 
-    .char-idle {
-        color: var(--muted-color);
-    }
+.char-idle {
+    color: var(--muted-color);
+}
 
-    .char-mistake {
-        color: var(--error-color);
-    }
+.char-mistake {
+    color: var(--error-color);
+}
 
-    .char-correct {
-        color: var(--primary-color);
-    }
+.char-correct {
+    color: var(--primary-color);
+}
