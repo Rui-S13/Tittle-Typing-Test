@@ -1,5 +1,5 @@
 /* ==================================================
-   CONFIGURAÇÕES GERAIS
+   GENERAL CONFIGURATIONS
    ================================================== */
 
 @font-face {
@@ -163,11 +163,17 @@ header {
 
 main {
     display: grid;
-    grid-template-columns: 1fr auto;
-    column-gap: 100px;
-    row-gap: 50px;
+    grid-template-columns: minmax(0, 1fr) 350px;
+    grid-template-areas:
+        "typing-test test-status"
+        "typing-test test-settings"
+        "test-history test-history";
+    gap: 40px;
 
-    padding: 50px 10%;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 50px 24px;
 }
 
 main h2 {
@@ -180,26 +186,42 @@ main h3 {
     margin-bottom: 10px;
 }
 
+#test-area,
+#test-status,
+#test-settings,
+#test-history {
+    padding: 30px;
+    border: solid var(--border-color) var(--broder-weight);
+    border-radius: var(--border-radius);
+    background-color: var(--surface-color);
+}
+
 
 /* ==================================================
    TYPING TEST AREA
    ================================================== */
 
 #typing-test {
+    grid-area: typing-test;
+    
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: 1fr auto;
+    row-gap: 20px;
+    grid-template-areas:
+        "test-area test-area"
+        "quote-info btn-refresh";
+    
     width: 100%;
 }
 
 #test-area {
+    grid-area: test-area;
+    
     position: relative;
 
     width: 100%;
     min-height: 400px;
-
-    padding: 20px;
-
-    border: solid var(--border-color) var(--broder-weight);
-    border-radius: var(--border-radius);
-    background-color: var(--surface-color);
 
     color: var(--muted-color);
     text-align: justify;
@@ -224,11 +246,13 @@ main h3 {
 }
 
 #quote-info {
+    grid-area: quote-info;
+    
     display: flex;
     flex-direction: column;
     gap: 10px;
 
-    padding: 20px;
+    padding: 0px 20px;
 }
 
 #quote-author {
@@ -244,6 +268,47 @@ main h3 {
     font-size: 0.9rem;
 }
 
+#btn-refresh {
+    grid-area: btn-refresh;
+    
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+    text-align: center;
+    gap: 2px;
+
+    height: 50px;
+    width: 50px;
+    padding: 3px;
+
+    border: solid var(--primary-color) var(--broder-weight);
+    border-radius: var(--border-radius);
+    background-color: var(--background-color);
+    color: var(--primary-color);
+}
+
+#btn-refresh:hover {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    cursor: pointer;
+}
+
+#btn-refresh:active {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    color: var(--background-color)
+}
+
+#refresh-icon {
+    width: 24px;
+    height: 24px;
+}
+
+#key-refresh {
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
 #test-input {
     position: absolute;
     opacity: 0;
@@ -254,31 +319,53 @@ main h3 {
 }
 
 
-/* ==================================================
-   TEST STATUS AREA
-   ================================================== */
-
 #test-status {
+    grid-area: test-status;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    min-height: 300px;
+}
+
+#test-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#test-state {
+    color: var(--muted-color);
+    font-size: 0.9rem;
+}
+
+#timer {
+    color: var(--accent-color);
+    font-size: 1.3rem;
+    letter-spacing: 2px;
+}
+
+#wpm-display {
+    flex: 1;                      /* takes the free height */
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
 
-    width: 350px;
-
-    padding: 30px;
-
-    border: solid var(--border-color) var(--broder-weight);
-    border-radius: var(--border-radius);
-    background-color: var(--surface-color);
+#wpm {
+    font-size: 4rem;
+    font-weight: var(--font-weight-bold);
 }
 
 #test-stats {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    gap: 5px;
+    justify-content: space-around;
 
-    width: 100%;
+    padding-top: 20px;
+    border-top: solid var(--border-color) var(--broder-weight);
 }
 
 .stat {
@@ -286,32 +373,28 @@ main h3 {
     flex-direction: column;
     align-items: center;
     gap: 5px;
-
-    width: 80px;
 }
 
 .stat-label {
-    font-weight: var(--font-weight-bold);
+    color: var(--muted-color);
+    font-size: 0.9rem;
 }
 
-#timer {
-    margin-top: auto;
-    margin-bottom: auto;
-
-    color: var(--accent-color);
-    font-size: 2rem;
-
-    letter-spacing: 5px;
-}
-
-#test-state {
-    margin-top: auto;
+#wpm,
+#timer,
+.stat-value {
+    font-variant-numeric: tabular-nums;   /* every digit has the same width */
 }
 
 
 /* ==================================================
    SETTINGS
    ================================================== */
+
+#test-settings {
+    width: 100%;
+    grid-area: test-settings;
+}
 
 #settings-container {
     display: flex;
@@ -365,22 +448,19 @@ input[type="radio"]:checked+.btn-setting {
    SESSION TOP 3
    ================================================== */
 
-#session-top-3 {
+#test-history {
+    grid-area: test-history;
+    
     list-style-type: none;
 
     display: flex;
     flex-direction: column;
     align-items: center;
 
-    width: 350px;
-    padding: 30px;
-
-    border: solid var(--border-color) var(--broder-weight);
-    border-radius: var(--border-radius);
-    background-color: var(--surface-color);
+    width: 100%;
 }
 
-#session-top-3-list {
+#test-history-list {
     display: flex;
     flex-direction: column;
     align-items: center;
