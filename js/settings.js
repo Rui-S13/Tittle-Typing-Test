@@ -1,5 +1,7 @@
 import { readJson, writeJson } from "./storage.js";
 
+const TIMER = document.querySelector("#timer");
+
 const KEY = "settings";
 const DEFAULTS = {
     timer: "30",
@@ -19,8 +21,20 @@ export function getSettings() {
     return readJson(KEY, DEFAULTS)
 };
 
+export function updateTimerStart() {
+    const CURRENT_SETTINGS = getSettings();
+
+    if (CURRENT_SETTINGS.timer !== "false") {
+        TIMER.textContent = CURRENT_SETTINGS.timer;
+    } else {
+        TIMER.textContent = "Off";
+    };
+};
+
 export function loadSettings() {
     const CURRENT_SETTINGS = getSettings();
+
+    updateTimerStart();
 
     document.querySelector(
         `input[name="timer"][value="${CURRENT_SETTINGS.timer}"]`
