@@ -115,12 +115,17 @@
         </section>
 
         <section id="test-status">
-            <div id="test-stats">
-                <div class="stat">
-                    <span class="stat-label">WPM</span>
-                    <span id="wpm" class="stat-value">---</span>
-                </div>
+            <div id="test-header">
+                <div id="test-state">Awaiting</div>
+                <div id="timer">----</div>
+            </div>
 
+            <div id="wpm-display">
+                <span id="wpm">---</span>
+                <span class="stat-label">WPM</span>
+            </div>
+
+            <div id="test-stats">
                 <div class="stat">
                     <span class="stat-label">Accuracy</span>
                     <span id="accuracy" class="stat-value">---</span>
@@ -131,10 +136,6 @@
                     <span id="mistakes" class="stat-value">---</span>
                 </div>
             </div>
-
-            <div id="timer">----</div>
-
-            <div id="test-state">Awaiting</div>
         </section>
 
         <section id="test-settings">

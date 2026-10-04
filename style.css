@@ -1,5 +1,5 @@
 /* ==================================================
-   CONFIGURAÇÕES GERAIS
+   GENERAL CONFIGURATIONS
    ================================================== */
 
 @font-face {
@@ -319,28 +319,53 @@ main h3 {
 }
 
 
-/* ==================================================
-   TEST STATUS AREA
-   ================================================== */
-
 #test-status {
     grid-area: test-status;
-    
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    min-height: 300px;
+}
+
+#test-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#test-state {
+    color: var(--muted-color);
+    font-size: 0.9rem;
+}
+
+#timer {
+    color: var(--accent-color);
+    font-size: 1.3rem;
+    letter-spacing: 2px;
+}
+
+#wpm-display {
+    flex: 1;                      /* takes the free height */
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
 
-    width: 100%;
-    min-height: 300px;
+#wpm {
+    font-size: 4rem;
+    font-weight: var(--font-weight-bold);
 }
 
 #test-stats {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    gap: 5px;
+    justify-content: space-around;
 
-    width: 100%;
+    padding-top: 20px;
+    border-top: solid var(--border-color) var(--broder-weight);
 }
 
 .stat {
@@ -348,26 +373,17 @@ main h3 {
     flex-direction: column;
     align-items: center;
     gap: 5px;
-
-    width: 80px;
 }
 
 .stat-label {
-    font-weight: var(--font-weight-bold);
+    color: var(--muted-color);
+    font-size: 0.9rem;
 }
 
-#timer {
-    margin-top: auto;
-    margin-bottom: auto;
-
-    color: var(--accent-color);
-    font-size: 2rem;
-
-    letter-spacing: 5px;
-}
-
-#test-state {
-    margin-top: auto;
+#wpm,
+#timer,
+.stat-value {
+    font-variant-numeric: tabular-nums;   /* every digit has the same width */
 }
 
 
