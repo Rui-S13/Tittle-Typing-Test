@@ -203,7 +203,7 @@ main h3 {
 
 #typing-test {
     grid-area: typing-test;
-    
+
     display: grid;
     grid-template-columns: 1fr auto;
     grid-template-rows: 1fr auto;
@@ -211,13 +211,13 @@ main h3 {
     grid-template-areas:
         "test-area test-area"
         "quote-info btn-refresh";
-    
+
     width: 100%;
 }
 
 #test-area {
     grid-area: test-area;
-    
+
     position: relative;
 
     width: 100%;
@@ -247,7 +247,7 @@ main h3 {
 
 #quote-info {
     grid-area: quote-info;
-    
+
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -270,33 +270,35 @@ main h3 {
 
 #btn-refresh {
     grid-area: btn-refresh;
-    
+    align-self: start;
+
     display: flex;
     flex-direction: column;
-    place-items: center;
-    text-align: center;
+    align-items: center;
+    justify-content: center;
     gap: 2px;
 
-    height: 50px;
-    width: 50px;
-    padding: 3px;
+    min-width: 50px;
+    min-height: 50px;
+    padding: 4px;
 
     border: solid var(--primary-color) var(--broder-weight);
     border-radius: var(--border-radius);
     background-color: var(--background-color);
     color: var(--primary-color);
+
+    cursor: pointer;
 }
 
 #btn-refresh:hover {
     background-color: var(--primary-color);
     color: var(--background-color);
-    cursor: pointer;
 }
 
 #btn-refresh:active {
     background-color: var(--accent-color);
     border-color: var(--accent-color);
-    color: var(--background-color)
+    color: var(--background-color);
 }
 
 #refresh-icon {
@@ -305,8 +307,9 @@ main h3 {
 }
 
 #key-refresh {
-    font-size: 0.9rem;
-    font-weight: bold;
+    font-family: inherit;
+    font-size: 0.8rem;
+    font-weight: var(--font-weight-bold);
 }
 
 #test-input {
@@ -318,6 +321,9 @@ main h3 {
     margin: 0px;
 }
 
+/* ==================================================
+   TEST STATUS
+   ================================================== */
 
 #test-status {
     grid-area: test-status;
@@ -347,7 +353,7 @@ main h3 {
 }
 
 #wpm-display {
-    flex: 1;                      /* takes the free height */
+    flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -383,7 +389,7 @@ main h3 {
 #wpm,
 #timer,
 .stat-value {
-    font-variant-numeric: tabular-nums;   /* every digit has the same width */
+    font-variant-numeric: tabular-nums;
 }
 
 
@@ -405,6 +411,7 @@ main h3 {
 .setting-option-list {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     gap: 15px;
 }
 
@@ -413,34 +420,36 @@ main h3 {
 }
 
 .btn-setting {
-    padding: 5px;
+    padding: 6px 12px;
 
-    border: solid var(--primary-color) var(--broder-weight);
+    border: solid var(--border-color) var(--broder-weight);
     border-radius: var(--border-radius);
-    background-color: var(--background-color);
+    background-color: transparent;
+    color: var(--muted-color);
+    font-size: 0.9rem;
+
+    cursor: pointer;
 }
 
-input[type="radio"] {
-    display: none;
+.btn-setting:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.btn-setting:active {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
 }
 
 input[type="radio"]:checked+.btn-setting {
     background-color: var(--primary-color);
+    border-color: var(--primary-color);
     color: var(--background-color);
 }
 
-.btn-setting:hover {
-    cursor: pointer;
-
-    border: solid var(--primary-color) var(--broder-weight);
-    background-color: var(--primary-color);
-    color: var(--background-color);
-}
-
-.btn-setting:active {
-    background-color: var(--accent-color);
-    border-color: var(--accent-color);
-    color: var(--background-color);
+input[type="radio"]:focus-visible+.btn-setting {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
 }
 
 
@@ -450,7 +459,7 @@ input[type="radio"]:checked+.btn-setting {
 
 #test-history {
     grid-area: test-history;
-    
+
     list-style-type: none;
 
     display: flex;
