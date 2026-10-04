@@ -1,8 +1,8 @@
 import { getSettings } from "./settings.js";
 import { resetQuote, updateQuote } from "./quotes.js";
+import { updateGuide, hideGuide } from "./guide.js";
 
 
-const TEST_GUIDE = document.querySelector("#test-guide");
 const STAT_VALUES = document.querySelectorAll(".stat-value");
 const WPM_VALUE = document.querySelector("#wpm");
 const ACCURACY_VALUE = document.querySelector("#accuracy");
@@ -37,13 +37,12 @@ export async function refreshTest() {
 
     try {
         resetValues();
-        TEST_GUIDE.textContent = "Starting the test...";
+        updateGuide("loading");
         await updateQuote();
-        TEST_GUIDE.textContent = "";
+        hideGuide();
     } catch (error) {
         console.error(error);
         testFailed = true;
-        TEST_GUIDE.classList.add("guide-error");
-        TEST_GUIDE.textContent = "Failed to get the test. Press ESC to try again.";
+        updateGuide("testError");
     };
 };

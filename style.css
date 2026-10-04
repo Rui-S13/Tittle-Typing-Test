@@ -238,11 +238,22 @@ main h3 {
 
     inset: 0;
 
-    font-size: 1.3rem;
+    font-size: 1.5rem;
+    font-weight: var(--font-weight-bold);
+    letter-spacing: 1px;
+    color: var(--primary-color);
+}
+
+#test-guide[hidden] {
+    display: none;
 }
 
 #test-quote {
     font-size: 1.3rem;
+}
+
+.quote-blurred {
+    filter: blur(4px);
 }
 
 #quote-info {
