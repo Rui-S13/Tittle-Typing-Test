@@ -7,14 +7,18 @@ const WPM_VALUE = document.querySelector("#wpm");
 const ACCURACY_VALUE = document.querySelector("#accuracy");
 const MISTAKES_VALUE = document.querySelector("#mistakes");
 
-export function resetValues () {
+export function resetValues() {
     resetQuote();
     STAT_VALUES.forEach((stat) => stat.textContent = "---");
 };
 
-export async function startTest () {
-    resetValues();
-    TEST_GUIDE.textContent = "Starting the test...";
-    await updateQuote();
-    TEST_GUIDE.textContent = ""
+export async function refreshTest() {
+    try {
+        resetValues();
+        TEST_GUIDE.textContent = "Starting the test...";
+        await updateQuote();
+        TEST_GUIDE.textContent = ""
+    } catch (error) { 
+        
+    };
 };
