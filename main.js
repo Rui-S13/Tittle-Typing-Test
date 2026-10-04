@@ -1,6 +1,6 @@
 import { loadDarkMode, toggleDarkMode } from "./js/darkMode.js";
 import { saveSettings, updateTimerStart, loadSettings } from "./js/settings.js";
-import { refreshTest, resetValues } from "./js/test.js";
+import { refreshTest, resetValues, testFailed, testStarted} from "./js/test.js";
 
 loadDarkMode();
 loadSettings();
@@ -12,13 +12,6 @@ const TEST_AREA = document.querySelector("#test-area");
 const TEST_INPUT = document.querySelector("#test-input");
 const BTN_REFRESH = document.querySelector("#btn-refresh");
 const SETTING_INPUTS = document.querySelectorAll(".setting-input");
-
-SETTING_INPUTS.forEach((option) => {
-    option.addEventListener("change", () => {
-        saveSettings();
-        updateTimerStart();
-    });
-});
 
 BTN_DARK_MODE.addEventListener("click", toggleDarkMode);
 
@@ -35,4 +28,25 @@ BODY.addEventListener("keydown", (event) => {
 
 BTN_REFRESH.addEventListener(("click"), () => {
     refreshTest();
+});
+
+TEST_INPUT.addEventListener(("input"),() => {
+    if (testFailed) {
+        return
+    };
+
+    const INPUT = TEST_INPUT.value;
+
+    if (testStarted) {
+
+    } else {
+
+    };
+});
+
+SETTING_INPUTS.forEach((option) => {
+    option.addEventListener("change", () => {
+        saveSettings();
+        updateTimerStart();
+    });
 });

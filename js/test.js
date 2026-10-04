@@ -9,17 +9,31 @@ const ACCURACY_VALUE = document.querySelector("#accuracy");
 const MISTAKES_VALUE = document.querySelector("#mistakes");
 
 
-export let failedTest = false;
+export let testFailed = false;
+export let testStarted = false;
+const stats = {
+    keystrokes: 0,
+    mistakes: 0,
+    wpm: 0,
+    accuracy: 0
+};
 
 
 export function resetValues() {
     resetQuote();
     STAT_VALUES.forEach((stat) => stat.textContent = "---");
+    
+    testFailed = false;
+    testStarted = false;
+    
+    stats.keystrokes = 0;
+    stats.mistakes = 0;
+    stats.wpm = 0;
+    stats.accuracy = 0;
 };
 
 export async function refreshTest() {
-    failedTest = false;
-    TEST_GUIDE.classList.remove("guide-error");
+    testFailed = false;
 
     try {
         resetValues();
@@ -28,8 +42,8 @@ export async function refreshTest() {
         TEST_GUIDE.textContent = "";
     } catch (error) {
         console.error(error);
-        failedTest = true;
+        testFailed = true;
         TEST_GUIDE.classList.add("guide-error");
         TEST_GUIDE.textContent = "Failed to get the test. Press ESC to try again.";
-    }
-}
+    };
+};
