@@ -163,11 +163,17 @@ header {
 
 main {
     display: grid;
-    grid-template-columns: 1fr auto;
-    column-gap: 100px;
-    row-gap: 50px;
+    grid-template-columns: minmax(0, 1fr) 350px;
+    grid-template-areas:
+        "typing-test test-status"
+        "typing-test test-settings"
+        "test-history test-history";
+    gap: 40px;
 
-    padding: 50px 10%;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 50px 24px;
 }
 
 main h2 {
@@ -180,14 +186,27 @@ main h3 {
     margin-bottom: 10px;
 }
 
+#test-area,
+#test-status,
+#test-settings,
+#test-history {
+    padding: 30px;
+    border: solid var(--border-color) var(--broder-weight);
+    border-radius: var(--border-radius);
+    background-color: var(--surface-color);
+}
+
 
 /* ==================================================
    TYPING TEST AREA
    ================================================== */
 
 #typing-test {
+    grid-area: typing-test;
+    
     display: grid;
     grid-template-columns: 1fr auto;
+    grid-template-rows: 1fr auto;
     row-gap: 20px;
     grid-template-areas:
         "test-area test-area"
@@ -203,12 +222,6 @@ main h3 {
 
     width: 100%;
     min-height: 400px;
-
-    padding: 20px;
-
-    border: solid var(--border-color) var(--broder-weight);
-    border-radius: var(--border-radius);
-    background-color: var(--surface-color);
 
     color: var(--muted-color);
     text-align: justify;
@@ -311,17 +324,14 @@ main h3 {
    ================================================== */
 
 #test-status {
+    grid-area: test-status;
+    
     display: flex;
     flex-direction: column;
     align-items: center;
 
-    width: 350px;
-
-    padding: 30px;
-
-    border: solid var(--border-color) var(--broder-weight);
-    border-radius: var(--border-radius);
-    background-color: var(--surface-color);
+    width: 100%;
+    min-height: 300px;
 }
 
 #test-stats {
@@ -364,6 +374,11 @@ main h3 {
 /* ==================================================
    SETTINGS
    ================================================== */
+
+#test-settings {
+    width: 100%;
+    grid-area: test-settings;
+}
 
 #settings-container {
     display: flex;
@@ -417,22 +432,19 @@ input[type="radio"]:checked+.btn-setting {
    SESSION TOP 3
    ================================================== */
 
-#session-top-3 {
+#test-history {
+    grid-area: test-history;
+    
     list-style-type: none;
 
     display: flex;
     flex-direction: column;
     align-items: center;
 
-    width: 350px;
-    padding: 30px;
-
-    border: solid var(--border-color) var(--broder-weight);
-    border-radius: var(--border-radius);
-    background-color: var(--surface-color);
+    width: 100%;
 }
 
-#session-top-3-list {
+#test-history-list {
     display: flex;
     flex-direction: column;
     align-items: center;
