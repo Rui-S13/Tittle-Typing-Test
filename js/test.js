@@ -5,6 +5,7 @@ import { calculateWPM, calculateAccuracy } from "./calculations.js";
 
 
 const TEST_QUOTE = document.querySelector("#test-quote");
+const TEST_INPUT = document.querySelector("#test-input");
 const STAT_VALUES = document.querySelectorAll(".stat-value");
 const WPM_VALUE = document.querySelector("#wpm");
 const ACCURACY_VALUE = document.querySelector("#accuracy");
@@ -28,6 +29,8 @@ const STATS = {
 
 
 export async function refreshTest() {
+    resetQuote();
+    TEST_INPUT.value = "";
     testFailed = false;
 
     try {
@@ -97,8 +100,9 @@ function processInput(input) {
                 }
             }
         } else {
-            char.className = "char char-idle";
-        }
+            const IS_NEXT = i === POSITION + 1;
+            char.className = IS_NEXT ? "char char-idle char-current" : "char char-idle";
+        };
     });
     return result;
 };

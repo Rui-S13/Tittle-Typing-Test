@@ -23,6 +23,10 @@ TEST_AREA.addEventListener("click", () => {
     TEST_INPUT.focus();
 });
 
+TEST_AREA.addEventListener("mousedown", (event) => {
+    event.preventDefault();
+});
+
 TEST_INPUT.addEventListener("focus", () => {
     hideGuide();
     TEST_QUOTE.classList.remove("quote-blurred");
