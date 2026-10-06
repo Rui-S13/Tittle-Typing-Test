@@ -9,5 +9,5 @@ export function calculateWPM(correctChars, startTime, currentTime) {
 export function calculateAccuracy(keystrokes, mistakes) {
     if (keystrokes === 0) return 100;
 
-    return Math.round(((keystrokes - mistakes) / keystrokes) * 100);
+    return Math.round(((keystrokes - mistakes) / keystrokes) * 1000) / 10;
 };
