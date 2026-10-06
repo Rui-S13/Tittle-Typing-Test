@@ -24,6 +24,7 @@
     --accent-color: #2F5D8A;
     --muted-color: #737373;
     --error-color: #C4402F;
+    --muted-error-color: #c4402f88;
 
     --border-radius: 8px;
     --broder-weight: 1px;
@@ -41,6 +42,7 @@
     --accent-color: #7AA7D6;
     --muted-color: #8A8A8E;
     --error-color: #F87171;
+    --muted-error-color: #f871719b;
 }
 
 body {
@@ -238,11 +240,21 @@ main h3 {
 
     inset: 0;
 
-    font-size: 1.3rem;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+    color: var(--primary-color);
+}
+
+#test-guide[hidden] {
+    display: none;
 }
 
 #test-quote {
     font-size: 1.3rem;
+}
+
+.quote-blurred {
+    filter: blur(4px);
 }
 
 #quote-info {
@@ -606,16 +618,35 @@ footer {
 
 .char {
     font-size: 1.3rem;
+    width: 10px;
 }
 
 .char-idle {
+    background-color: var(--surface-color);
     color: var(--muted-color);
 }
 
 .char-mistake {
+    background-color: var(--muted-error-color);
     color: var(--error-color);
 }
 
 .char-correct {
+    background-color: var(--surface-color);
     color: var(--primary-color);
+}
+
+.char-current {
+    box-shadow: -2px 0 0 var(--accent-color);
+}
+
+
+@media (prefers-reduced-motion: no-preference) {
+    .char-current {
+        animation: blink 1s steps(1) infinite;
+    }
+}
+
+@keyframes blink {
+    50% { box-shadow: -2px 0 0 transparent; }
 }

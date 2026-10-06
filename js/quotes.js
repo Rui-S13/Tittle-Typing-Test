@@ -73,9 +73,10 @@ export function resetQuote() {
 export async function updateQuote() {
     const QUOTE = await getQuote();
 
-    QUOTE.text.split('').forEach((char) => {
+    QUOTE.text.split('').forEach((char, i) => {
         const charSpan = document.createElement('span');
         charSpan.classList.add("char", "char-idle");
+        if (i === 0) charSpan.classList.add("char-current");
         charSpan.innerText = char;
         TEST_QUOTE.appendChild(charSpan);
     });
