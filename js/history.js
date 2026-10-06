@@ -5,7 +5,7 @@ const TEST_HISTORY_BODY = document.querySelector("#test-history-body");
 export function updateHistory() {
     TEST_HISTORY_BODY.innerHTML = "";
 
-    const ARRAY_TESTS = readSessionJson("tests");
+    const ARRAY_TESTS = readSessionJson("tests", []);
     ARRAY_TESTS.sort((a, b) => b.endTime - a.endTime);
 
     ARRAY_TESTS.forEach((test) => {
