@@ -13,11 +13,11 @@ let correctBuffer;
 let mistakeBuffer;
 
 export async function loadSounds() {
-    const correctResponse = await fetch("./assets/Correct_Char_Sound.mp3");
+    const correctResponse = await fetch("../assets/Correct_Char_Sound.mp3", import.meta.url);
     const correctData = await correctResponse.arrayBuffer();
     correctBuffer = await AUDIO_CONTEXT.decodeAudioData(correctData);
 
-    const mistakeResponse = await fetch("./assets/Mistake_Char_Sound.mp3");
+    const mistakeResponse = await fetch("../assets/Mistake_Char_Sound.mp3", import.meta.url);
     const mistakeData = await mistakeResponse.arrayBuffer();
     mistakeBuffer = await AUDIO_CONTEXT.decodeAudioData(mistakeData);
 };
