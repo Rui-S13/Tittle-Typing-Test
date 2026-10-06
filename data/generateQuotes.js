@@ -1,13 +1,7 @@
 import { JSDOM, VirtualConsole } from "jsdom";
 import { writeFile } from "node:fs/promises";
+import { BOOK_IDS } from "./bookIds.js";
 
-const BOOK_IDS = [
-    1342, 158, 105, 2641, 64317, 67979, 16389, 308,
-    37106, 45, 113, 11, 12, 55, 16, 289,
-    120, 74, 236, 215, 103, 164,
-    1661, 2852, 244,
-    35, 36, 5230, 43, 84
-];
 const MIN_LENGTH = 500;
 const MAX_LENGTH = 600;
 const QUOTES_PER_BOOK = 100;

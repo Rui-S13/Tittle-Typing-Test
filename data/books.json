@@ -28,15 +28,33 @@
   },
   {
     "idBook": 4,
-    "gutenbergId": 2641,
-    "title": "A Room with a View",
+    "gutenbergId": 161,
+    "title": "Sense and Sensibility",
     "authors": [
-      "E. M. (Edward Morgan) Forster"
+      "Jane Austen"
     ],
-    "linkFullText": "https://www.gutenberg.org/ebooks/2641.html.images"
+    "linkFullText": "https://www.gutenberg.org/ebooks/161.html.images"
   },
   {
     "idBook": 5,
+    "gutenbergId": 141,
+    "title": "Mansfield Park",
+    "authors": [
+      "Jane Austen"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/141.html.images"
+  },
+  {
+    "idBook": 6,
+    "gutenbergId": 121,
+    "title": "Northanger Abbey",
+    "authors": [
+      "Jane Austen"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/121.html.images"
+  },
+  {
+    "idBook": 7,
     "gutenbergId": 64317,
     "title": "The Great Gatsby",
     "authors": [
@@ -45,16 +63,25 @@
     "linkFullText": "https://www.gutenberg.org/ebooks/64317.html.images"
   },
   {
-    "idBook": 6,
-    "gutenbergId": 67979,
-    "title": "The Blue Castle: a novel",
+    "idBook": 8,
+    "gutenbergId": 805,
+    "title": "This Side of Paradise",
     "authors": [
-      "L. M. (Lucy Maud) Montgomery"
+      "F. Scott (Francis Scott) Fitzgerald"
     ],
-    "linkFullText": "https://www.gutenberg.org/ebooks/67979.html.images"
+    "linkFullText": "https://www.gutenberg.org/ebooks/805.html.images"
   },
   {
-    "idBook": 7,
+    "idBook": 9,
+    "gutenbergId": 9830,
+    "title": "The Beautiful and Damned",
+    "authors": [
+      "F. Scott (Francis Scott) Fitzgerald"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/9830.html.images"
+  },
+  {
+    "idBook": 10,
     "gutenbergId": 16389,
     "title": "The Enchanted April",
     "authors": [
@@ -63,7 +90,124 @@
     "linkFullText": "https://www.gutenberg.org/ebooks/16389.html.images"
   },
   {
-    "idBook": 8,
+    "idBook": 11,
+    "gutenbergId": 1327,
+    "title": "Elizabeth and Her German Garden",
+    "authors": [
+      "Elizabeth Von Arnim"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/1327.html.images"
+  },
+  {
+    "idBook": 12,
+    "gutenbergId": 394,
+    "title": "Cranford",
+    "authors": [
+      "Elizabeth Cleghorn Gaskell"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/394.html.images"
+  },
+  {
+    "idBook": 13,
+    "gutenbergId": 4276,
+    "title": "North and South",
+    "authors": [
+      "Elizabeth Cleghorn Gaskell"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/4276.html.images"
+  },
+  {
+    "idBook": 14,
+    "gutenbergId": 1260,
+    "title": "Jane Eyre: An Autobiography",
+    "authors": [
+      "Charlotte Brontë"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/1260.html.images"
+  },
+  {
+    "idBook": 15,
+    "gutenbergId": 767,
+    "title": "Agnes Grey",
+    "authors": [
+      "Anne Brontë"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/767.html.images"
+  },
+  {
+    "idBook": 16,
+    "gutenbergId": 541,
+    "title": "The Age of Innocence",
+    "authors": [
+      "Edith Wharton"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/541.html.images"
+  },
+  {
+    "idBook": 17,
+    "gutenbergId": 284,
+    "title": "The House of Mirth",
+    "authors": [
+      "Edith Wharton"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/284.html.images"
+  },
+  {
+    "idBook": 18,
+    "gutenbergId": 4517,
+    "title": "Ethan Frome",
+    "authors": [
+      "Edith Wharton"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/4517.html.images"
+  },
+  {
+    "idBook": 19,
+    "gutenbergId": 242,
+    "title": "My Ántonia",
+    "authors": [
+      "Willa Cather"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/242.html.images"
+  },
+  {
+    "idBook": 20,
+    "gutenbergId": 24,
+    "title": "O Pioneers!",
+    "authors": [
+      "Willa Cather"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/24.html.images"
+  },
+  {
+    "idBook": 21,
+    "gutenbergId": 367,
+    "title": "The Country of the Pointed Firs",
+    "authors": [
+      "Sarah Orne Jewett"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/367.html.images"
+  },
+  {
+    "idBook": 22,
+    "gutenbergId": 160,
+    "title": "The Awakening, and Selected Short Stories",
+    "authors": [
+      "Kate Chopin"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/160.html.images"
+  },
+  {
+    "idBook": 23,
+    "gutenbergId": 95,
+    "title": "The prisoner of Zenda",
+    "authors": [
+      "Anthony Hope"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/95.html.images"
+  },
+  {
+    "idBook": 24,
     "gutenbergId": 308,
     "title": "Three men in a boat (to say nothing of the dog)",
     "authors": [
@@ -72,7 +216,7 @@
     "linkFullText": "https://www.gutenberg.org/ebooks/308.html.images"
   },
   {
-    "idBook": 9,
+    "idBook": 25,
     "gutenbergId": 37106,
     "title": "Little Women; Or, Meg, Jo, Beth, and Amy",
     "authors": [
@@ -81,7 +225,16 @@
     "linkFullText": "https://www.gutenberg.org/ebooks/37106.html.images"
   },
   {
-    "idBook": 10,
+    "idBook": 26,
+    "gutenbergId": 2788,
+    "title": "Little Men: Life at Plumfield With Jo's Boys",
+    "authors": [
+      "Louisa May Alcott"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/2788.html.images"
+  },
+  {
+    "idBook": 27,
     "gutenbergId": 45,
     "title": "Anne of Green Gables",
     "authors": [
@@ -90,7 +243,34 @@
     "linkFullText": "https://www.gutenberg.org/ebooks/45.html.images"
   },
   {
-    "idBook": 11,
+    "idBook": 28,
+    "gutenbergId": 47,
+    "title": "Anne of Avonlea",
+    "authors": [
+      "L. M. (Lucy Maud) Montgomery"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/47.html.images"
+  },
+  {
+    "idBook": 29,
+    "gutenbergId": 51,
+    "title": "Anne of the Island",
+    "authors": [
+      "L. M. (Lucy Maud) Montgomery"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/51.html.images"
+  },
+  {
+    "idBook": 30,
+    "gutenbergId": 67979,
+    "title": "The Blue Castle: a novel",
+    "authors": [
+      "L. M. (Lucy Maud) Montgomery"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/67979.html.images"
+  },
+  {
+    "idBook": 31,
     "gutenbergId": 113,
     "title": "The Secret Garden",
     "authors": [
@@ -99,7 +279,16 @@
     "linkFullText": "https://www.gutenberg.org/ebooks/113.html.images"
   },
   {
-    "idBook": 12,
+    "idBook": 32,
+    "gutenbergId": 146,
+    "title": "A Little Princess: Being the whole story of Sara Crewe now told for the first time",
+    "authors": [
+      "Frances Hodgson Burnett"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/146.html.images"
+  },
+  {
+    "idBook": 33,
     "gutenbergId": 11,
     "title": "Alice's Adventures in Wonderland",
     "authors": [
@@ -108,7 +297,7 @@
     "linkFullText": "https://www.gutenberg.org/ebooks/11.html.images"
   },
   {
-    "idBook": 13,
+    "idBook": 34,
     "gutenbergId": 12,
     "title": "Through the Looking-Glass",
     "authors": [
@@ -117,7 +306,7 @@
     "linkFullText": "https://www.gutenberg.org/ebooks/12.html.images"
   },
   {
-    "idBook": 14,
+    "idBook": 35,
     "gutenbergId": 55,
     "title": "The Wonderful Wizard of Oz",
     "authors": [
@@ -126,7 +315,16 @@
     "linkFullText": "https://www.gutenberg.org/ebooks/55.html.images"
   },
   {
-    "idBook": 15,
+    "idBook": 36,
+    "gutenbergId": 54,
+    "title": "The Marvelous Land of Oz",
+    "authors": [
+      "L. Frank (Lyman Frank) Baum"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/54.html.images"
+  },
+  {
+    "idBook": 37,
     "gutenbergId": 16,
     "title": "Peter Pan: [Peter and Wendy]",
     "authors": [
@@ -135,7 +333,7 @@
     "linkFullText": "https://www.gutenberg.org/ebooks/16.html.images"
   },
   {
-    "idBook": 16,
+    "idBook": 38,
     "gutenbergId": 289,
     "title": "The Wind in the Willows",
     "authors": [
@@ -144,7 +342,88 @@
     "linkFullText": "https://www.gutenberg.org/ebooks/289.html.images"
   },
   {
-    "idBook": 17,
+    "idBook": 39,
+    "gutenbergId": 271,
+    "title": "Black Beauty: The autobiography of a horse",
+    "authors": [
+      "Anna Sewell"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/271.html.images"
+  },
+  {
+    "idBook": 40,
+    "gutenbergId": 1448,
+    "title": "Heidi",
+    "authors": [
+      "Johanna Spyri"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/1448.html.images"
+  },
+  {
+    "idBook": 41,
+    "gutenbergId": 500,
+    "title": "The Adventures of Pinocchio",
+    "authors": [
+      "Carlo Collodi"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/500.html.images"
+  },
+  {
+    "idBook": 42,
+    "gutenbergId": 498,
+    "title": "Rebecca of Sunnybrook Farm",
+    "authors": [
+      "Kate Douglas Smith Wiggin"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/498.html.images"
+  },
+  {
+    "idBook": 43,
+    "gutenbergId": 1450,
+    "title": "Pollyanna",
+    "authors": [
+      "Eleanor H. (Eleanor Hodgman) Porter"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/1450.html.images"
+  },
+  {
+    "idBook": 44,
+    "gutenbergId": 157,
+    "title": "Daddy-Long-Legs",
+    "authors": [
+      "Jean Webster"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/157.html.images"
+  },
+  {
+    "idBook": 45,
+    "gutenbergId": 1874,
+    "title": "The Railway Children",
+    "authors": [
+      "E. (Edith) Nesbit"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/1874.html.images"
+  },
+  {
+    "idBook": 46,
+    "gutenbergId": 778,
+    "title": "Five Children and It",
+    "authors": [
+      "E. (Edith) Nesbit"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/778.html.images"
+  },
+  {
+    "idBook": 47,
+    "gutenbergId": 902,
+    "title": "The Happy Prince, and Other Tales",
+    "authors": [
+      "Oscar Wilde"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/902.html.images"
+  },
+  {
+    "idBook": 48,
     "gutenbergId": 120,
     "title": "Treasure Island",
     "authors": [
@@ -153,7 +432,16 @@
     "linkFullText": "https://www.gutenberg.org/ebooks/120.html.images"
   },
   {
-    "idBook": 18,
+    "idBook": 49,
+    "gutenbergId": 421,
+    "title": "Kidnapped",
+    "authors": [
+      "Robert Louis Stevenson"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/421.html.images"
+  },
+  {
+    "idBook": 50,
     "gutenbergId": 74,
     "title": "The Adventures of Tom Sawyer, Complete",
     "authors": [
@@ -162,7 +450,25 @@
     "linkFullText": "https://www.gutenberg.org/ebooks/74.html.images"
   },
   {
-    "idBook": 19,
+    "idBook": 51,
+    "gutenbergId": 1837,
+    "title": "The Prince and the Pauper",
+    "authors": [
+      "Mark Twain"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/1837.html.images"
+  },
+  {
+    "idBook": 52,
+    "gutenbergId": 86,
+    "title": "A Connecticut Yankee in King Arthur's Court",
+    "authors": [
+      "Mark Twain"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/86.html.images"
+  },
+  {
+    "idBook": 53,
     "gutenbergId": 236,
     "title": "The Jungle Book",
     "authors": [
@@ -171,7 +477,25 @@
     "linkFullText": "https://www.gutenberg.org/ebooks/236.html.images"
   },
   {
-    "idBook": 20,
+    "idBook": 54,
+    "gutenbergId": 1937,
+    "title": "The Second Jungle Book",
+    "authors": [
+      "Rudyard Kipling"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/1937.html.images"
+  },
+  {
+    "idBook": 55,
+    "gutenbergId": 2781,
+    "title": "Just so stories",
+    "authors": [
+      "Rudyard Kipling"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/2781.html.images"
+  },
+  {
+    "idBook": 56,
     "gutenbergId": 215,
     "title": "The call of the wild",
     "authors": [
@@ -180,7 +504,25 @@
     "linkFullText": "https://www.gutenberg.org/ebooks/215.html.images"
   },
   {
-    "idBook": 21,
+    "idBook": 57,
+    "gutenbergId": 910,
+    "title": "White Fang",
+    "authors": [
+      "Jack London"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/910.html.images"
+  },
+  {
+    "idBook": 58,
+    "gutenbergId": 1074,
+    "title": "The Sea-Wolf",
+    "authors": [
+      "Jack London"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/1074.html.images"
+  },
+  {
+    "idBook": 59,
     "gutenbergId": 103,
     "title": "Around the World in Eighty Days",
     "authors": [
@@ -189,7 +531,7 @@
     "linkFullText": "https://www.gutenberg.org/ebooks/103.html.images"
   },
   {
-    "idBook": 22,
+    "idBook": 60,
     "gutenbergId": 164,
     "title": "Twenty Thousand Leagues under the Sea",
     "authors": [
@@ -198,7 +540,134 @@
     "linkFullText": "https://www.gutenberg.org/ebooks/164.html.images"
   },
   {
-    "idBook": 23,
+    "idBook": 61,
+    "gutenbergId": 18857,
+    "title": "A Journey to the Centre of the Earth",
+    "authors": [
+      "Jules Verne"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/18857.html.images"
+  },
+  {
+    "idBook": 62,
+    "gutenbergId": 83,
+    "title": "From the Earth to the moon; and, round the moon",
+    "authors": [
+      "Jules Verne"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/83.html.images"
+  },
+  {
+    "idBook": 63,
+    "gutenbergId": 1268,
+    "title": "The Mysterious Island",
+    "authors": [
+      "Jules Verne"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/1268.html.images"
+  },
+  {
+    "idBook": 64,
+    "gutenbergId": 3526,
+    "title": "Five Weeks in a Balloon: Or, Journeys and Discoveries in Africa by Three Englishmen",
+    "authors": [
+      "Jules Verne"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/3526.html.images"
+  },
+  {
+    "idBook": 65,
+    "gutenbergId": 62,
+    "title": "A princess of Mars",
+    "authors": [
+      "Edgar Rice Burroughs"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/62.html.images"
+  },
+  {
+    "idBook": 66,
+    "gutenbergId": 60,
+    "title": "The Scarlet Pimpernel",
+    "authors": [
+      "Emmuska Orczy Baroness Orczy"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/60.html.images"
+  },
+  {
+    "idBook": 67,
+    "gutenbergId": 1257,
+    "title": "The three musketeers",
+    "authors": [
+      "Alexandre Dumas",
+      "Auguste Maquet"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/1257.html.images"
+  },
+  {
+    "idBook": 68,
+    "gutenbergId": 558,
+    "title": "The Thirty-Nine Steps",
+    "authors": [
+      "John Buchan"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/558.html.images"
+  },
+  {
+    "idBook": 69,
+    "gutenbergId": 559,
+    "title": "Greenmantle",
+    "authors": [
+      "John Buchan"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/559.html.images"
+  },
+  {
+    "idBook": 70,
+    "gutenbergId": 521,
+    "title": "The Life and Adventures of Robinson Crusoe",
+    "authors": [
+      "Daniel Defoe"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/521.html.images"
+  },
+  {
+    "idBook": 71,
+    "gutenbergId": 829,
+    "title": "Gulliver's Travels into Several Remote Nations of the World",
+    "authors": [
+      "Jonathan Swift"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/829.html.images"
+  },
+  {
+    "idBook": 72,
+    "gutenbergId": 73,
+    "title": "The Red Badge of Courage: An Episode of the American Civil War",
+    "authors": [
+      "Stephen Crane"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/73.html.images"
+  },
+  {
+    "idBook": 73,
+    "gutenbergId": 1298,
+    "title": "The Virginian: A Horseman of the Plains",
+    "authors": [
+      "Owen Wister"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/1298.html.images"
+  },
+  {
+    "idBook": 74,
+    "gutenbergId": 1300,
+    "title": "Riders of the Purple Sage",
+    "authors": [
+      "Zane Grey"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/1300.html.images"
+  },
+  {
+    "idBook": 75,
     "gutenbergId": 1661,
     "title": "The Adventures of Sherlock Holmes",
     "authors": [
@@ -207,7 +676,25 @@
     "linkFullText": "https://www.gutenberg.org/ebooks/1661.html.images"
   },
   {
-    "idBook": 24,
+    "idBook": 76,
+    "gutenbergId": 834,
+    "title": "The Memoirs of Sherlock Holmes",
+    "authors": [
+      "Arthur Conan Doyle"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/834.html.images"
+  },
+  {
+    "idBook": 77,
+    "gutenbergId": 108,
+    "title": "The Return of Sherlock Holmes",
+    "authors": [
+      "Arthur Conan Doyle"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/108.html.images"
+  },
+  {
+    "idBook": 78,
     "gutenbergId": 2852,
     "title": "The Hound of the Baskervilles",
     "authors": [
@@ -216,7 +703,7 @@
     "linkFullText": "https://www.gutenberg.org/ebooks/2852.html.images"
   },
   {
-    "idBook": 25,
+    "idBook": 79,
     "gutenbergId": 244,
     "title": "A Study in Scarlet",
     "authors": [
@@ -225,7 +712,88 @@
     "linkFullText": "https://www.gutenberg.org/ebooks/244.html.images"
   },
   {
-    "idBook": 26,
+    "idBook": 80,
+    "gutenbergId": 2097,
+    "title": "The Sign of the Four",
+    "authors": [
+      "Arthur Conan Doyle"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/2097.html.images"
+  },
+  {
+    "idBook": 81,
+    "gutenbergId": 3289,
+    "title": "The Valley of Fear",
+    "authors": [
+      "Arthur Conan Doyle"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/3289.html.images"
+  },
+  {
+    "idBook": 82,
+    "gutenbergId": 2350,
+    "title": "His last bow: Some later reminiscences of Sherlock Holmes",
+    "authors": [
+      "Arthur Conan Doyle"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/2350.html.images"
+  },
+  {
+    "idBook": 83,
+    "gutenbergId": 155,
+    "title": "The Moonstone",
+    "authors": [
+      "Wilkie Collins"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/155.html.images"
+  },
+  {
+    "idBook": 84,
+    "gutenbergId": 583,
+    "title": "The Woman in White",
+    "authors": [
+      "Wilkie Collins"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/583.html.images"
+  },
+  {
+    "idBook": 85,
+    "gutenbergId": 1695,
+    "title": "The Man Who Was Thursday: A Nightmare",
+    "authors": [
+      "G. K. (Gilbert Keith) Chesterton"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/1695.html.images"
+  },
+  {
+    "idBook": 86,
+    "gutenbergId": 204,
+    "title": "The innocence of Father Brown",
+    "authors": [
+      "G. K. (Gilbert Keith) Chesterton"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/204.html.images"
+  },
+  {
+    "idBook": 87,
+    "gutenbergId": 223,
+    "title": "The wisdom of Father Brown",
+    "authors": [
+      "G. K. (Gilbert Keith) Chesterton"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/223.html.images"
+  },
+  {
+    "idBook": 88,
+    "gutenbergId": 2360,
+    "title": "The Riddle of the Sands",
+    "authors": [
+      "Erskine Childers"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/2360.html.images"
+  },
+  {
+    "idBook": 89,
     "gutenbergId": 35,
     "title": "The Time Machine",
     "authors": [
@@ -234,7 +802,7 @@
     "linkFullText": "https://www.gutenberg.org/ebooks/35.html.images"
   },
   {
-    "idBook": 27,
+    "idBook": 90,
     "gutenbergId": 36,
     "title": "The war of the worlds",
     "authors": [
@@ -243,7 +811,7 @@
     "linkFullText": "https://www.gutenberg.org/ebooks/36.html.images"
   },
   {
-    "idBook": 28,
+    "idBook": 91,
     "gutenbergId": 5230,
     "title": "The Invisible Man: A Grotesque Romance",
     "authors": [
@@ -252,7 +820,34 @@
     "linkFullText": "https://www.gutenberg.org/ebooks/5230.html.images"
   },
   {
-    "idBook": 29,
+    "idBook": 92,
+    "gutenbergId": 159,
+    "title": "The island of Doctor Moreau",
+    "authors": [
+      "H. G. (Herbert George) Wells"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/159.html.images"
+  },
+  {
+    "idBook": 93,
+    "gutenbergId": 1013,
+    "title": "The First Men in the Moon",
+    "authors": [
+      "H. G. (Herbert George) Wells"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/1013.html.images"
+  },
+  {
+    "idBook": 94,
+    "gutenbergId": 139,
+    "title": "The Lost World",
+    "authors": [
+      "Arthur Conan Doyle"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/139.html.images"
+  },
+  {
+    "idBook": 95,
     "gutenbergId": 43,
     "title": "The strange case of Dr. Jekyll and Mr. Hyde",
     "authors": [
@@ -261,12 +856,192 @@
     "linkFullText": "https://www.gutenberg.org/ebooks/43.html.images"
   },
   {
-    "idBook": 30,
+    "idBook": 96,
     "gutenbergId": 84,
     "title": "Frankenstein; or, the modern prometheus",
     "authors": [
       "Mary Wollstonecraft Shelley"
     ],
     "linkFullText": "https://www.gutenberg.org/ebooks/84.html.images"
+  },
+  {
+    "idBook": 97,
+    "gutenbergId": 345,
+    "title": "Dracula",
+    "authors": [
+      "Bram Stoker"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/345.html.images"
+  },
+  {
+    "idBook": 98,
+    "gutenbergId": 174,
+    "title": "The Picture of Dorian Gray",
+    "authors": [
+      "Oscar Wilde"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/174.html.images"
+  },
+  {
+    "idBook": 99,
+    "gutenbergId": 8486,
+    "title": "Ghost Stories of an Antiquary",
+    "authors": [
+      "M. R. (Montague Rhodes) James"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/8486.html.images"
+  },
+  {
+    "idBook": 100,
+    "gutenbergId": 32,
+    "title": "Herland",
+    "authors": [
+      "Charlotte Perkins Gilman"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/32.html.images"
+  },
+  {
+    "idBook": 101,
+    "gutenbergId": 1952,
+    "title": "The Yellow Wallpaper",
+    "authors": [
+      "Charlotte Perkins Gilman"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/1952.html.images"
+  },
+  {
+    "idBook": 102,
+    "gutenbergId": 46,
+    "title": "A Christmas Carol in Prose; Being a Ghost Story of Christmas",
+    "authors": [
+      "Charles Dickens"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/46.html.images"
+  },
+  {
+    "idBook": 103,
+    "gutenbergId": 205,
+    "title": "Walden, and On The Duty Of Civil Disobedience",
+    "authors": [
+      "Henry David Thoreau"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/205.html.images"
+  },
+  {
+    "idBook": 104,
+    "gutenbergId": 148,
+    "title": "The Autobiography of Benjamin Franklin",
+    "authors": [
+      "Benjamin Franklin"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/148.html.images"
+  },
+  {
+    "idBook": 105,
+    "gutenbergId": 2680,
+    "title": "Meditations",
+    "authors": [
+      "Emperor of Rome Marcus Aurelius"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/2680.html.images"
+  },
+  {
+    "idBook": 106,
+    "gutenbergId": 1232,
+    "title": "The Prince",
+    "authors": [
+      "Niccolò Machiavelli"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/1232.html.images"
+  },
+  {
+    "idBook": 107,
+    "gutenbergId": 245,
+    "title": "Life on the Mississippi",
+    "authors": [
+      "Mark Twain"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/245.html.images"
+  },
+  {
+    "idBook": 108,
+    "gutenbergId": 3176,
+    "title": "The Innocents Abroad",
+    "authors": [
+      "Mark Twain"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/3176.html.images"
+  },
+  {
+    "idBook": 109,
+    "gutenbergId": 550,
+    "title": "Silas Marner",
+    "authors": [
+      "George Eliot"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/550.html.images"
+  },
+  {
+    "idBook": 110,
+    "gutenbergId": 2048,
+    "title": "The Sketch-Book of Geoffrey Crayon",
+    "authors": [
+      "Washington Irving"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/2048.html.images"
+  },
+  {
+    "idBook": 111,
+    "gutenbergId": 416,
+    "title": "Winesburg, Ohio: A Group of Tales of Ohio Small Town Life",
+    "authors": [
+      "Sherwood Anderson"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/416.html.images"
+  },
+  {
+    "idBook": 112,
+    "gutenbergId": 543,
+    "title": "Main Street",
+    "authors": [
+      "Sinclair Lewis"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/543.html.images"
+  },
+  {
+    "idBook": 113,
+    "gutenbergId": 1156,
+    "title": "Babbitt",
+    "authors": [
+      "Sinclair Lewis"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/1156.html.images"
+  },
+  {
+    "idBook": 114,
+    "gutenbergId": 233,
+    "title": "Sister Carrie: A Novel",
+    "authors": [
+      "Theodore Dreiser"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/233.html.images"
+  },
+  {
+    "idBook": 115,
+    "gutenbergId": 209,
+    "title": "The Turn of the Screw",
+    "authors": [
+      "Henry James"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/209.html.images"
+  },
+  {
+    "idBook": 116,
+    "gutenbergId": 208,
+    "title": "Daisy Miller: A Study",
+    "authors": [
+      "Henry James"
+    ],
+    "linkFullText": "https://www.gutenberg.org/ebooks/208.html.images"
   }
 ]
