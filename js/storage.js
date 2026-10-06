@@ -1,15 +1,15 @@
 export function readJsonStrict(key, fallback) {
     const RAW = localStorage.getItem(key);
-    return RAW === null ? fallback : JSON.parse(RAW);   // may throw
-}
+    return RAW === null ? fallback : JSON.parse(RAW);
+};
 
 export function readJson(key, fallback) {
     try {
         return readJsonStrict(key, fallback);
     } catch {
         return fallback;
-    }
-}
+    };
+};
 
 export function writeJson(key, value) {
     try {

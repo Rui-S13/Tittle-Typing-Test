@@ -152,27 +152,26 @@ export function handleInput(input) {
 
     updateStats();
 
-    /*     const QUOTE_LENGTH = TEST_QUOTE.querySelectorAll("span").length;
-        if (input.length >= QUOTE_LENGTH) {
-            finishTest();
-        }; */
+    const QUOTE_LENGTH = TEST_QUOTE.querySelectorAll("span").length;
+    if (input.length >= QUOTE_LENGTH) {
+        finishTest();
+    };
 };
 
 function finishTest() {
     testFinished = true;
-    
-    const END_STATS = {...STATS};
-    const SAVE = saveTest(END_STATS);
 
-    if (!SAVE) {
-        updateGuide("failedSave");
-    };
-
+    clearInterval(intervalId);
     if (timerCountdown === 0) {
         updateState("finished-timer");
     } else {
         updateState("finished");
     };
 
+    const END_STATS = { ...STATS };
+    const SAVE = saveTest(END_STATS);
 
+    if (!SAVE) {
+        updateGuide("failedSave");
+    };
 };
