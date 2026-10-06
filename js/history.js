@@ -1,11 +1,9 @@
 import { readSessionJson } from "./storage.js";
 
-const TEST_HISTORY_TABLE = document.querySelector("#test-history-table");
+const TEST_HISTORY_BODY = document.querySelector("#test-history-body");
 
 export function updateHistory() {
-    while (TEST_HISTORY_TABLE.rows.length > 1) {
-        TEST_HISTORY_TABLE.deleteRow(1);
-    };
+    TEST_HISTORY_BODY.innerHTML = "";
 
     const ARRAY_TESTS = readSessionJson("tests");
     ARRAY_TESTS.sort((a, b) => b.endTime - a.endTime);
@@ -19,14 +17,14 @@ export function updateHistory() {
 
         HISTORY_RECORD.innerHTML = `
             <td>
-                ${DATE.getDate()}/${DATE.getMonth() + 1}/${DATE.getFullYear()}
-                ${DATE.getHours()}:${MINUTES}
+                ${DATE.getDate()}/${DATE.getMonth() + 1}/${DATE.getFullYear()} - 
+                ${DATE.getHours()}:${MINUTES }
             </td>
             <td>${test.wpm}</td>
             <td>${test.accuracy}</td>
             <td>${test.mistakes}</td>
 `;
 
-        TEST_HISTORY_TABLE.appendChild(HISTORY_RECORD);
+        TEST_HISTORY_BODY.appendChild(HISTORY_RECORD);
     });
 };

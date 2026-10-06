@@ -11,6 +11,7 @@ import { updateHistory } from "./history.js";
 
 const TEST_QUOTE = document.querySelector("#test-quote");
 const TEST_INPUT = document.querySelector("#test-input");
+const TYPING_TEST = document.querySelector("#typing-test");
 const STAT_VALUES = document.querySelectorAll(".stat-value");
 const WPM_VALUE = document.querySelector("#wpm");
 const ACCURACY_VALUE = document.querySelector("#accuracy");
@@ -73,6 +74,8 @@ function resetValues() {
     STATS.mistakes = 0;
     STATS.wpm = 0;
     STATS.accuracy = 0;
+
+    TYPING_TEST.className = "";
 };
 
 function startTest() {
@@ -80,6 +83,8 @@ function startTest() {
     testStarted = true;
 
     updateState("ongoing");
+
+    TYPING_TEST.className = "typing-test-ongoing";
 
     timerCountdown = SETTINGS.timer;
     updateTimer(timerCountdown);
@@ -163,6 +168,7 @@ export async function handleInput(input) {
 };
 
 function finishTest() {
+    TYPING_TEST.className = "typing-test-finished";
     testFinished = true;
     STATS.endTime = Date.now();
 

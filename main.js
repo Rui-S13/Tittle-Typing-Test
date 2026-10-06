@@ -3,11 +3,13 @@ import { saveSettings,  loadSettings } from "./js/settings.js";
 import { refreshTest, handleInput } from "./js/test.js";
 import { hideGuide, updateGuide } from "./js/guide.js";
 import { loadSounds } from "./js/sound.js";
+import { updateHistory } from "./js/history.js";
 
 loadDarkMode();
 loadSettings();
 await loadSounds();
 refreshTest();
+updateHistory();
 
 const BODY = document.querySelector("body");
 const BTN_DARK_MODE = document.querySelector("#btn-dark-mode");
