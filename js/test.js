@@ -2,6 +2,7 @@ import { getSettings } from "./settings.js";
 import { resetQuote, updateQuote } from "./quotes.js";
 import { updateGuide, hideGuide } from "./guide.js";
 import { calculateWPM, calculateAccuracy } from "./calculations.js";
+import { updateState } from "./state.js";
 
 
 const TEST_QUOTE = document.querySelector("#test-quote");
@@ -30,6 +31,7 @@ const STATS = {
 
 export async function refreshTest() {
     resetQuote();
+    updateState("awaiting");
     TEST_INPUT.value = "";
     testFailed = false;
 
@@ -67,6 +69,8 @@ function startTest() {
 
     STATS.startTime = Date.now();
     testStarted = true;
+
+    updateState("ongoing");
 
     intervalId = setInterval(tick, 1000);
 };
