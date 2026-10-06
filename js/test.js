@@ -3,6 +3,7 @@ import { resetQuote, updateQuote } from "./quotes.js";
 import { updateGuide, hideGuide } from "./guide.js";
 import { calculateWPM, calculateAccuracy } from "./calculations.js";
 import { updateState } from "./state.js";
+import { updateTimer } from "./timer.js";
 
 
 const TEST_QUOTE = document.querySelector("#test-quote");
@@ -16,6 +17,7 @@ const MISTAKES_VALUE = document.querySelector("#mistakes");
 export let testFailed = false;
 export let testStarted = false;
 let intervalId = null;
+let timerCountdown = null;
 const SETTINGS = {
     timer: false,
     sound: false
@@ -50,6 +52,13 @@ export async function refreshTest() {
 function resetValues() {
     STAT_VALUES.forEach((stat) => stat.textContent = "---");
 
+    clearInterval(intervalId);
+    const CURRENT_SETTINGS = getSettings();
+    SETTINGS.timer = CURRENT_SETTINGS.timer;
+    SETTINGS.sound = CURRENT_SETTINGS.sound;
+    timerCountdown = SETTINGS.timer;
+    updateTimer(timerCountdown);
+
     testFailed = false;
     testStarted = false;
 
@@ -58,26 +67,24 @@ function resetValues() {
     STATS.mistakes = 0;
     STATS.wpm = 0;
     STATS.accuracy = 0;
-
-    clearInterval(intervalId);
 };
 
 function startTest() {
-    const CURRENT_SETTINGS = getSettings();
-    SETTINGS.timer = CURRENT_SETTINGS.timer;
-    SETTINGS.sound = CURRENT_SETTINGS.sound;
-
     STATS.startTime = Date.now();
     testStarted = true;
 
     updateState("ongoing");
 
-    intervalId = setInterval(tick, 1000);
+    timerCountdown = SETTINGS.timer;
+    updateTimer(timerCountdown);
+    if (timerCountdown !== "false") {
+        intervalId = setInterval(tick, 1000);
+    };
 };
 
 function tick() {
-    updateStats();
-    // the timer check goes here later
+    timerCountdown--
+    updateTimer(timerCountdown);
 };
 
 function processInput(input) {

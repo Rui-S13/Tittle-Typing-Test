@@ -1,5 +1,5 @@
 import { loadDarkMode, toggleDarkMode } from "./js/darkMode.js";
-import { saveSettings, updateTimerStart, loadSettings } from "./js/settings.js";
+import { saveSettings,  loadSettings } from "./js/settings.js";
 import { refreshTest, handleInput } from "./js/test.js";
 import { hideGuide, updateGuide } from "./js/guide.js";
 
@@ -62,6 +62,5 @@ SETTING_INPUTS.forEach((option) => {
         saveSettings();
         refreshTest();
         TEST_INPUT.focus();
-        updateTimerStart();
     });
 });
