@@ -1,19 +1,42 @@
-export function readJsonStrict(key, fallback) {
+export function readLocalJsonStrict(key, fallback) {
     const RAW = localStorage.getItem(key);
     return RAW === null ? fallback : JSON.parse(RAW);
 };
 
-export function readJson(key, fallback) {
+export function readLocalJson(key, fallback) {
     try {
-        return readJsonStrict(key, fallback);
+        return readLocalJsonStrict(key, fallback);
     } catch {
         return fallback;
     };
 };
 
-export function writeJson(key, value) {
+export function writeLocalJson(key, value) {
     try {
         localStorage.setItem(key, JSON.stringify(value));
+        return true;
+    } catch (error) {
+        console.error(`Failed to save "${key}":`, error);
+        return false;
+    };
+};
+
+export function readSessionJsonStrict(key, fallback) {
+    const RAW = sessionStorage.getItem(key);
+    return RAW === null ? fallback : JSON.parse(RAW);
+};
+
+export function readSessionJson(key, fallback) {
+    try {
+        return readSessionJsonStrict(key, fallback);
+    } catch {
+        return fallback;
+    };
+};
+
+export function writeSessionJson(key, value) {
+    try {
+        sessionStorage.setItem(key, JSON.stringify(value));
         return true;
     } catch (error) {
         console.error(`Failed to save "${key}":`, error);
@@ -25,7 +48,7 @@ export function saveTest(test) {
     let storedTests;
 
     try {
-        storedTests = readJsonStrict("tests", []);
+        storedTests = readSessionJsonStrict("tests", []);
     } catch (error) {
         console.error("Could not read the saved tests, so nothing was saved:", error);
         return false;
@@ -36,5 +59,5 @@ export function saveTest(test) {
         return false;
     };
 
-    return writeJson("tests", [...storedTests, test]);
+    return writeSessionJson("tests", [...storedTests, test]);
 };
