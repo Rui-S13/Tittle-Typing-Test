@@ -6,6 +6,7 @@ import { updateState } from "./state.js";
 import { updateTimer } from "./timer.js";
 import { saveTest } from "./storage.js";
 import { playSound } from "./sound.js";
+import { updateHistory } from "./history.js";
 
 
 const TEST_QUOTE = document.querySelector("#test-quote");
@@ -27,6 +28,7 @@ const SETTINGS = {
 };
 const STATS = {
     startTime: null,
+    endTime: null,
     keystrokes: 0,
     mistakes: 0,
     wpm: 0,
@@ -66,6 +68,7 @@ function resetValues() {
     testFinished = false;
 
     STATS.startTime = null;
+    STATS.endTime = null;
     STATS.keystrokes = 0;
     STATS.mistakes = 0;
     STATS.wpm = 0;
@@ -161,6 +164,7 @@ export async function handleInput(input) {
 
 function finishTest() {
     testFinished = true;
+    STATS.endTime = Date.now();
 
     clearInterval(intervalId);
     if (timerCountdown === 0) {
@@ -175,4 +179,6 @@ function finishTest() {
     if (!SAVE) {
         updateGuide("failedSave");
     };
+
+    updateHistory();
 };
