@@ -1,11 +1,11 @@
-import { readJson, writeJson } from "./storage.js";
+import { readLocalJson, writeLocalJson } from "./storage.js";
 
 const KEY = "darkMode"
 const DEFAULT = "false";
 const BODY = document.querySelector("body")
 
 export function loadDarkMode() {
-    const CURRENT_MODE = readJson(KEY, DEFAULT);
+    const CURRENT_MODE = readLocalJson(KEY, DEFAULT);
 
     if (CURRENT_MODE === "true") {
         document.body.classList.add("dark-mode");
@@ -19,5 +19,5 @@ export function toggleDarkMode() {
         ? "true"
         : "false";
 
-    writeJson(KEY, MODE);
+    writeLocalJson(KEY, MODE);
 };

@@ -13,8 +13,9 @@ export function updateState(option) {
         case ("finished"):
             message = "Finished";
             break;
-        case ("finisehd-timer"):
-            message = "Finished (Timer's up)"
+        case ("finished-timer"):
+            message = "Finished (Timer's up)";
+            break;
         default:
             message = "";
             break;

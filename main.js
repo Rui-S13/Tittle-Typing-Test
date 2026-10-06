@@ -29,12 +29,10 @@ TEST_AREA.addEventListener("mousedown", (event) => {
 
 TEST_INPUT.addEventListener("focus", () => {
     hideGuide();
-    TEST_QUOTE.classList.remove("quote-blurred");
 });
 
 TEST_INPUT.addEventListener("blur", () => {
     updateGuide("lostFocus");
-    TEST_QUOTE.classList.add("quote-blurred");
 });
 
 BODY.addEventListener("keydown", (event) => {

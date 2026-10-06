@@ -4,6 +4,7 @@ import { updateGuide, hideGuide } from "./guide.js";
 import { calculateWPM, calculateAccuracy } from "./calculations.js";
 import { updateState } from "./state.js";
 import { updateTimer } from "./timer.js";
+import { saveTest } from "./storage.js";
 
 
 const TEST_QUOTE = document.querySelector("#test-quote");
@@ -14,8 +15,9 @@ const ACCURACY_VALUE = document.querySelector("#accuracy");
 const MISTAKES_VALUE = document.querySelector("#mistakes");
 
 
-export let testFailed = false;
-export let testStarted = false;
+let testFailed = false;
+let testStarted = false;
+let testFinished = false;
 let intervalId = null;
 let timerCountdown = null;
 const SETTINGS = {
@@ -35,7 +37,6 @@ export async function refreshTest() {
     resetQuote();
     updateState("awaiting");
     TEST_INPUT.value = "";
-    testFailed = false;
 
     try {
         resetValues();
@@ -61,6 +62,7 @@ function resetValues() {
 
     testFailed = false;
     testStarted = false;
+    testFinished = false;
 
     STATS.startTime = null;
     STATS.keystrokes = 0;
@@ -85,6 +87,10 @@ function startTest() {
 function tick() {
     timerCountdown--
     updateTimer(timerCountdown);
+
+    if (timerCountdown === 0) {
+        finishTest();
+    };
 };
 
 function processInput(input) {
@@ -118,24 +124,6 @@ function processInput(input) {
     return result;
 };
 
-export function handleInput(input) {
-    if (testFailed) return;
-    if (!testStarted) startTest();
-
-    const RESULT = processInput(input);
-
-    /*     if (RESULT && getSettings().sound === "true") {
-            playSound(RESULT);
-        }; */
-
-    updateStats();
-
-    /*     const QUOTE_LENGTH = TEST_QUOTE.querySelectorAll("span").length;
-        if (input.length >= QUOTE_LENGTH) {
-            endTest();
-        }; */
-};
-
 function updateStats() {
     const CORRECT_CHARS = TEST_QUOTE.querySelectorAll(".char-correct").length;
 
@@ -149,4 +137,41 @@ function displayStats() {
     WPM_VALUE.textContent = `${STATS.wpm}`;
     ACCURACY_VALUE.textContent = `${STATS.accuracy}`;
     MISTAKES_VALUE.textContent = `${STATS.mistakes}`;
+};
+
+export function handleInput(input) {
+    if (testFailed) return;
+    if (!testStarted) startTest();
+    if (testFinished) return;
+
+    const RESULT = processInput(input);
+
+    /*     if (RESULT && getSettings().sound === "true") {
+            playSound(RESULT);
+        }; */
+
+    updateStats();
+
+    const QUOTE_LENGTH = TEST_QUOTE.querySelectorAll("span").length;
+    if (input.length >= QUOTE_LENGTH) {
+        finishTest();
+    };
+};
+
+function finishTest() {
+    testFinished = true;
+
+    clearInterval(intervalId);
+    if (timerCountdown === 0) {
+        updateState("finished-timer");
+    } else {
+        updateState("finished");
+    };
+
+    const END_STATS = { ...STATS };
+    const SAVE = saveTest(END_STATS);
+
+    if (!SAVE) {
+        updateGuide("failedSave");
+    };
 };
