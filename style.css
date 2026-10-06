@@ -24,10 +24,11 @@
     --accent-color: #2F5D8A;
     --muted-color: #737373;
     --error-color: #C4402F;
+    --success-color: #50C878;
     --muted-error-color: #c4402f88;
 
     --border-radius: 8px;
-    --broder-weight: 1px;
+    --border-weight: 1px;
 
     --font-weight-light: 400;
     --font-weight-regular: 500;
@@ -74,7 +75,7 @@ header {
     padding: 0px 30px;
 
     background-color: var(--background-color);
-    border-bottom: solid var(--border-color) var(--broder-weight);
+    border-bottom: solid var(--border-color) var(--border-weight);
 }
 
 #logo-container {
@@ -108,7 +109,7 @@ header {
     width: auto;
     padding: 0px 10px;
 
-    border: solid var(--primary-color) var(--broder-weight);
+    border: solid var(--primary-color) var(--border-weight);
     border-radius: var(--border-radius);
     background-color: var(--primary-color);
     color: var(--background-color)
@@ -136,7 +137,7 @@ header {
     height: 36px;
     width: 36px;
 
-    border: solid var(--primary-color) var(--broder-weight);
+    border: solid var(--primary-color) var(--border-weight);
     border-radius: var(--border-radius);
     background-color: var(--background-color);
     color: var(--primary-color);
@@ -189,14 +190,12 @@ main h3 {
     margin-bottom: 10px;
 }
 
-#test-area,
-#test-status,
-#test-settings,
-#test-history {
+section {
     padding: 30px;
-    border: solid var(--border-color) var(--broder-weight);
+    border: solid var(--border-color) var(--border-weight);
     border-radius: var(--border-radius);
     background-color: var(--surface-color);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.08);
 }
 
 
@@ -216,6 +215,14 @@ main h3 {
         "quote-info btn-refresh";
 
     width: 100%;
+}
+
+.typing-test-ongoing {
+    border: solid var(--primary-color) var(--border-weight);
+}
+
+.typing-test-finished {
+    box-shadow: inset 0 0 0 3px var(--accent-color);
 }
 
 #test-area {
@@ -295,10 +302,10 @@ main h3 {
     min-height: 50px;
     padding: 4px;
 
-    border: solid var(--primary-color) var(--broder-weight);
+    border: solid var(--muted-color) var(--border-weight);
     border-radius: var(--border-radius);
     background-color: var(--background-color);
-    color: var(--primary-color);
+    color: var(--muted-color);
 
     cursor: pointer;
 }
@@ -355,8 +362,19 @@ main h3 {
 }
 
 #test-state {
+    font-size: 1.1rem;
+}
+
+.state-awaiting {
     color: var(--muted-color);
-    font-size: 0.9rem;
+}
+
+.state-ongoing {
+    color: var(--accent-color);
+}
+
+.state-finished {
+    color: var(--success-color);
 }
 
 #timer {
@@ -384,7 +402,7 @@ main h3 {
     justify-content: space-around;
 
     padding-top: 20px;
-    border-top: solid var(--border-color) var(--broder-weight);
+    border-top: solid var(--border-color) var(--border-weight);
 }
 
 .stat {
@@ -435,7 +453,7 @@ main h3 {
 .btn-setting {
     padding: 6px 12px;
 
-    border: solid var(--border-color) var(--broder-weight);
+    border: solid var(--border-color) var(--border-weight);
     border-radius: var(--border-radius);
     background-color: transparent;
     color: var(--muted-color);
@@ -473,26 +491,36 @@ input[type="radio"]:focus-visible+.btn-setting {
 #test-history {
     grid-area: test-history;
 
-    list-style-type: none;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
     width: 100%;
-}
-
-#test-history-container {
-    width: 100%;
-    max-height: 200px;
-    overflow-y: auto;
 }
 
 #test-history-table {
     width: 100%;
-    max-height: 200px;
     table-layout: fixed;
-    overflow: scroll;
+}
+
+#test-history-table thead,
+#test-history-table tbody {
+    display: block;
+}
+
+#test-history-table thead {
+    display: table;
+    width: calc(100% - 15px);
+    table-layout: fixed;
+}
+
+#test-history-table tbody {
+    max-height: 500px;
+    overflow-y: auto;
+
+    scrollbar-color: var(--primary-color) var(--surface-color);
+}
+
+#test-history-table tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
 }
 
 #test-history-table th,
@@ -503,13 +531,12 @@ input[type="radio"]:focus-visible+.btn-setting {
 }
 
 #test-history-table th {
-    position: sticky;
-    top: 0;
-
-    border-bottom: solid var(--broder-weight) var(--border-color);
+    border-bottom: solid var(--border-weight) var(--border-color);
+    background-color: var(--surface-color);
     font-weight: var(--font-weight-regular);
     font-size: 1.2rem;
 }
+
 
 /* ==================================================
    FOOTER
@@ -524,7 +551,7 @@ footer {
     width: 100%;
     padding: 32px 24px;
 
-    border-top: solid var(--broder-weight) var(--border-color);
+    border-top: solid var(--border-weight) var(--border-color);
     background: var(--background-color);
 
     color: var(--muted-color);
@@ -568,7 +595,7 @@ footer {
 
 .footer-links a+a,
 .footer-links a+button {
-    border-left: solid var(--border-color) var(--broder-weight);
+    border-left: solid var(--border-color) var(--border-weight);
     padding-left: 24px;
 }
 
@@ -580,7 +607,7 @@ footer {
 .footer-small {
     margin-top: 10px;
     padding-top: 10px;
-    border-top: solid var(--border-color) var(--broder-weight);
+    border-top: solid var(--border-color) var(--border-weight);
 
     font-size: 0.8125rem;
 }
