@@ -60,6 +60,8 @@ TEST_INPUT.addEventListener("input", () => {
 SETTING_INPUTS.forEach((option) => {
     option.addEventListener("change", () => {
         saveSettings();
+        refreshTest();
+        TEST_INPUT.focus();
         updateTimerStart();
     });
 });
