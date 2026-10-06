@@ -2,9 +2,11 @@ import { loadDarkMode, toggleDarkMode } from "./js/darkMode.js";
 import { saveSettings,  loadSettings } from "./js/settings.js";
 import { refreshTest, handleInput } from "./js/test.js";
 import { hideGuide, updateGuide } from "./js/guide.js";
+import { loadSounds } from "./js/sound.js";
 
 loadDarkMode();
 loadSettings();
+await loadSounds();
 refreshTest();
 
 const BODY = document.querySelector("body");
