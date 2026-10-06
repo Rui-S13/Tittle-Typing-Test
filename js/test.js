@@ -5,6 +5,7 @@ import { calculateWPM, calculateAccuracy } from "./calculations.js";
 import { updateState } from "./state.js";
 import { updateTimer } from "./timer.js";
 import { saveTest } from "./storage.js";
+import { playSound } from "./sound.js";
 
 
 const TEST_QUOTE = document.querySelector("#test-quote");
@@ -139,16 +140,16 @@ function displayStats() {
     MISTAKES_VALUE.textContent = `${STATS.mistakes}`;
 };
 
-export function handleInput(input) {
+export async function handleInput(input) {
     if (testFailed) return;
     if (!testStarted) startTest();
     if (testFinished) return;
 
     const RESULT = processInput(input);
 
-    /*     if (RESULT && getSettings().sound === "true") {
-            playSound(RESULT);
-        }; */
+    if (RESULT && getSettings().sound === "true") {
+        await playSound(RESULT);
+    };
 
     updateStats();
 
