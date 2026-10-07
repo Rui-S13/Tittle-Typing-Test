@@ -234,7 +234,7 @@ section {
     position: relative;
 
     width: 100%;
-    height: 400px;
+    height: 440px;
     overflow-y: auto;
 
     scrollbar-width: none;
@@ -712,12 +712,13 @@ footer {
     }
 
     #test-status {
-        display: grid;
-        grid-template-columns: 100px 1fr 1fr;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
 
         min-height: 50px;
-
-        text-wrap: wrap;
     }
 
     #test-header {
@@ -739,6 +740,7 @@ footer {
         align-items: center;
         justify-content: center;
         gap: 5px;
+        width: auto;
     }
 
     #wpm {
