@@ -24,7 +24,7 @@
     --accent-color: #2F5D8A;
     --muted-color: #737373;
     --error-color: #C4402F;
-    --muted-error-color: #c4402f88;
+    --muted-error-color: #c4402f67;
     --success-color: #2F7D5A;
 
     --border-radius: 8px;
@@ -43,7 +43,7 @@
     --accent-color: #7AA7D6;
     --muted-color: #8A8A8E;
     --error-color: #F87171;
-    --muted-error-color: #f871719b;
+    --muted-error-color: #f8717160;
     --success-color: #6FCF97;
 }
 
@@ -507,9 +507,16 @@ input[type="radio"]:focus-visible+.btn-setting {
     width: 100%;
 }
 
-#test-history-table {
+#history-table-container {
     width: 100%;
+    overflow-x: auto;
+    scrollbar-color: var(--primary-color) var(--surface-color);
+}
+
+#test-history-table {
+    width: max(500px, 100%);
     table-layout: fixed;
+    overflow-x: auto;
 }
 
 #test-history-table thead,
