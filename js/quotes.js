@@ -74,11 +74,13 @@ export async function updateQuote() {
     const QUOTE = await getQuote();
 
     QUOTE.text.split('').forEach((char, i) => {
-        const charSpan = document.createElement('span');
-        charSpan.classList.add("char", "char-idle");
-        if (i === 0) charSpan.classList.add("char-current");
-        charSpan.innerText = char;
-        TEST_QUOTE.appendChild(charSpan);
+        const CHAR_SPAN = document.createElement('span');
+        CHAR_SPAN.classList.add("char", "char-idle");
+        if (i === 0) {
+            CHAR_SPAN.classList.add("char-current");
+        };
+        CHAR_SPAN.innerText = char;
+        TEST_QUOTE.appendChild(CHAR_SPAN);
     });
 
     QUOTE_AUTHOR.textContent = QUOTE.authors;
