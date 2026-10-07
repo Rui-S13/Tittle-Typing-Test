@@ -94,6 +94,8 @@ function startTest() {
 };
 
 function tick() {
+    updateStats();
+        
     timerCountdown--
     updateTimer(timerCountdown);
 
@@ -179,6 +181,7 @@ function finishTest() {
         updateState("finished");
     };
 
+    updateStats();
     const END_STATS = { ...STATS };
     const SAVE = saveTest(END_STATS);
 
