@@ -95,7 +95,7 @@ function startTest() {
 
 function tick() {
     updateStats();
-        
+
     timerCountdown--
     updateTimer(timerCountdown);
 
@@ -140,8 +140,6 @@ function updateStats() {
 
     STATS.wpm = calculateWPM(CORRECT_CHARS, STATS.startTime, Date.now());
     STATS.accuracy = calculateAccuracy(STATS.keystrokes, STATS.mistakes);
-
-    displayStats();
 };
 
 function displayStats() {
@@ -162,6 +160,7 @@ export async function handleInput(input) {
     };
 
     updateStats();
+    displayStats();
 
     const QUOTE_LENGTH = TEST_QUOTE.querySelectorAll("span").length;
     if (input.length >= QUOTE_LENGTH) {
@@ -182,6 +181,7 @@ function finishTest() {
     };
 
     updateStats();
+    displayStats();
     const END_STATS = { ...STATS };
     const SAVE = saveTest(END_STATS);
 

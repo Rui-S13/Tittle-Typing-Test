@@ -24,8 +24,8 @@
     --accent-color: #2F5D8A;
     --muted-color: #737373;
     --error-color: #C4402F;
-    --success-color: #50C878;
     --muted-error-color: #c4402f88;
+    --success-color: #2F7D5A;
 
     --border-radius: 8px;
     --border-weight: 1px;
@@ -44,6 +44,7 @@
     --muted-color: #8A8A8E;
     --error-color: #F87171;
     --muted-error-color: #f871719b;
+    --success-color: #6FCF97;
 }
 
 body {
@@ -224,7 +225,7 @@ section {
 }
 
 .typing-test-finished {
-    box-shadow: inset 0 0 0 3px var(--accent-color);
+    box-shadow: inset 0 0 0 3px var(--success-color);
 }
 
 #test-area {
@@ -263,6 +264,7 @@ section {
 
 #test-quote {
     font-size: 1.3rem;
+    letter-spacing: 1.5px;
 }
 
 .quote-blurred {
@@ -541,6 +543,10 @@ input[type="radio"]:focus-visible+.btn-setting {
     font-size: 1.2rem;
 }
 
+#test-history-table td {
+    letter-spacing: 2px;
+}
+
 
 /* ==================================================
    FOOTER
@@ -637,7 +643,6 @@ footer {
 
 .char {
     font-size: 1.3rem;
-    width: 10px;
 }
 
 .char-idle {
