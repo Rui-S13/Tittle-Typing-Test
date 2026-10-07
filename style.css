@@ -24,7 +24,7 @@
     --accent-color: #2F5D8A;
     --muted-color: #737373;
     --error-color: #C4402F;
-    --muted-error-color: #c4402f88;
+    --muted-error-color: #c4402f67;
     --success-color: #2F7D5A;
 
     --border-radius: 8px;
@@ -43,7 +43,7 @@
     --accent-color: #7AA7D6;
     --muted-color: #8A8A8E;
     --error-color: #F87171;
-    --muted-error-color: #f871719b;
+    --muted-error-color: #f8717160;
     --success-color: #6FCF97;
 }
 
@@ -234,7 +234,10 @@ section {
     position: relative;
 
     width: 100%;
-    min-height: 400px;
+    height: 440px;
+    overflow-y: auto;
+
+    scrollbar-width: none;
 
     color: var(--muted-color);
     text-align: justify;
@@ -242,6 +245,10 @@ section {
     line-height: 40px;
 
     border-bottom: solid var(--border-color) var(--border-weight);
+}
+
+#test-area::-webkit-scrollbar {
+    display: none;
 }
 
 #test-guide {
@@ -500,9 +507,16 @@ input[type="radio"]:focus-visible+.btn-setting {
     width: 100%;
 }
 
-#test-history-table {
+#history-table-container {
     width: 100%;
+    overflow-x: auto;
+    scrollbar-color: var(--primary-color) var(--surface-color);
+}
+
+#test-history-table {
+    width: max(500px, 100%);
     table-layout: fixed;
+    overflow-x: auto;
 }
 
 #test-history-table thead,
@@ -674,5 +688,92 @@ footer {
 @keyframes blink {
     50% {
         box-shadow: -2px 0 0 transparent;
+    }
+}
+
+
+/* ==================================================
+   RESPONSIVENESS
+   ================================================== */
+
+@media (max-width: 975px) {
+
+    main {
+        display: grid;
+        grid-template-columns: 90%;
+        grid-template-areas:
+            "test-status"
+            "typing-test"
+            "test-settings"
+            "test-history";
+        gap: 20px;
+
+        justify-content: center;
+    }
+
+    #test-status {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+
+        min-height: 50px;
+    }
+
+    #test-header {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        gap: 10px;
+    }
+
+    #test-state {
+        text-align: center;
+    }
+
+    #wpm-display {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+        width: auto;
+    }
+
+    #wpm {
+        font-size: 1.5rem;
+        font-weight: var(--font-weight-bold);
+    }
+
+    #test-stats {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+
+        padding-top: 0px;
+        border-top: none;
+    }
+
+    .stat {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .stat-label {
+        color: var(--muted-color);
+        font-size: 0.9rem;
+    }
+
+    #wpm,
+    #timer,
+    .stat-value {
+        font-variant-numeric: tabular-nums;
     }
 }

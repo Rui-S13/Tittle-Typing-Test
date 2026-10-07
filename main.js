@@ -1,9 +1,11 @@
 import { loadDarkMode, toggleDarkMode } from "./js/darkMode.js";
-import { saveSettings, loadSettings } from "./js/settings.js";
+import { saveSettings, getSettings, loadSettings } from "./js/settings.js";
 import { refreshTest, handleInput } from "./js/test.js";
 import { hideGuide, updateGuide } from "./js/guide.js";
 import { loadSounds } from "./js/sound.js";
 import { updateHistory } from "./js/history.js";
+import { scrollTest } from "./js/testScroll.js";
+import { updateTimer } from "./js/timer.js";
 
 loadDarkMode();
 loadSettings();
@@ -43,9 +45,8 @@ TEST_INPUT.addEventListener("blur", () => {
 
 BODY.addEventListener("keydown", (event) => {
     if (event.key === "Escape") {
-        TYPING_TEST.scrollIntoView({
-            behavior: "smooth",
-            block: "start",
+        window.scrollTo({
+            top: 0
         });
         TEST_INPUT.focus();
         refreshTest();
@@ -57,29 +58,26 @@ BTN_REFRESH.addEventListener("mousedown", (event) => {
 });
 
 BTN_REFRESH.addEventListener("click", () => {
-    TYPING_TEST.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
+    window.scrollTo({
+        top: 0
     });
     refreshTest();
     TEST_INPUT.focus();
 });
 
 TEST_INPUT.addEventListener("input", () => {
-    TYPING_TEST.scrollIntoView({
-        block: "start",
-    });
     handleInput(TEST_INPUT.value);
+    scrollTest();
 });
 
 SETTING_INPUTS.forEach((option) => {
     option.addEventListener("change", () => {
         saveSettings();
-        TYPING_TEST.scrollIntoView({
-            behavior: "smooth",
-            block: "start",
+        const SETTINGS = getSettings();
+        updateTimer(SETTINGS.timer);
+        window.scrollTo({
+            top: 0
         });
-        refreshTest();
         TEST_INPUT.focus();
     });
 });

@@ -185,6 +185,10 @@ function finishTest() {
     const END_STATS = { ...STATS };
     const SAVE = saveTest(END_STATS);
 
+    window.scrollTo({
+        top: 0
+    });
+
     if (!SAVE) {
         updateGuide("failedSave");
     };
