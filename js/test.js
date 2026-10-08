@@ -7,6 +7,7 @@ import { updateTimer } from "./timer.js";
 import { saveLocalTest, saveSessionTest } from "./storage.js";
 import { playSound } from "./sound.js";
 import { updateHistory } from "./history.js";
+import { compareTest, hidePersonalMessage } from "./compareTest.js";
 
 
 const TEST_QUOTE = document.querySelector("#test-quote");
@@ -61,6 +62,7 @@ export async function refreshTest() {
 
 function resetValues() {
     STAT_VALUES.forEach((stat) => stat.textContent = "---");
+    hidePersonalMessage();
 
     clearInterval(intervalId);
 
@@ -197,6 +199,8 @@ function finishTest() {
     updateStats();
     displayStats();
     const END_TEST = { ...TIME, ...STATS, timer: SETTINGS.timer, idQuote: idTestQuote };
+
+    compareTest(END_TEST);
 
     const SAVED_LOCAL = saveLocalTest(END_TEST);
     const SAVED_SESSION = saveSessionTest(END_TEST);
