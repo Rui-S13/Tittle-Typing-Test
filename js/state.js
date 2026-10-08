@@ -12,6 +12,10 @@ export function updateState(option) {
             message = "Ongoing";
             className = "state-ongoing"
             break;
+        case ("cancelled"):
+            message = "Cancelled";
+            className = "state-cancelled";
+            break;
         case ("finished"):
             message = "Finished";
             className = "state-finished"
