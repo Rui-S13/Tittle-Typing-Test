@@ -182,6 +182,7 @@ export async function handleInput(input) {
 
 export function cancelTest() {
     if (!testStarted) return;
+    if (testFinished) return;
     testFinished = true;
 
     TYPING_TEST.className = "typing-test-cancelled";
@@ -191,6 +192,7 @@ export function cancelTest() {
 };
 
 function finishTest() {
+    if (testFinished) return;
     testFinished = true;
 
     TYPING_TEST.className = "typing-test-finished";

@@ -52,6 +52,7 @@ TEST_INPUT.addEventListener("blur", () => {
 
 BODY.addEventListener("keydown", (event) => {
     if (event.key === "Enter") {
+        event.preventDefault();
         window.scrollTo({
             top: 0
         });
