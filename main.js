@@ -1,6 +1,6 @@
 import { loadDarkMode, toggleDarkMode } from "./js/darkMode.js";
 import { saveSettings, loadSettings } from "./js/settings.js";
-import { refreshTest, handleInput, testStarted, resetSettings } from "./js/test.js";
+import { refreshTest, handleInput, testStarted, resetSettings, cancelTest } from "./js/test.js";
 import { hideGuide, updateGuide } from "./js/guide.js";
 import { loadSounds } from "./js/sound.js";
 import { updateHistory } from "./js/history.js";
@@ -18,6 +18,7 @@ const CAPS_WARNING = document.querySelector("#caps-lock-warning-container");
 const TEST_AREA = document.querySelector("#test-area");
 const TEST_INPUT = document.querySelector("#test-input");
 const BTN_REFRESH = document.querySelector("#btn-refresh");
+const BTN_CANCEL = document.querySelector("#btn-cancel");
 const SETTING_INPUTS = document.querySelectorAll(".setting-input");
 const BTN_BACK_TO_TOP = document.querySelector("#btn-back-to-top");
 
@@ -50,12 +51,22 @@ TEST_INPUT.addEventListener("blur", () => {
 });
 
 BODY.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+        window.scrollTo({
+            top: 0
+        });
+        refreshTest()
+        TEST_INPUT.focus();
+    };
+});
+
+BODY.addEventListener("keydown", (event) => {
     if (event.key === "Escape") {
         window.scrollTo({
             top: 0
         });
+        cancelTest();
         TEST_INPUT.focus();
-        refreshTest();
     };
 });
 
@@ -71,12 +82,32 @@ BTN_REFRESH.addEventListener("click", () => {
     TEST_INPUT.focus();
 });
 
+BTN_CANCEL.addEventListener("click", () => {
+    window.scrollTo({
+        top: 0
+    });
+    cancelTest();
+    TEST_INPUT.focus();
+});
+
 document.addEventListener("keydown", checkCapsLock);
 document.addEventListener("keyup", checkCapsLock);
 
-TEST_INPUT.addEventListener("input", () => {
+TEST_INPUT.addEventListener("input", (event) => {
     handleInput(TEST_INPUT.value);
     scrollTest();
+});
+
+TEST_INPUT.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+        event.preventDefault();
+        return;
+    };
+
+    if (event.key === "Escape") {
+        event.preventDefault();
+        return;
+    };
 });
 
 SETTING_INPUTS.forEach((option) => {

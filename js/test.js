@@ -51,7 +51,7 @@ export async function refreshTest() {
         resetValues();
         updateGuide("loading");
         const QUOTE = await updateQuote();
-        idTestQuote = QUOTE.idQuote;
+        idTestQuote = await QUOTE.idQuote;
         hideGuide();
     } catch (error) {
         console.error(error);
@@ -180,9 +180,20 @@ export async function handleInput(input) {
     };
 };
 
-function finishTest() {
-    TYPING_TEST.className = "typing-test-finished";
+export function cancelTest() {
+    if (!testStarted) return;
     testFinished = true;
+
+    TYPING_TEST.className = "typing-test-cancelled";
+    updateState("cancelled");
+
+    clearInterval(intervalId);
+};
+
+function finishTest() {
+    testFinished = true;
+
+    TYPING_TEST.className = "typing-test-finished";
     TIME.endTime = Date.now();
 
     clearInterval(intervalId);

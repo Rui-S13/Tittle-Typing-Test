@@ -248,12 +248,13 @@ section {
     scroll-margin-top: 70px;
 
     display: grid;
-    grid-template-columns: 1fr auto;
+    grid-template-columns: 1fr auto auto;
     grid-template-rows: 1fr auto;
     row-gap: 20px;
+    column-gap: 20px;
     grid-template-areas:
-        "test-area test-area"
-        "quote-info btn-refresh";
+        "test-area test-area test-area"
+        "quote-info btn-refresh btn-cancel";
 
     width: 100%;
 }
@@ -264,6 +265,10 @@ section {
 
 .typing-test-finished {
     box-shadow: inset 0 0 0 3px var(--success-color);
+}
+
+.typing-test-cancelled {
+    box-shadow: inset 0 0 0 3px var(--error-color);
 }
 
 #test-area {
@@ -339,18 +344,17 @@ section {
     font-size: 0.9rem;
 }
 
-#btn-refresh {
-    grid-area: btn-refresh;
+.btn-test-action {
     align-self: start;
 
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 2px;
+    gap: 5px;
 
-    min-width: 50px;
-    min-height: 50px;
+    min-width: 60px;
+    min-height: 60px;
     padding: 4px;
 
     border: solid var(--muted-color) var(--border-weight);
@@ -361,23 +365,31 @@ section {
     cursor: pointer;
 }
 
-#btn-refresh:hover {
+.btn-test-action:hover {
     background-color: var(--primary-color);
     color: var(--background-color);
 }
 
-#btn-refresh:active {
+.btn-test-action:active {
     background-color: var(--accent-color);
     border-color: var(--accent-color);
     color: var(--background-color);
 }
 
-#refresh-icon {
+#btn-refresh {
+    grid-area: btn-refresh;
+}
+
+#btn-cancel {
+    grid-area: btn-cancel;
+}
+
+.action-icon {
     width: 24px;
     height: 24px;
 }
 
-#key-refresh {
+.action-key {
     font-family: inherit;
     font-size: 0.8rem;
     font-weight: var(--font-weight-bold);
@@ -426,6 +438,10 @@ section {
 
 .state-finished {
     color: var(--success-color);
+}
+
+.state-cancelled {
+    color: var(--error-color);
 }
 
 #timer {
