@@ -1,11 +1,10 @@
 import { loadDarkMode, toggleDarkMode } from "./js/darkMode.js";
-import { saveSettings, getSettings, loadSettings } from "./js/settings.js";
+import { saveSettings, loadSettings } from "./js/settings.js";
 import { refreshTest, handleInput, testStarted, resetSettings } from "./js/test.js";
 import { hideGuide, updateGuide } from "./js/guide.js";
 import { loadSounds } from "./js/sound.js";
 import { updateHistory } from "./js/history.js";
 import { scrollTest } from "./js/testScroll.js";
-import { updateTimer } from "./js/timer.js";
 
 loadDarkMode();
 loadSettings();
