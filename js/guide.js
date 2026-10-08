@@ -16,6 +16,7 @@ export function updateGuide(option) {
             break;
         case ("failedSave"):
             message = "Failed to save test"
+            break;
         default:
             message = "";
             break;

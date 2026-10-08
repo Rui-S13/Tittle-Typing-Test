@@ -15,9 +15,7 @@ updateHistory();
 
 const BODY = document.querySelector("body");
 const BTN_DARK_MODE = document.querySelector("#btn-dark-mode");
-const TYPING_TEST = document.querySelector("#typing-test");
 const TEST_AREA = document.querySelector("#test-area");
-const TEST_QUOTE = document.querySelector("#test-quote");
 const TEST_INPUT = document.querySelector("#test-input");
 const BTN_REFRESH = document.querySelector("#btn-refresh");
 const SETTING_INPUTS = document.querySelectorAll(".setting-input");

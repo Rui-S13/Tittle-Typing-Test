@@ -44,13 +44,15 @@ export function writeSessionJson(key, value) {
     };
 };
 
-export function saveTest(test) {
+
+
+export function saveSessionTest(test) {
     let storedTests;
 
     try {
         storedTests = readSessionJsonStrict("tests", []);
     } catch (error) {
-        console.error("Could not read the saved tests, so nothing was saved:", error);
+        console.error("Could not read the saved tests on SessionStorage, so nothing was saved:", error);
         return false;
     };
 
@@ -60,4 +62,22 @@ export function saveTest(test) {
     };
 
     return writeSessionJson("tests", [...storedTests, test]);
+};
+
+export function saveLocalTest(test) {
+    let storedTests;
+
+    try {
+        storedTests = readLocalJsonStrict("tests", []);
+    } catch (error) {
+        console.error("Could not read the saved tests on LocalStorage, so nothing was saved:", error);
+        return false;
+    };
+
+    if (!Array.isArray(storedTests)) {
+        console.error("Saved tests are not a list, so nothing was saved.");
+        return false;
+    };
+
+    return writeLocalJson("tests", [...storedTests, test].slice(-500));
 };

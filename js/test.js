@@ -4,7 +4,7 @@ import { updateGuide, hideGuide } from "./guide.js";
 import { calculateWPM, calculateAccuracy } from "./calculations.js";
 import { updateState } from "./state.js";
 import { updateTimer } from "./timer.js";
-import { saveTest } from "./storage.js";
+import { saveLocalTest, saveSessionTest } from "./storage.js";
 import { playSound } from "./sound.js";
 import { updateHistory } from "./history.js";
 
@@ -21,15 +21,19 @@ const MISTAKES_VALUE = document.querySelector("#mistakes");
 let testFailed = false;
 let testStarted = false;
 let testFinished = false;
+let idTestQuote = null;
 let intervalId = null;
 let timerCountdown = null;
+
 const SETTINGS = {
     timer: false,
     sound: false
 };
-const STATS = {
+const TIME = {
     startTime: null,
     endTime: null,
+}
+const STATS = {
     keystrokes: 0,
     mistakes: 0,
     wpm: 0,
@@ -45,7 +49,8 @@ export async function refreshTest() {
     try {
         resetValues();
         updateGuide("loading");
-        await updateQuote();
+        const QUOTE = await updateQuote();
+        idTestQuote = QUOTE.idQuote;
         hideGuide();
     } catch (error) {
         console.error(error);
@@ -58,6 +63,7 @@ function resetValues() {
     STAT_VALUES.forEach((stat) => stat.textContent = "---");
 
     clearInterval(intervalId);
+
     const CURRENT_SETTINGS = getSettings();
     SETTINGS.timer = CURRENT_SETTINGS.timer;
     SETTINGS.sound = CURRENT_SETTINGS.sound;
@@ -67,9 +73,11 @@ function resetValues() {
     testFailed = false;
     testStarted = false;
     testFinished = false;
+    idTestQuote = null;
 
-    STATS.startTime = null;
-    STATS.endTime = null;
+    TIME.startTime = null;
+    TIME.endTime = null;
+
     STATS.keystrokes = 0;
     STATS.mistakes = 0;
     STATS.wpm = 0;
@@ -79,15 +87,13 @@ function resetValues() {
 };
 
 function startTest() {
-    STATS.startTime = Date.now();
+    TIME.startTime = Date.now();
     testStarted = true;
 
     updateState("ongoing");
 
     TYPING_TEST.className = "typing-test-ongoing";
 
-    timerCountdown = SETTINGS.timer;
-    updateTimer(timerCountdown);
     if (timerCountdown !== "false") {
         intervalId = setInterval(tick, 1000);
     };
@@ -138,7 +144,7 @@ function processInput(input) {
 function updateStats() {
     const CORRECT_CHARS = TEST_QUOTE.querySelectorAll(".char-correct").length;
 
-    STATS.wpm = calculateWPM(CORRECT_CHARS, STATS.startTime, Date.now());
+    STATS.wpm = calculateWPM(CORRECT_CHARS, TIME.startTime, Date.now());
     STATS.accuracy = calculateAccuracy(STATS.keystrokes, STATS.mistakes);
 };
 
@@ -171,7 +177,7 @@ export async function handleInput(input) {
 function finishTest() {
     TYPING_TEST.className = "typing-test-finished";
     testFinished = true;
-    STATS.endTime = Date.now();
+    TIME.endTime = Date.now();
 
     clearInterval(intervalId);
     if (timerCountdown === 0) {
@@ -180,16 +186,17 @@ function finishTest() {
         updateState("finished");
     };
 
-    updateStats();
-    displayStats();
-    const END_STATS = { ...STATS };
-    const SAVE = saveTest(END_STATS);
-
     window.scrollTo({
         top: 0
     });
 
-    if (!SAVE) {
+    updateStats();
+    displayStats();
+    const END_TEST = { ...TIME, ...STATS, timer: SETTINGS.timer, idQuote: idTestQuote };
+
+    const SAVED_LOCAL = saveLocalTest(END_TEST);
+    const SAVED_SESSION = saveSessionTest(END_TEST);
+    if (!SAVED_LOCAL || !SAVED_SESSION) {
         updateGuide("failedSave");
     };
 
