@@ -331,13 +331,23 @@ section {
     padding: 0px 20px;
 }
 
-#quote-author {
+#quote-book {
+    color: var(--primary-color);
+    text-decoration: none;
     text-wrap: wrap;
     font-style: italic;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
+
+    cursor: pointer;
 }
 
-#quote-book {
+#quote-book:hover,
+#quote-book:focus-visible {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
+
+#quote-author {
     color: var(--muted-color);
     text-wrap: wrap;
     font-style: italic;

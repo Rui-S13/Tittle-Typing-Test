@@ -61,7 +61,8 @@ async function getQuote() {
         idQuote: QUOTE.id,
         text: QUOTE.text,
         authors: formatAuthors(BOOK.authors),
-        bookTitle: BOOK.title
+        bookTitle: BOOK.title,
+        gutenbergId: BOOK.gutenbergId
     };
 };
 
@@ -86,6 +87,7 @@ export async function updateQuote() {
 
     QUOTE_AUTHOR.textContent = QUOTE.authors;
     QUOTE_BOOK.textContent = QUOTE.bookTitle;
+    QUOTE_BOOK.href = `https://www.gutenberg.org/ebooks/${QUOTE.gutenbergId}`
 
     return QUOTE;
 };
