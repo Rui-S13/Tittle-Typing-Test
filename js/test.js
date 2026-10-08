@@ -64,11 +64,7 @@ function resetValues() {
 
     clearInterval(intervalId);
 
-    const CURRENT_SETTINGS = getSettings();
-    SETTINGS.timer = CURRENT_SETTINGS.timer;
-    SETTINGS.sound = CURRENT_SETTINGS.sound;
-    timerCountdown = SETTINGS.timer;
-    updateTimer(timerCountdown);
+    resetSettings();
 
     testFailed = false;
     testStarted = false;
@@ -84,6 +80,14 @@ function resetValues() {
     STATS.accuracy = 0;
 
     TYPING_TEST.className = "";
+};
+
+export function resetSettings() {
+    const CURRENT_SETTINGS = getSettings();
+    SETTINGS.timer = CURRENT_SETTINGS.timer;
+    SETTINGS.sound = CURRENT_SETTINGS.sound;
+    timerCountdown = SETTINGS.timer;
+    updateTimer(timerCountdown);
 };
 
 function startTest() {
