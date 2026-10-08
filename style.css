@@ -163,6 +163,44 @@ header {
 
 
 /* ==================================================
+   CAPS LOCK WARNING
+   ================================================== */
+
+#caps-lock-warning-container {
+    position: fixed;
+    top: 64px;
+    left: 0;
+
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    pointer-events: none;
+    z-index: 50;
+}
+
+#caps-lock-warning {
+    padding: 20px;
+    margin: 10px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: var(--background-color);
+    font-weight: var(--font-weight-bold);
+
+    background-color: var(--primary-color);
+    border-radius: var(--border-radius);
+}
+
+#caps-lock-warning-container[hidden] {
+    display: none;
+}
+
+/* ==================================================
    MAIN
    ================================================== */
 
