@@ -1,6 +1,6 @@
 import { loadDarkMode, toggleDarkMode } from "./js/darkMode.js";
 import { saveSettings, getSettings, loadSettings } from "./js/settings.js";
-import { refreshTest, handleInput } from "./js/test.js";
+import { refreshTest, handleInput, testStarted} from "./js/test.js";
 import { hideGuide, updateGuide } from "./js/guide.js";
 import { loadSounds } from "./js/sound.js";
 import { updateHistory } from "./js/history.js";
@@ -82,6 +82,9 @@ TEST_INPUT.addEventListener("input", () => {
 
 SETTING_INPUTS.forEach((option) => {
     option.addEventListener("change", () => {
+        if (testStarted) {
+            refreshTest();
+        };
         saveSettings();
         const SETTINGS = getSettings();
         updateTimer(SETTINGS.timer);

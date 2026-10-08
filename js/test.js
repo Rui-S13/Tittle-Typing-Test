@@ -19,7 +19,7 @@ const MISTAKES_VALUE = document.querySelector("#mistakes");
 
 
 let testFailed = false;
-let testStarted = false;
+export let testStarted = false;
 let testFinished = false;
 let idTestQuote = null;
 let intervalId = null;
