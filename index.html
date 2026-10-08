@@ -100,8 +100,8 @@
                 <p id="quote-author"></p>
                 <p id="quote-book"></p>
             </div>
-            <button id="btn-refresh">
-                <svg id="refresh-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <button id="btn-refresh" class="btn-test-action">
+                <svg id="refresh-icon" class="action-icon" viewBox="0 0 24 24" aria-hidden="true">
                     <path d="M4.06189 13C4.02104 12.6724 4 12.3387 4 12
            C4 7.58172 7.58172 4 12 4
            C14.5006 4 16.7332 5.14727 18.2002 6.94416
@@ -114,7 +114,14 @@
            M6 20V17.2916" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round" />
                 </svg>
-                <kbd id="key-refresh">ESC</kbd>
+                <kbd id="key-refresh" class="action-key">ENTER</kbd>
+            </button>
+            <button id="btn-cancel" class="btn-test-action">
+                <svg id="cancel-icon" class="action-icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M6 6L18 18M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <kbd id="key-cancel">ESC</kbd>
             </button>
             <textarea name="test-input" id="test-input" autocomplete="off" autocorrect="off" autocapitalize="off"
                 spellcheck="false"></textarea>
