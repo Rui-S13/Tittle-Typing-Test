@@ -58,6 +58,7 @@ async function getQuote() {
     const BOOK = findBookByQuote(QUOTE, BOOK_LIST)
 
     return {
+        idQuote: QUOTE.id,
         text: QUOTE.text,
         authors: formatAuthors(BOOK.authors),
         bookTitle: BOOK.title
@@ -85,4 +86,6 @@ export async function updateQuote() {
 
     QUOTE_AUTHOR.textContent = QUOTE.authors;
     QUOTE_BOOK.textContent = QUOTE.bookTitle;
+
+    return QUOTE;
 };
