@@ -15,11 +15,20 @@ updateHistory();
 
 const BODY = document.querySelector("body");
 const BTN_DARK_MODE = document.querySelector("#btn-dark-mode");
+const CAPS_WARNING = document.querySelector("#caps-lock-warning-container");
 const TEST_AREA = document.querySelector("#test-area");
 const TEST_INPUT = document.querySelector("#test-input");
 const BTN_REFRESH = document.querySelector("#btn-refresh");
 const SETTING_INPUTS = document.querySelectorAll(".setting-input");
 const BTN_BACK_TO_TOP = document.querySelector("#btn-back-to-top");
+
+function checkCapsLock(event) {
+    if (typeof event.getModifierState !== "function") {
+        return;
+    };
+    CAPS_WARNING.hidden = !event.getModifierState("CapsLock");
+};
+
 
 TEST_INPUT.focus();
 
@@ -62,6 +71,9 @@ BTN_REFRESH.addEventListener("click", () => {
     refreshTest();
     TEST_INPUT.focus();
 });
+
+document.addEventListener("keydown", checkCapsLock);
+document.addEventListener("keyup", checkCapsLock);
 
 TEST_INPUT.addEventListener("input", () => {
     handleInput(TEST_INPUT.value);
