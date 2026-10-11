@@ -1,6 +1,7 @@
 main {
     display: flex;
     flex-direction: column;
+    gap: 50px;
 }
 
 h3 {
@@ -116,6 +117,13 @@ h3 {
     font-weight: var(--font-weight-light);
 }
 
+.time-unit {
+    color: var(--muted-color);
+
+    font-size: 1rem;
+    font-weight: var(--font-weight-light);
+}
+
 .time-unit[hidden] {
     display: none;
 }
@@ -129,4 +137,16 @@ h3 {
 .chart-container canvas {
     width: 100% !important;
     height: 100% !important;
+}
+
+@media (max-width: 975px) {
+    main {
+        gap: 20px;
+    }
+    
+    #stat-cards {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
 }
