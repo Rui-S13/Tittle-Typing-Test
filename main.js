@@ -5,12 +5,14 @@ import { hideGuide, updateGuide } from "./js/guide.js";
 import { loadSounds } from "./js/sound.js";
 import { updateHistory } from "./js/history.js";
 import { scrollTest } from "./js/testScroll.js";
+import { updateSessionSummary } from "./js/sessionSummary.js";
 
 loadDarkMode();
 loadSettings();
 await loadSounds();
 refreshTest();
 updateHistory();
+updateSessionSummary();
 
 const BODY = document.querySelector("body");
 const BTN_DARK_MODE = document.querySelector("#btn-dark-mode");
