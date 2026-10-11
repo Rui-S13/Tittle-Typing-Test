@@ -8,6 +8,7 @@ import { saveLocalTest, saveSessionTest } from "./storage.js";
 import { playSound } from "./sound.js";
 import { updateHistory } from "./history.js";
 import { compareTest, hidePersonalMessage } from "./compareTest.js";
+import { updateSessionSummary } from "./sessionSummary.js";
 
 
 const TEST_QUOTE = document.querySelector("#test-quote");
@@ -221,5 +222,6 @@ function finishTest() {
         updateGuide("failedSave");
     };
 
+    updateSessionSummary();
     updateHistory();
 };
