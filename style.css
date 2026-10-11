@@ -48,6 +48,8 @@
 }
 
 body {
+    min-height: 100vh;
+
     display: flex;
     flex-direction: column;
 
@@ -100,32 +102,57 @@ header {
     color: var(--primary-color);
 }
 
-#btn-login {
-    justify-self: center;
+#header-navigation {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
 
-    font-size: 1.2rem;
-    font-weight: var(--font-weight-light);
+.header-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
 
-    height: 36px;
-    width: auto;
-    padding: 0px 10px;
+    min-height: 40px;
+    padding: 8px 12px;
 
-    border: solid var(--primary-color) var(--border-weight);
+    border: 1px solid transparent;
     border-radius: var(--border-radius);
-    background-color: var(--primary-color);
-    color: var(--background-color)
-}
 
-#btn-login:hover {
-    background-color: var(--primary-color);
-    color: var(--background-color);
+    color: var(--primary-color);
+    background: transparent;
+
+    font: inherit;
+    text-decoration: none;
+
     cursor: pointer;
+    transition:
+        background-color 150ms ease,
+        color 150ms ease,
+        border-color 150ms ease;
 }
 
-#btn-login:active {
+.header-link svg {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+.header-link:hover {
+    background-color: var(--surface-color);
+    border-color: var(--border-color);
+}
+
+.header-link[aria-current="page"] {
     background-color: var(--accent-color);
-    border-color: var(--accent-color);
-    color: var(--background-color)
+    color: var(--background-color);
+}
+
+.header-link:focus-visible {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 3px;
 }
 
 #btn-dark-mode {
@@ -205,6 +232,8 @@ header {
    ================================================== */
 
 main {
+    flex: 1;
+
     display: grid;
     grid-template-columns: minmax(0, 1fr) 350px;
     grid-template-areas:
@@ -791,6 +820,10 @@ footer {
    ================================================== */
 
 @media (max-width: 975px) {
+
+    .header-link span {
+        display: none;
+    }
 
     main {
         display: grid;

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tittle - Stats</title>
+    <link rel="shortcut icon" href="assets/tittle-icon.svg" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="stats.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.5.1/chart.umd.min.js"></script>
+    <script type="module" src="stats.js"></script>
+</head>
+
+<body>
+    <header id="header">
+        <div id="logo-container">
+            <a href="./index.html">
+                <svg id="header-logo" viewBox="0 0 280 110" role="img" aria-hidden="true">
+                    <g fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M18 26H68M43 26V90" />
+                        <path d="M97 52V90" />
+                        <path d="M127 26V90M110 52H144" />
+                        <path d="M167 26V90M150 52H184" />
+                        <path d="M203 22V90" />
+                        <path d="M226 70H266A20 20 0 1 0 260.1 84.1" />
+                    </g>
+                    <circle cx="97" cy="29" r="8" fill="var(--accent, #2F5D8A)" />
+                </svg>
+            </a>
+        </div>
+
+        <nav id="header-navigation" aria-label="Main navigation">
+            <a href="index.html" class="header-link">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M3 10.5 12 3l9 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    <path d="M5 9.5V21h14V9.5M9 21v-7h6v7" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+                <span>Home</span>
+            </a>
+
+            <a href="stats.html" class="header-link" aria-current="page">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M3 3v18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    <path d="m7 14 4-4 4 3 5-7" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+                <span>Stats</span>
+            </a>
+        </nav>
+
+        <button id="btn-dark-mode">
+            <svg viewBox="0 0 24 24" fill="none">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+        </button>
+    </header>
+
+    <p id="no-test-warning" hidden>Start typing to have your statistics shown here! (๑˃ᴗ˂)ﻭ</p>
+
+    <main>
+        <section id="stat-cards">
+            <div id="best-wpm-container" class="stat-card">
+                <div class="stat-header">
+                    <h3 class="stat-title">Best WPM</h3>
+                    <span class="stat-icon">
+                        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M8 21h8m-4-4v4M7 4h10v5a5 5 0 0 1-10 0V4Z" stroke="currentColor" stroke-width="1.8"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M7 6H4v2a4 4 0 0 0 4 4M17 6h3v2a4 4 0 0 1-4 4" stroke="currentColor"
+                                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </span>
+                </div>
+                <div class="stat-info">
+                    <span id="best-wpm" class="stat-value"></span><span class="stat-unit">WPM</span>
+                </div>
+                <span id="best-wpm-date"></span>
+            </div>
+
+            <div id="average-wpm-container" class="stat-card">
+                <div class="stat-header">
+                    <h3 class="stat-title">Average WPM</h3>
+                    <span class="stat-icon">
+                        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M4.9 19a9 9 0 1 1 14.2 0" stroke="currentColor" stroke-width="1.8"
+                                stroke-linecap="round" />
+                            <path d="m12 13 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                            <circle cx="12" cy="13" r="1.5" stroke="currentColor" stroke-width="1.8" />
+                        </svg>
+                    </span>
+                </div>
+                <div class="stat-info">
+                    <span id="average-wpm" class="stat-value"></span><span class="stat-unit">WPM</span>
+                </div>
+            </div>
+
+            <div id="average-accuracy-container" class="stat-card">
+                <div class="stat-header">
+                    <h3 class="stat-title">Average Accuracy</h3>
+                    <span class="stat-icon">
+                        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8" />
+                            <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.8" />
+                            <circle cx="12" cy="12" r="1" stroke="currentColor" stroke-width="1.8" />
+                        </svg>
+                    </span>
+                </div>
+                <div class="stat-info">
+                    <span id="average-accuracy" class="stat-value"></span><span class="stat-unit">%</span>
+                </div>
+            </div>
+
+            <div id="number-of-tests-container" class="stat-card">
+                <div class="stat-header">
+                    <h3 class="stat-title">Number of tests completed</h3>
+                    <span class="stat-icon">
+                        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8" />
+                            <path d="m8 12 2.5 2.5L16 9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </span>
+                </div>
+                <div class="stat-info">
+                    <span id="number-of-tests" class="stat-value"></span><span class="stat-unit"></span>
+                </div>
+            </div>
+
+            <div id="total-time-container" class="stat-card">
+                <div class="stat-header">
+                    <h3 class="stat-title">Total time typing</h3>
+                    <span class="stat-icon">
+                        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8" />
+                            <path d="M12 7v5l3 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </span>
+                </div>
+                <div class="stat-info">
+                    <span id="total-time-days" class="stat-value"></span><span class="time-unit time-unit-days"
+                        hidden>Days</span>
+                    <span id="total-time-hours" class="stat-value"></span><span class="time-unit time-unit-hours"
+                        hidden>Hours</span>
+                    <span id="total-time-minutes" class="stat-value"></span><span class="time-unit time-unit-minutes"
+                        hidden>Minutes</span>
+                    <span id="total-time-seconds" class="stat-value"></span><span
+                        class="time-unit time-unit-seconds">Seconds</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="chart-container">
+            <canvas id="progress-chart"></canvas>
+        </section>
+    </main>
+
+    <footer>
+        <div id="footer-brand">
+            <svg id="footer-logo" viewBox="0 0 280 110" role="img" aria-hidden="true">
+                <g fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 26H68M43 26V90" />
+                    <path d="M97 52V90" />
+                    <path d="M127 26V90M110 52H144" />
+                    <path d="M167 26V90M150 52H184" />
+                    <path d="M203 22V90" />
+                    <path d="M226 70H266A20 20 0 1 0 260.1 84.1" />
+                </g>
+                <circle cx="97" cy="29" r="8" fill="var(--accent, #2F5D8A)" />
+            </svg>
+            <p>A typing test that sweats the small stuff.</p>
+        </div>
+
+        <nav class="footer-links" aria-label="Footer">
+            <a href="https://github.com/Rui-S13/tittle-typing-test" target="_blank">Source on GitHub</a>
+            <a href="https://github.com/Rui-S13" target="_blank">Rui Silva</a>
+            <button type="button" id="btn-back-to-top">Back to top</button>
+        </nav>
+
+        <p class="footer-small">
+            Built by Rui Silva, 2026. Quotes from <a href="https://www.gutenberg.org/" target="_blank">Project
+                Gutenberg</a>. Your results are stored only in this browser.
+        </p>
+    </footer>
+</body>
+
+</html>

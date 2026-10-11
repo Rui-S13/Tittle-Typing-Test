@@ -8,7 +8,7 @@ export function compareTest(test) {
 
     if (TEST_LIST_LOCAL.length === 0) {
         setPersonalMesssage("firstTest");
-        return
+        return;
     };
 
     const MAX_WPM_LOCAL = TEST_LIST_LOCAL.reduce((acc, n) => n.wpm > acc ? n.wpm : acc, 0);
@@ -16,9 +16,11 @@ export function compareTest(test) {
 
     if (test.wpm > MAX_WPM_LOCAL) {
         setPersonalMesssage("bestLocal");
-    } else if (test.wpm > MAX_WPM_SESSION) {
+    } else if (test.wpm > MAX_WPM_SESSION && TEST_LIST_SESSION.length !== 0) {
         setPersonalMesssage("bestSession");
-    };
+    } else if (TEST_LIST_SESSION.length === 0) {
+        setPersonalMesssage("startSession");
+    }
 };
 
 function setPersonalMesssage(type) {
@@ -29,10 +31,13 @@ function setPersonalMesssage(type) {
             inner_html = "Your first test! <span>\\(^o^)/</span>";
             break;
         case ("bestLocal"):
-            inner_html = "A new personal record! <span>\\(^o^)/</span>"
+            inner_html = "A new personal record! <span>\\(^o^)/</span>";
             break;
         case ("bestSession"):
-            inner_html = "Your best tests of the session! <span>\\(^o^)/</span>"
+            inner_html = "Your best test of the session! <span>\\(^o^)/</span>";
+            break;
+        case ("startSession"):
+            inner_html = "Let's start typing! <span>\\(^o^)/</span>";
             break;
         default:
             inner_html = "";
@@ -44,5 +49,6 @@ function setPersonalMesssage(type) {
 };
 
 export function hidePersonalMessage() {
+    PERSONAL_MESSAGE.innerHTML = "";
     PERSONAL_MESSAGE.hidden = true;
 };
