@@ -3,14 +3,20 @@ main {
     flex-direction: column;
 }
 
+h3 {
+    font-size: 1.3rem;
+}
+
 #stat-cards {
-    display:grid;
-    grid-template-areas: 
+    display: grid;
+    grid-template-areas:
         "best-wpm average-wpm"
         "best-wpm average-accuracy"
         "number-of-tests total-time";
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto 1fr;
+
+    padding: 0px;
 
     column-gap: 50px;
     row-gap: 50px;
@@ -43,10 +49,10 @@ main {
 .stat-card {
     display: grid;
     grid-template-rows: auto 1fr;
-    
+
     padding: 30px;
     min-height: 200px;
-    
+
     background-color: var(--surface-color);
     border: solid var(--border-color) var(--border-weight);
     border-radius: var(--border-radius);
@@ -58,9 +64,15 @@ main {
     grid-template-rows: auto 1fr auto;
 }
 
+#best-wpm {
+    font-size: 6rem;
+}
+
 #best-wpm-date {
     text-align: center;
     align-items: flex-end;
+
+    font-size: 1.7rem;
 
     color: var(--muted-color);
 }
@@ -81,8 +93,10 @@ main {
     display: flex;
     flex-direction: row;
     gap: 20px;
-    
-    align-items: flex-end;
+
+    flex-wrap: wrap;
+
+    align-items: center;
 
     justify-self: center;
     align-self: center;
@@ -102,3 +116,6 @@ main {
     font-weight: var(--font-weight-light);
 }
 
+.time-unit[hidden] {
+    display: none;
+}
