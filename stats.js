@@ -1,6 +1,7 @@
 import { loadDarkMode, toggleDarkMode } from "./js/darkMode.js";
 import { readLocalJson } from "./js/storage.js";
 import { calculateStats } from "./js/calculations.js";
+import { fillChart } from "./js/chart.js";
 
 loadDarkMode();
 
@@ -76,3 +77,4 @@ function fillStatPage() {
 };
 
 fillStatPage();
+fillChart();
