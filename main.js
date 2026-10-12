@@ -4,7 +4,7 @@ import { refreshTest, handleInput, testStarted, resetSettings, cancelTest } from
 import { hideGuide, updateGuide } from "./js/guide.js";
 import { loadSounds } from "./js/sound.js";
 import { updateHistory } from "./js/history.js";
-import { scrollTest } from "./js/testScroll.js";
+import { focusTest, scrollTest } from "./js/testScroll.js";
 import { updateSessionSummary } from "./js/sessionSummary.js";
 
 loadDarkMode();
@@ -17,7 +17,6 @@ updateSessionSummary();
 const BODY = document.querySelector("body");
 const BTN_DARK_MODE = document.querySelector("#btn-dark-mode");
 const CAPS_WARNING = document.querySelector("#caps-lock-warning-container");
-const TYPING_TEST = document.querySelector("#typing-test");
 const TEST_AREA = document.querySelector("#test-area");
 const TEST_INPUT = document.querySelector("#test-input");
 const BTN_REFRESH = document.querySelector("#btn-refresh");
@@ -32,21 +31,17 @@ function checkCapsLock(event) {
     CAPS_WARNING.hidden = !event.getModifierState("CapsLock");
 };
 
-
-TEST_INPUT.focus();
+focusTest();
 
 BTN_DARK_MODE.addEventListener("click", toggleDarkMode);
 
-TEST_AREA.addEventListener("click", () => {
-    TEST_INPUT.focus();
-});
+TEST_AREA.addEventListener("click", focusTest);
 
 TEST_AREA.addEventListener("mousedown", (event) => {
     event.preventDefault();
 });
 
 TEST_INPUT.addEventListener("focus", () => {
-    TYPING_TEST.scrollIntoView({ behavior: "smooth", block: "start" });
     hideGuide();
 });
 
@@ -54,24 +49,22 @@ TEST_INPUT.addEventListener("blur", () => {
     updateGuide("lostFocus");
 });
 
+TEST_INPUT.addEventListener("paste", (event) => {
+    event.preventDefault();
+});
+
 BODY.addEventListener("keydown", (event) => {
     if (event.key === "Enter") {
         event.preventDefault();
-        window.scrollTo({
-            top: 0
-        });
         refreshTest()
-        TEST_INPUT.focus();
+        focusTest();
     };
 });
 
 BODY.addEventListener("keydown", (event) => {
     if (event.key === "Escape") {
-        window.scrollTo({
-            top: 0
-        });
         cancelTest();
-        TEST_INPUT.focus();
+        focusTest();
     };
 });
 
@@ -79,22 +72,18 @@ BTN_REFRESH.addEventListener("mousedown", (event) => {
     event.preventDefault();
 });
 
+BTN_CANCEL.addEventListener("mousedown", (event) => {
+    event.preventDefault();
+});
+
 BTN_REFRESH.addEventListener("click", () => {
-    window.scrollTo({
-        top: 0
-    });
     refreshTest();
-    TEST_INPUT.focus();
-    TYPING_TEST.scrollIntoView({ behavior: "smooth", block: "start" });
+    focusTest();
 });
 
 BTN_CANCEL.addEventListener("click", () => {
-    window.scrollTo({
-        top: 0
-    });
     cancelTest();
-    TEST_INPUT.focus();
-    TYPING_TEST.scrollIntoView({ behavior: "smooth", block: "start" });
+    focusTest();
 });
 
 document.addEventListener("keydown", checkCapsLock);
@@ -124,10 +113,7 @@ SETTING_INPUTS.forEach((option) => {
         };
         saveSettings();
         resetSettings();
-        window.scrollTo({
-            top: 0
-        });
-        TEST_INPUT.focus();
+        focusTest();
     });
 });
 
