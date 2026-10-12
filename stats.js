@@ -18,7 +18,7 @@ BTN_BACK_TO_TOP.addEventListener("click", () => {
 });
 
 
-const NO_TEST_WARNING = document.querySelector("#no-test-warning");
+const NO_TEST_WARNING = document.querySelector("#no-tests-warning");
 const MAIN = document.querySelector("main");
 const BEST_WPM = document.querySelector("#best-wpm");
 const BEST_WPM_DATE = document.querySelector("#best-wpm-date");
@@ -40,6 +40,7 @@ function fillStatPage() {
     if (ALL_TESTS.length === 0) {
         NO_TEST_WARNING.hidden = false;
         MAIN.hidden = true;
+        console.log("got main")
         return;
     };
 
