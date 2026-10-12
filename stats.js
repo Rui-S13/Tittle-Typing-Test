@@ -1,5 +1,5 @@
 import { loadDarkMode, toggleDarkMode } from "./js/darkMode.js";
-import { readLocalJson } from "./js/storage.js";
+import { deleteTestsData, readLocalJson } from "./js/storage.js";
 import { calculateStats } from "./js/calculations.js";
 import { fillChart } from "./js/chart.js";
 
@@ -40,7 +40,6 @@ function fillStatPage() {
     if (ALL_TESTS.length === 0) {
         NO_TEST_WARNING.hidden = false;
         MAIN.hidden = true;
-        console.log("got main")
         return;
     };
 
@@ -79,3 +78,22 @@ function fillStatPage() {
 
 fillStatPage();
 fillChart();
+
+
+const BTN_DELETE_DATA = document.querySelector("#btn-delete-data");
+const DELETE_DATA_WARNING = document.querySelector("#delete-data-warning");
+const BTN_CONFIRM_DELETE = document.querySelector("#btn-confirm-delete");
+const BTN_CANCEL_DELETE = document.querySelector("#btn-cancel-delete");
+
+BTN_DELETE_DATA.addEventListener("click", () => {
+    DELETE_DATA_WARNING.hidden = false;
+});
+
+BTN_CONFIRM_DELETE.addEventListener("click", () => {
+    deleteTestsData();
+    window.location.reload();
+});
+
+BTN_CANCEL_DELETE. addEventListener("click", () => {
+    DELETE_DATA_WARNING.hidden = true;
+});

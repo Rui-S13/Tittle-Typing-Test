@@ -538,54 +538,6 @@ section {
 
 
 /* ==================================================
-   SESSION SUMMARY
-   ================================================== */
-
-#session-summary {
-    grid-area: session-summary;
-
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-
-    padding: 0px;
-
-    background-color: var(--background-color);
-    border: none;
-    box-shadow: none;
-}
-
-#session-stats {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    column-gap: 40px;
-
-    min-height: 100px;
-}
-
-.session-stat {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-
-    padding: 10px;
-
-    background-color: var(--surface-color);
-    border: solid var(--border-color) var(--border-weight);
-    border-radius: var(--border-radius);
-}
-
-.session-stat-value {
-    align-self: center;
-
-    font-size: 2rem;
-}
-
-#session-test-count {
-    padding: 0px 10px;
-}
-
-/* ==================================================
    SETTINGS
    ================================================== */
 
