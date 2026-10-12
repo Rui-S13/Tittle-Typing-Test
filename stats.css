@@ -1,6 +1,10 @@
+/* ==================================================
+   NO TESTS WARNING
+   ================================================== */
+
 #no-tests-warning {
     flex: 1;
-    
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -10,8 +14,13 @@
 }
 
 #no-tests-warning[hidden] {
-    display:none;
+    display: none;
 }
+
+
+/* ==================================================
+   MAIN
+   ================================================== */
 
 main {
     display: flex;
@@ -26,6 +35,11 @@ main[hidden] {
 h3 {
     font-size: 1.3rem;
 }
+
+
+/* ==================================================
+   STAT CARDS
+   ================================================== */
 
 #stat-cards {
     display: grid;
@@ -147,6 +161,11 @@ h3 {
     display: none;
 }
 
+
+/* ==================================================
+   CHART
+   ================================================== */
+
 #chart-container {
     position: relative;
     width: 100%;
@@ -158,11 +177,127 @@ h3 {
     height: 100% !important;
 }
 
+
+/* ==================================================
+   DELETE DATA BUTTON
+   ================================================== */
+
+#delete-data-box {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+#btn-delete-data {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    padding: 8px 12px;
+
+    border: solid var(--error-color) var(--border-weight);
+    border-radius: var(--border-radius);
+    background-color: transparent;
+    color: var(--error-color);
+
+    font-size: 0.9rem;
+    font-weight: var(--font-weight-regular);
+
+    cursor: pointer;
+    transition: background-color 0.15s, color 0.15s;
+}
+
+#btn-delete-data:hover {
+    background-color: var(--error-color);
+    color: #FFFFFF;
+}
+
+#btn-delete-data:active {
+    background-color: var(--muted-error-color);
+    color: var(--error-color);
+}
+
+#btn-delete-data:focus-visible {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 3px;
+}
+
+#delete-data-warning {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px;
+    border: 1px solid var(--muted-error-color);
+    border-radius: var(--border-radius);
+    background-color: color-mix(in srgb, var(--error-color) 6%, var(--surface-color));
+    max-width: 320px;
+}
+
+#delete-data-warning[hidden] {
+    display: none;
+}
+
+#delete-data-warning p {
+    margin: 0;
+    color: var(--primary-color);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+#delete-data-warning div {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+#btn-confirm-delete {
+    padding: 6px 12px;
+    border: var(--border-weight) solid var(--error-color);
+    border-radius: var(--border-radius);
+    background-color: var(--error-color);
+    color: #FFFFFF;
+    font-size: 0.9rem;
+    font-weight: var(--font-weight-regular);
+    cursor: pointer;
+    transition: background-color 0.15s, color 0.15s;
+}
+
+#btn-confirm-delete:hover {
+    background-color: transparent;
+    color: var(--error-color);
+}
+
+#btn-cancel-delete {
+    padding: 6px 12px;
+    border: var(--border-weight) solid var(--border-color);
+    border-radius: var(--border-radius);
+    background-color: transparent;
+    color: var(--muted-color);
+    font-size: 0.9rem;
+    font-weight: var(--font-weight-regular);
+    cursor: pointer;
+    transition: border-color 0.15s, color 0.15s;
+}
+
+#btn-cancel-delete:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+#btn-confirm-delete:focus-visible,
+#btn-cancel-delete:focus-visible {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 3px;
+}
+
+
 @media (max-width: 975px) {
     main {
         gap: 20px;
     }
-    
+
     #stat-cards {
         display: flex;
         flex-direction: column;

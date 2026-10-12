@@ -46,8 +46,6 @@ export function writeSessionJson(key, value) {
     };
 };
 
-
-
 export function saveSessionTest(test) {
     let storedTests;
 
@@ -82,4 +80,9 @@ export function saveLocalTest(test) {
     };
 
     return writeLocalJson(TESTS_KEY, [...storedTests, test]);
+};
+
+export function deleteTestsData() {
+    localStorage.removeItem(TESTS_KEY);
+    sessionStorage.removeItem(TESTS_KEY);
 };
