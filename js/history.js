@@ -18,13 +18,12 @@ export function updateHistory() {
         HISTORY_RECORD.innerHTML = `
             <td>
                 ${DATE.getDate()}/${DATE.getMonth() + 1}/${DATE.getFullYear()} - 
-                ${DATE.getHours()}:${MINUTES }
+                ${DATE.getHours()}:${MINUTES}
             </td>
             <td>${test.wpm}</td>
             <td>${test.accuracy}</td>
             <td>${test.mistakes}</td>
-`;
-
+            `;
         TEST_HISTORY_BODY.appendChild(HISTORY_RECORD);
     });
 };

@@ -81,5 +81,5 @@ export function saveLocalTest(test) {
         return false;
     };
 
-    return writeLocalJson(TESTS_KEY, [...storedTests, test].slice(-500));
+    return writeLocalJson(TESTS_KEY, [...storedTests, test]);
 };

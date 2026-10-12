@@ -1,5 +1,4 @@
 import { readLocalJson, writeLocalJson } from "./storage.js";
-import { updateTimer } from "./timer.js";
 
 const SETTINGS_KEY = "settings";
 const DEFAULTS = {

@@ -14,5 +14,9 @@ export function updateSessionSummary() {
     const STATS = calculateStats(TESTS);
     SESSION_AVERAGE_WPM.textContent = STATS.avgWpm;
     SESSION_AVERAGE_ACCURACY.textContent = STATS.avgAccuracy;
-    SESSION_TEST_COUNT.textContent = `${STATS.count} completes tests`
+    if (TESTS.length === 1) {
+        SESSION_TEST_COUNT.textContent = `${STATS.count} completed test`
+    } else {
+        SESSION_TEST_COUNT.textContent = `${STATS.count} completed tests`
+    };
 };
