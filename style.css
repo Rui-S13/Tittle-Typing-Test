@@ -278,7 +278,7 @@ section {
     scroll-margin-top: 70px;
 
     display: grid;
-    grid-template-columns: 1fr auto auto;
+    grid-template-columns: minmax(0, 1fr) auto auto;
     grid-template-rows: 1fr auto;
     row-gap: 20px;
     column-gap: 20px;
@@ -788,6 +788,8 @@ footer {
     padding: 0;
     font: inherit;
     cursor: pointer;
+
+    text-align: center;
 }
 
 .footer-links a+a,
@@ -871,6 +873,10 @@ footer {
 
 @media (max-width: 975px) {
 
+    header {
+        padding: 10px;
+    }
+
     .header-link span {
         display: none;
     }
@@ -887,6 +893,18 @@ footer {
         gap: 20px;
 
         justify-content: center;
+    }
+
+    #typing-test {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        grid-template-areas:
+            "test-area  test-area"
+            "quote-info quote-info"
+            "btn-refresh btn-cancel";
+    }
+
+    #quote-info {
+        padding: 0;
     }
 
     #test-status {
@@ -961,5 +979,11 @@ footer {
         row-gap: 20px;
 
         min-height: 100px;
+    }
+}
+
+@media (hover: none) and (pointer: coarse) {
+    .action-key {
+        display: none;
     }
 }

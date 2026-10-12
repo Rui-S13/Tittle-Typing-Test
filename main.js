@@ -17,6 +17,7 @@ updateSessionSummary();
 const BODY = document.querySelector("body");
 const BTN_DARK_MODE = document.querySelector("#btn-dark-mode");
 const CAPS_WARNING = document.querySelector("#caps-lock-warning-container");
+const TYPING_TEST = document.querySelector("#typing-test");
 const TEST_AREA = document.querySelector("#test-area");
 const TEST_INPUT = document.querySelector("#test-input");
 const BTN_REFRESH = document.querySelector("#btn-refresh");
@@ -45,6 +46,7 @@ TEST_AREA.addEventListener("mousedown", (event) => {
 });
 
 TEST_INPUT.addEventListener("focus", () => {
+    TYPING_TEST.scrollIntoView({ behavior: "smooth", block: "start" });
     hideGuide();
 });
 
@@ -83,6 +85,7 @@ BTN_REFRESH.addEventListener("click", () => {
     });
     refreshTest();
     TEST_INPUT.focus();
+    TYPING_TEST.scrollIntoView({ behavior: "smooth", block: "start" });
 });
 
 BTN_CANCEL.addEventListener("click", () => {
@@ -91,6 +94,7 @@ BTN_CANCEL.addEventListener("click", () => {
     });
     cancelTest();
     TEST_INPUT.focus();
+    TYPING_TEST.scrollIntoView({ behavior: "smooth", block: "start" });
 });
 
 document.addEventListener("keydown", checkCapsLock);
