@@ -1,7 +1,7 @@
 import { readLocalJson, writeLocalJson } from "./storage.js";
 import { updateTimer } from "./timer.js";
 
-const KEY = "settings";
+const SETTINGS_KEY = "settings";
 const DEFAULTS = {
     timer: "30",
     sound: "true"
@@ -13,11 +13,11 @@ export function saveSettings() {
         sound: document.querySelector('input[name="sound"]:checked').value
     };
 
-    writeLocalJson(KEY, SETTINGS);
+    writeLocalJson(SETTINGS_KEY, SETTINGS);
 }
 
 export function getSettings() {
-    return readLocalJson(KEY, DEFAULTS)
+    return readLocalJson(SETTINGS_KEY, DEFAULTS)
 };
 
 export function loadSettings() {

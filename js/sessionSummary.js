@@ -1,4 +1,4 @@
-import { readSessionJson } from "./storage.js";
+import { TESTS_KEY, readSessionJson } from "./storage.js";
 import { calculateStats } from "./calculations.js";
 
 const SESSION_AVERAGE_WPM = document.querySelector("#session-average-wpm");
@@ -6,7 +6,7 @@ const SESSION_AVERAGE_ACCURACY = document.querySelector("#session-average-accura
 const SESSION_TEST_COUNT = document.querySelector("#session-test-count");
 
 export function updateSessionSummary() {
-    const TESTS = readSessionJson("tests", []);
+    const TESTS = readSessionJson(TESTS_KEY, []);
     if (TESTS.length === 0) {
         return;
     };

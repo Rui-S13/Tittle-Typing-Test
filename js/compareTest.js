@@ -1,10 +1,11 @@
 import { readLocalJson, readSessionJson } from "./storage.js";
+import { TESTS_KEY } from "./storage.js";
 
 const PERSONAL_MESSAGE = document.querySelector("#personal-best-message");
 
 export function compareTest(test) {
-    const TEST_LIST_LOCAL = readLocalJson("tests", []);
-    const TEST_LIST_SESSION = readSessionJson("tests",[]);
+    const TEST_LIST_LOCAL = readLocalJson(TESTS_KEY, []);
+    const TEST_LIST_SESSION = readSessionJson(TESTS_KEY,[]);
 
     if (TEST_LIST_LOCAL.length === 0) {
         setPersonalMesssage("firstTest");

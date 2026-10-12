@@ -1,3 +1,5 @@
+export const TESTS_KEY = "tests";
+
 export function readLocalJsonStrict(key, fallback) {
     const RAW = localStorage.getItem(key);
     return RAW === null ? fallback : JSON.parse(RAW);
@@ -50,7 +52,7 @@ export function saveSessionTest(test) {
     let storedTests;
 
     try {
-        storedTests = readSessionJsonStrict("tests", []);
+        storedTests = readSessionJsonStrict(TESTS_KEY, []);
     } catch (error) {
         console.error("Could not read the saved tests on SessionStorage, so nothing was saved:", error);
         return false;
@@ -61,14 +63,14 @@ export function saveSessionTest(test) {
         return false;
     };
 
-    return writeSessionJson("tests", [...storedTests, test]);
+    return writeSessionJson(TESTS_KEY, [...storedTests, test]);
 };
 
 export function saveLocalTest(test) {
     let storedTests;
 
     try {
-        storedTests = readLocalJsonStrict("tests", []);
+        storedTests = readLocalJsonStrict(TESTS_KEY, []);
     } catch (error) {
         console.error("Could not read the saved tests on LocalStorage, so nothing was saved:", error);
         return false;
@@ -79,5 +81,5 @@ export function saveLocalTest(test) {
         return false;
     };
 
-    return writeLocalJson("tests", [...storedTests, test].slice(-500));
+    return writeLocalJson(TESTS_KEY, [...storedTests, test].slice(-500));
 };
