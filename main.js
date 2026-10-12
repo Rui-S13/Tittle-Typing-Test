@@ -4,7 +4,7 @@ import { refreshTest, handleInput, testStarted, resetSettings, cancelTest } from
 import { hideGuide, updateGuide } from "./js/guide.js";
 import { loadSounds } from "./js/sound.js";
 import { updateHistory } from "./js/history.js";
-import { scrollTest } from "./js/testScroll.js";
+import { focusTest, scrollTest } from "./js/testScroll.js";
 import { updateSessionSummary } from "./js/sessionSummary.js";
 
 loadDarkMode();
@@ -31,14 +31,11 @@ function checkCapsLock(event) {
     CAPS_WARNING.hidden = !event.getModifierState("CapsLock");
 };
 
-
-TEST_INPUT.focus();
+focusTest();
 
 BTN_DARK_MODE.addEventListener("click", toggleDarkMode);
 
-TEST_AREA.addEventListener("click", () => {
-    TEST_INPUT.focus();
-});
+TEST_AREA.addEventListener("click", focusTest);
 
 TEST_AREA.addEventListener("mousedown", (event) => {
     event.preventDefault();
@@ -52,24 +49,22 @@ TEST_INPUT.addEventListener("blur", () => {
     updateGuide("lostFocus");
 });
 
+TEST_INPUT.addEventListener("paste", (event) => {
+    event.preventDefault();
+});
+
 BODY.addEventListener("keydown", (event) => {
     if (event.key === "Enter") {
         event.preventDefault();
-        window.scrollTo({
-            top: 0
-        });
         refreshTest()
-        TEST_INPUT.focus();
+        focusTest();
     };
 });
 
 BODY.addEventListener("keydown", (event) => {
     if (event.key === "Escape") {
-        window.scrollTo({
-            top: 0
-        });
         cancelTest();
-        TEST_INPUT.focus();
+        focusTest();
     };
 });
 
@@ -77,20 +72,18 @@ BTN_REFRESH.addEventListener("mousedown", (event) => {
     event.preventDefault();
 });
 
+BTN_CANCEL.addEventListener("mousedown", (event) => {
+    event.preventDefault();
+});
+
 BTN_REFRESH.addEventListener("click", () => {
-    window.scrollTo({
-        top: 0
-    });
     refreshTest();
-    TEST_INPUT.focus();
+    focusTest();
 });
 
 BTN_CANCEL.addEventListener("click", () => {
-    window.scrollTo({
-        top: 0
-    });
     cancelTest();
-    TEST_INPUT.focus();
+    focusTest();
 });
 
 document.addEventListener("keydown", checkCapsLock);
@@ -120,10 +113,7 @@ SETTING_INPUTS.forEach((option) => {
         };
         saveSettings();
         resetSettings();
-        window.scrollTo({
-            top: 0
-        });
-        TEST_INPUT.focus();
+        focusTest();
     });
 });
 
