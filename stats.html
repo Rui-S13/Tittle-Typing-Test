@@ -14,8 +14,8 @@
 
 <body>
     <header id="header">
-        <div id="logo-container">
-            <a href="./index.html">
+        <h1 id="logo-container">
+            <a href="index.html">
                 <svg id="header-logo" viewBox="0 0 280 110" role="img" aria-hidden="true">
                     <g fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round"
                         stroke-linejoin="round">
@@ -28,8 +28,9 @@
                     </g>
                     <circle cx="97" cy="29" r="8" fill="var(--accent, #2F5D8A)" />
                 </svg>
+                <span class="visually-hidden">Tittle</span>
             </a>
-        </div>
+        </h1>
 
         <nav id="header-navigation" aria-label="Main navigation">
             <a href="index.html" class="header-button">
@@ -53,18 +54,20 @@
             </a>
         </nav>
 
-        <button id="btn-dark-mode" aria-label="Toggle dark mode">
-            <svg viewBox="0 0 24 24" fill="none">
+        <button id="btn-dark-mode" class="header-button" type="button" aria-label="Toggle dark mode">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" stroke="currentColor" stroke-width="2"
                     stroke-linecap="round" stroke-linejoin="round"></path>
             </svg>
         </button>
     </header>
 
-    <p id="no-tests-warning" hidden>Start typing to have your statistics shown here! (๑˃ᴗ˂)ﻭ</p>
+    <p id="no-tests-warning" hidden>Start typing to have your statistics shown here! <span
+            aria-hidden="true">(๑˃ᴗ˂)ﻭ</span></p>
 
     <main>
         <section id="stat-cards">
+            <h2 class="visually-hidden">Your statistics</h2>
             <div id="best-wpm-container" class="stat-card">
                 <div class="stat-header">
                     <h3 class="stat-title">Best WPM</h3>
@@ -157,7 +160,8 @@
         </section>
 
         <section id="chart-container">
-            <canvas id="progress-chart"></canvas>
+            <h2 class="visually-hidden">Progress over time</h2>
+            <canvas id="progress-chart" role="img" aria-label="Line chart of your WPM over recent tests"></canvas>
         </section>
 
         <div id="delete-data-box">
@@ -190,8 +194,10 @@
         </div>
 
         <nav class="footer-links" aria-label="Footer">
-            <a href="https://github.com/Rui-S13/tittle-typing-test" target="_blank">Source on GitHub</a>
-            <a href="https://github.com/Rui-S13" target="_blank">Rui Silva</a>
+            <a href="https://github.com/Rui-S13/tittle-typing-test" target="_blank" rel="noopener noreferrer">Source on
+                GitHub</a><span class="visually-hidden">(opens in a new tab)</span>
+            <a href="https://github.com/Rui-S13" target="_blank" rel="noopener noreferrer">Rui Silva</a><span
+                class="visually-hidden">(opens in a new tab)</span>
             <button type="button" id="btn-back-to-top">Back to top</button>
         </nav>
 

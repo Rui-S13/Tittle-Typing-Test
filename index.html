@@ -12,7 +12,7 @@
 
 <body>
     <header id="header">
-        <div id="logo-container">
+        <h1 id="logo-container">
             <a href="index.html">
                 <svg id="header-logo" viewBox="0 0 280 110" role="img" aria-hidden="true">
                     <g fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round"
@@ -26,8 +26,9 @@
                     </g>
                     <circle cx="97" cy="29" r="8" fill="var(--accent, #2F5D8A)" />
                 </svg>
+                <span class="visually-hidden">Tittle</span>
             </a>
-        </div>
+        </h1>
 
         <nav id="header-navigation" aria-label="Main navigation">
             <a href="index.html" class="header-button" aria-current="page">
@@ -51,15 +52,15 @@
             </a>
         </nav>
 
-        <button id="btn-dark-mode" aria-label="Toggle dark mode">
-            <svg viewBox="0 0 24 24" fill="none">
+        <button id="btn-dark-mode" class="header-button" type="button" aria-label="Toggle dark mode">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" stroke="currentColor" stroke-width="2"
                     stroke-linecap="round" stroke-linejoin="round"></path>
             </svg>
         </button>
     </header>
 
-    <div id="caps-lock-warning-container" hidden>
+    <div id="caps-lock-warning-container" role="alert" hidden>
         <div id="caps-lock-warning">
             CAPS LOCK IS ON
         </div>
@@ -69,13 +70,13 @@
         <section id="typing-test">
             <div id="test-area">
                 <div id="test-quote"></div>
-                <span id="test-guide"></span>
+                <span id="test-guide" aria-live="polite"></span>
             </div>
             <div id="quote-info">
                 <a id="quote-book" href="#" target="_blank" rel="noopener noreferrer"></a>
                 <p id="quote-author"></p>
             </div>
-            <button id="btn-refresh" class="btn-test-action">
+            <button id="btn-refresh" class="btn-test-action" aria-label="Refresh typing test" aria-keyshortcuts="Enter">
                 <svg id="refresh-icon" class="action-icon" viewBox="0 0 24 24" aria-hidden="true">
                     <path d="M4.06189 13C4.02104 12.6724 4 12.3387 4 12
            C4 7.58172 7.58172 4 12 4
@@ -91,7 +92,7 @@
                 </svg>
                 <kbd id="key-refresh" class="action-key">ENTER</kbd>
             </button>
-            <button id="btn-cancel" class="btn-test-action">
+            <button id="btn-cancel" class="btn-test-action" aria-label="Cancel typing test" aria-keyshortcuts="Enter">
                 <svg id="cancel-icon" class="action-icon" viewBox="0 0 24 24" aria-hidden="true">
                     <path d="M6 6L18 18M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2"
                         stroke-linecap="round" stroke-linejoin="round" />
@@ -99,12 +100,12 @@
                 <kbd id="key-cancel" class="action-key">ESC</kbd>
             </button>
             <textarea name="test-input" id="test-input" autocomplete="off" autocorrect="off" autocapitalize="off"
-                spellcheck="false"></textarea>
+                spellcheck="false" aria-label="Type the quote shown above"></textarea>
         </section>
 
         <section id="test-status">
             <div id="test-header">
-                <div id="test-state">Awaiting</div>
+                <div id="test-state" role="status">Awaiting</div>
                 <div id="timer">----</div>
             </div>
 
@@ -125,7 +126,7 @@
                 </div>
             </div>
 
-            <p id="personal-best-message" hidden></p>
+            <p id="personal-best-message" role="status" hidden></p>
         </section>
 
         <section id="test-settings">
@@ -133,8 +134,9 @@
             <div id="settings-container">
 
                 <div class="setting">
-                    <h3>Timer</h3>
-                    <form id="setting-timer" class="setting-option-list">
+                    <h3 id="timer-heading">Timer</h3>
+                    <div id="setting-timer" class="setting-option-list" role="radiogroup"
+                        aria-labelledby="timer-heading">
                         <input type="radio" id="timer-quote" class="setting-input" name="timer" value="false" checked>
                         <label class="btn-setting" for="timer-quote">Off</label>
 
@@ -143,18 +145,19 @@
 
                         <input type="radio" id="timer-60" class="setting-input" name="timer" value="60">
                         <label class="btn-setting" for="timer-60">60 sec</label>
-                    </form>
+                    </div>
                 </div>
 
                 <div class="setting">
-                    <h3>Sound</h3>
-                    <form id="setting-sound" class="setting-option-list">
+                    <h3 id="sound-heading">Sound</h3>
+                    <div id="setting-timer" class="setting-option-list" role="radiogroup"
+                        aria-labelledby="sound-heading">
                         <input type="radio" id="sound-off" class="setting-input" name="sound" value="false" checked>
                         <label class="btn-setting" for="sound-off">Off</label>
 
                         <input type="radio" id="sound-on" class="setting-input" name="sound" value="true">
                         <label class="btn-setting" for="sound-on">On</label>
-                    </form>
+                    </div>
                 </div>
             </div>
         </section>
@@ -212,8 +215,9 @@
         </div>
 
         <nav class="footer-links" aria-label="Footer">
-            <a href="https://github.com/Rui-S13/tittle-typing-test" target="_blank">Source on GitHub</a>
-            <a href="https://github.com/Rui-S13" target="_blank">Rui Silva</a>
+            <a href="https://github.com/Rui-S13/tittle-typing-test" target="_blank" rel="noopener noreferrer">Source on
+                GitHub</a><span class="visually-hidden">(opens in a new tab)</span>
+            <a href="https://github.com/Rui-S13" target="_blank" rel="noopener noreferrer">Rui Silva</a><span class="visually-hidden">(opens in a new tab)</span>
             <button type="button" id="btn-back-to-top">Back to top</button>
         </nav>
 

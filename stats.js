@@ -46,7 +46,7 @@ function fillStatPage() {
     const ALL_STATS = calculateStats(ALL_TESTS);
 
     BEST_WPM.textContent = ALL_STATS.bestWpm;
-    const DATE_BEST = new Date (ALL_STATS.bestDate);
+    const DATE_BEST = new Date(ALL_STATS.bestDate);
     BEST_WPM_DATE.textContent = `${DATE_BEST.getDate()}/${DATE_BEST.getMonth() + 1}/${DATE_BEST.getFullYear()}`
     AVERAGE_WPM.textContent = ALL_STATS.avgWpm;
     AVERAGE_ACCURACY.textContent = ALL_STATS.avgAccuracy;
@@ -86,7 +86,9 @@ const BTN_CONFIRM_DELETE = document.querySelector("#btn-confirm-delete");
 const BTN_CANCEL_DELETE = document.querySelector("#btn-cancel-delete");
 
 BTN_DELETE_DATA.addEventListener("click", () => {
-    DELETE_DATA_WARNING.hidden = false;
+    DELETE_WARNING.hidden = false;
+    BTN_DELETE.setAttribute("aria-expanded", "true");
+    BTN_CANCEL_DELETE.focus();
 });
 
 BTN_CONFIRM_DELETE.addEventListener("click", () => {
@@ -94,6 +96,8 @@ BTN_CONFIRM_DELETE.addEventListener("click", () => {
     window.location.reload();
 });
 
-BTN_CANCEL_DELETE. addEventListener("click", () => {
-    DELETE_DATA_WARNING.hidden = true;
+BTN_CANCEL_DELETE.addEventListener("click", () => {
+    DELETE_WARNING.hidden = true;
+    BTN_DELETE.setAttribute("aria-expanded", "false");
+    BTN_DELETE.focus();
 });
