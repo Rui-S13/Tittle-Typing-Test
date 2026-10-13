@@ -163,6 +163,13 @@ function displayStats() {
 
 export async function handleInput(input) {
     if (testFailed) return;
+
+    if (TEST_QUOTE.querySelectorAll("span").length === 0) {
+        TEST_INPUT.value = "";
+        return;
+    };
+
+    if (!testStarted && input === "") return;
     if (!testStarted) startTest();
     if (testFinished) return;
 

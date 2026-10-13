@@ -54,6 +54,7 @@ TEST_INPUT.addEventListener("paste", (event) => {
 });
 
 BODY.addEventListener("keydown", (event) => {
+    if (event.isComposing) return;
     if (event.key === "Enter") {
         event.preventDefault();
         refreshTest()
@@ -62,6 +63,7 @@ BODY.addEventListener("keydown", (event) => {
 });
 
 BODY.addEventListener("keydown", (event) => {
+    if (event.isComposing) return;
     if (event.key === "Escape") {
         cancelTest();
         focusTest();
@@ -90,6 +92,12 @@ document.addEventListener("keydown", checkCapsLock);
 document.addEventListener("keyup", checkCapsLock);
 
 TEST_INPUT.addEventListener("input", (event) => {
+    if (event.isComposing) return;
+    handleInput(TEST_INPUT.value);
+    scrollTest();
+});
+
+TEST_INPUT.addEventListener("compositionend", () => {
     handleInput(TEST_INPUT.value);
     scrollTest();
 });
