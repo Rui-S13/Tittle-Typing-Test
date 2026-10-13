@@ -44,9 +44,12 @@ const STATS = {
 
 
 export async function refreshTest() {
+    STAT_VALUES.forEach((stat) => stat.textContent = "---");
+    TEST_INPUT.value = "";
+    hidePersonalMessage();
+
     resetQuote();
     updateState("awaiting");
-    TEST_INPUT.value = "";
 
     try {
         resetValues();
@@ -62,9 +65,6 @@ export async function refreshTest() {
 };
 
 function resetValues() {
-    STAT_VALUES.forEach((stat) => stat.textContent = "---");
-    hidePersonalMessage();
-
     clearInterval(intervalId);
 
     resetSettings();
@@ -81,8 +81,6 @@ function resetValues() {
     STATS.mistakes = 0;
     STATS.wpm = 0;
     STATS.accuracy = 0;
-
-    TYPING_TEST.className = "";
 };
 
 export function resetSettings() {
@@ -98,8 +96,6 @@ function startTest() {
     testStarted = true;
 
     updateState("ongoing");
-
-    TYPING_TEST.className = "typing-test-ongoing";
 
     if (timerCountdown !== "false") {
         intervalId = setInterval(tick, 1000);
@@ -153,7 +149,7 @@ function processInput(input) {
 
 function updateChar(char, result, current = false) {
     let classes = `char char-${result}`;
-    
+
     if (current) {
         classes += " char-current"
     };
@@ -206,7 +202,6 @@ export function cancelTest() {
     if (testFinished) return;
     testFinished = true;
 
-    TYPING_TEST.className = "typing-test-cancelled";
     updateState("cancelled");
 
     clearInterval(intervalId);
@@ -216,7 +211,6 @@ function finishTest() {
     if (testFinished) return;
     testFinished = true;
 
-    TYPING_TEST.className = "typing-test-finished";
     TIME.endTime = Date.now();
 
     clearInterval(intervalId);

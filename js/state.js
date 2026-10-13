@@ -1,28 +1,34 @@
 const TEST_STATE = document.querySelector("#test-state");
+const TYPING_TEST = document.querySelector("#typing-test");
 
 export function updateState(option) {
-    let message, className;
+    let message, classNameState, classNameTypingTest;
 
     switch (option) {
         case ("awaiting"):
             message = "Awaiting";
-            className = "state-awaiting";
+            classNameState = "state-awaiting";
+            classNameTypingTest = ""
             break;
         case ("ongoing"):
             message = "Ongoing";
-            className = "state-ongoing"
+            classNameState = "state-ongoing";
+            classNameTypingTest = "typing-test-ongoing";
             break;
         case ("cancelled"):
             message = "Cancelled";
-            className = "state-cancelled";
+            classNameState = "state-cancelled";
+            classNameTypingTest = "typing-test-cancelled";
             break;
         case ("finished"):
             message = "Finished";
-            className = "state-finished"
+            classNameState = "state-finished";
+            classNameTypingTest = "typing-test-finished";
             break;
         case ("finished-timer"):
             message = "Finished (Timer's up)";
-            className = "state-finished"
+            classNameState = "state-finished"
+            classNameTypingTest = "typing-test-finished";
             break;
         default:
             message = "";
@@ -30,5 +36,6 @@ export function updateState(option) {
     };
 
     TEST_STATE.textContent = message;
-    TEST_STATE.className = className;
+    TEST_STATE.className = classNameState;
+    TYPING_TEST.className = classNameTypingTest;
 };
