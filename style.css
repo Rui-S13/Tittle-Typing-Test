@@ -829,8 +829,7 @@ footer {
 .char-mistake {
     background-color: var(--muted-error-color);
     color: var(--error-color);
-    text-decoration: underline;
-    text-decoration-thickness: 2px;
+    border-bottom: solid var(--error-color) 3px;
 }
 
 .char-correct {
