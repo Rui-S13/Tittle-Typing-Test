@@ -119,33 +119,46 @@ function tick() {
 
 function processInput(input) {
     const POSITION = input.length - 1;
-    const INPUTED_CHAR = input[POSITION];
+    const INPUT_CHAR = input[POSITION];
+    const QUOTE_CHARS = TEST_QUOTE.querySelectorAll("span");
+
     let result = null;
 
-    const QUOTE = TEST_QUOTE.querySelectorAll("span");
+    QUOTE_CHARS.forEach((char, index) => {
+        if (index < POSITION) return;
 
-    QUOTE.forEach((char, i) => {
-        if (i < POSITION) {
+        if (index === POSITION) {
+            if (!char.classList.contains("char-idle")) return;
+
+            STATS.keystrokes++;
+
+            const IS_CORRECT = INPUT_CHAR === char.textContent;
+
+            if (!IS_CORRECT) STATS.mistakes++;
+
+            result = IS_CORRECT ? "correct" : "mistake";
+            updateChar(char, result);
             return;
-        } else if (i === POSITION) {
-            if (char.classList.contains("char-idle")) {
-                STATS.keystrokes++;
+        };
 
-                if (INPUTED_CHAR === char.textContent) {
-                    char.className = "char char-correct";
-                    result = "correct";
-                } else {
-                    STATS.mistakes++;
-                    char.className = "char char-mistake";
-                    result = "mistake";
-                }
-            }
+        if (index === POSITION + 1) {
+            updateChar(char, "idle", true);
         } else {
-            const IS_NEXT = i === POSITION + 1;
-            char.className = IS_NEXT ? "char char-idle char-current" : "char char-idle";
+            updateChar(char, "idle");
         };
     });
+
     return result;
+};
+
+function updateChar(char, result, current = false) {
+    let classes = `char char-${result}`;
+    
+    if (current) {
+        classes += " char-current"
+    };
+
+    char.className = classes;
 };
 
 function updateStats() {
