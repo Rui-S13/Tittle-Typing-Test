@@ -13,7 +13,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-size: 16px;
 }
 
 :root {
@@ -59,6 +58,21 @@ body {
     font-family: Inter;
 }
 
+button, input, textarea { font: inherit; }
+
+[hidden] {
+    display: none !important;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+
 
 /* ==================================================
    HEADER
@@ -85,6 +99,9 @@ header {
     height: 100%;
     display: flex;
     align-items: center;
+
+    font: inherit;
+    line-height: 0;
 }
 
 #logo-container a {
@@ -188,10 +205,6 @@ header {
 
     background-color: var(--primary-color);
     border-radius: var(--border-radius);
-}
-
-#caps-lock-warning-container[hidden] {
-    display: none;
 }
 
 /* ==================================================
@@ -303,10 +316,6 @@ section {
     font-size: 1.5rem;
     letter-spacing: 1px;
     color: var(--primary-color);
-}
-
-#test-guide[hidden] {
-    display: none;
 }
 
 #test-quote {
@@ -559,10 +568,6 @@ section {
     gap: 15px;
 }
 
-.setting-option-list input[type="radio"] {
-    display: none;
-}
-
 .btn-setting {
     padding: 6px 12px;
 
@@ -585,13 +590,20 @@ section {
     color: var(--accent-color);
 }
 
-input[type="radio"]:checked+.btn-setting {
+.setting-input:checked+.btn-setting {
     background-color: var(--primary-color);
     border-color: var(--primary-color);
     color: var(--background-color);
 }
 
-input[type="radio"]:focus-visible+.btn-setting {
+.setting-input {
+    position: absolute;
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+}
+
+.setting-input:focus-visible+.btn-setting {
     outline: 2px solid var(--accent-color);
     outline-offset: 2px;
 }
@@ -817,6 +829,8 @@ footer {
 .char-mistake {
     background-color: var(--muted-error-color);
     color: var(--error-color);
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
 }
 
 .char-correct {
