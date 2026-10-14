@@ -4,7 +4,7 @@ import { saveSettings, loadSettings } from "./js/settings.js";
 import { refreshTest, handleInput, hasTestStarted, resetSettings, cancelTest } from "./js/test.js";
 import { hideGuide, updateGuide } from "./js/testDisplay.js";
 import { loadSounds } from "./js/sound.js";
-import { updateHistory } from "./js/sessionInfo.js";
+import { updateHistory } from "./js/testHistory.js";
 import { focusTest, scrollTest } from "./js/testScroll.js";
 import { updateSessionSummary } from "./js/sessionInfo.js";
 

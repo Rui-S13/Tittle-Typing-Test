@@ -5,7 +5,8 @@ import { updateGuide, hideGuide, updateState, displayStats, updateTimer, refresh
 import { calculateWPM, calculateAccuracy } from "./calculations.js";
 import { saveLocalTest, saveSessionTest } from "./storage.js";
 import { playSound } from "./sound.js";
-import { updateHistory, updateSessionSummary } from "./sessionInfo.js";
+import { updateSessionSummary } from "./sessionInfo.js";
+import { updateHistory } from "./testHistory.js";
 import { compareTest } from "./compareTest.js";
 import { scrollToStatus } from "./testScroll.js";
 
