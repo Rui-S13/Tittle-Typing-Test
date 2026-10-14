@@ -10,7 +10,11 @@ import { updateSessionSummary } from "./js/sessionInfo.js";
 
 loadDarkMode();
 loadSettings();
-await loadSounds();
+try {
+    loadSounds();
+} catch (error) {
+    console.log(error)
+}
 refreshTest();
 updateHistory();
 updateSessionSummary();
