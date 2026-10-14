@@ -58,7 +58,11 @@ body {
     font-family: Inter;
 }
 
-button, input, textarea { font: inherit; }
+button,
+input,
+textarea {
+    font: inherit;
+}
 
 [hidden] {
     display: none !important;
@@ -255,7 +259,7 @@ section {
 #typing-test {
     grid-area: typing-test;
 
-    scroll-margin-top: 70px;
+    scroll-margin-top: 100px;
 
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto auto;
@@ -867,6 +871,13 @@ footer {
 
     .header-button span {
         display: none;
+    }
+
+    #caps-lock-warning {
+        padding: 10px;
+        margin: 10px;
+
+        font-size: 0.9rem;
     }
 
     main {
