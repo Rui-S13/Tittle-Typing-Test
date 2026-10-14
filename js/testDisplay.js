@@ -98,7 +98,3 @@ export function refreshDisplay() {
     hidePersonalMessage();
     updateState(TEST_STATE.IDLE);
 };
-
-export function scrollToTop() {
-    window.scrollTo({ top: 0 });
-};

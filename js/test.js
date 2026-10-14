@@ -1,12 +1,13 @@
 import { TEST_STATE, FINISH_REASON, GUIDE } from "./constants.js";
 import { getSettings } from "./settings.js";
 import { resetQuote, updateQuote } from "./quotes.js";
-import { updateGuide, hideGuide, updateState, displayStats, updateTimer, refreshDisplay, scrollToTop } from "./testDisplay.js";
+import { updateGuide, hideGuide, updateState, displayStats, updateTimer, refreshDisplay } from "./testDisplay.js";
 import { calculateWPM, calculateAccuracy } from "./calculations.js";
 import { saveLocalTest, saveSessionTest } from "./storage.js";
 import { playSound } from "./sound.js";
 import { updateHistory, updateSessionSummary } from "./sessionInfo.js";
 import { compareTest } from "./compareTest.js";
+import { scrollToStatus } from "./testScroll.js";
 
 
 const TEST_QUOTE = document.querySelector("#test-quote");
@@ -207,7 +208,7 @@ function stopTest(reason) {
     updateState(TEST_STATE.FINISHED, reason);
     updateStats();
     displayStats(STATS);
-    scrollToTop();
+    scrollToStatus();
 };
 
 function saveResult() {
