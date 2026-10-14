@@ -1,8 +1,9 @@
 import { hidePersonalMessage } from "./compareTest.js";
+import { TEST_STATE, FINISH_REASON, GUIDE } from "./constants.js";
 
 const TEST_GUIDE = document.querySelector("#test-guide");
 const TEST_QUOTE = document.querySelector("#test-quote");
-const TEST_STATE = document.querySelector("#test-state");
+const STATE_LABEL = document.querySelector("#test-state");
 const TYPING_TEST = document.querySelector("#typing-test");
 const TIMER = document.querySelector("#timer");
 const STAT_VALUES = document.querySelectorAll(".stat-value");
@@ -14,16 +15,16 @@ export function updateGuide(option) {
     let message;
 
     switch (option) {
-        case ("lostFocus"):
+        case (GUIDE.LOST_FOCUS):
             message = "CLICK on this area to focus";
             break;
-        case ("testError"):
+        case (GUIDE.TEST_ERROR):
             message = "Failed to get the test. Press ESC to try again.";
             break;
-        case ("loading"):
+        case (GUIDE.LOADING):
             message = "Starting the test...";
             break;
-        case ("failedSave"):
+        case (GUIDE.FAILED_SAVE):
             message = "Failed to save test"
             break;
         default:
@@ -42,44 +43,39 @@ export function hideGuide() {
     TEST_QUOTE.classList.remove("quote-blurred");
 };
 
-export function updateState(option) {
+export function updateState(state, reason) {
     let message, classNameState, classNameTypingTest;
 
-    switch (option) {
-        case ("awaiting"):
+    switch (state) {
+        case TEST_STATE.IDLE:
             message = "Awaiting";
             classNameState = "state-awaiting";
-            classNameTypingTest = ""
+            classNameTypingTest = "";
             break;
-        case ("ongoing"):
+        case TEST_STATE.RUNNING:
             message = "Ongoing";
             classNameState = "state-ongoing";
             classNameTypingTest = "typing-test-ongoing";
             break;
-        case ("cancelled"):
+        case TEST_STATE.CANCELLED:
             message = "Cancelled";
             classNameState = "state-cancelled";
             classNameTypingTest = "typing-test-cancelled";
             break;
-        case ("finished"):
-            message = "Finished";
+        case TEST_STATE.FINISHED:
+            message = reason === FINISH_REASON.TIMER ? "Finished (Timer's up)" : "Finished";
             classNameState = "state-finished";
-            classNameTypingTest = "typing-test-finished";
-            break;
-        case ("finished-timer"):
-            message = "Finished (Timer's up)";
-            classNameState = "state-finished"
             classNameTypingTest = "typing-test-finished";
             break;
         default:
             message = "";
-            classNameState = ""
+            classNameState = "";
             classNameTypingTest = "";
             break;
     };
 
-    TEST_STATE.textContent = message;
-    TEST_STATE.className = classNameState;
+    STATE_LABEL.textContent = message;
+    STATE_LABEL.className = classNameState;
     TYPING_TEST.className = classNameTypingTest;
 };
 
@@ -98,7 +94,11 @@ export function updateTimer(timerValue) {
 };
 
 export function refreshDisplay() {
-        STAT_VALUES.forEach((stat) => stat.textContent = "---");
-        hidePersonalMessage();
-        updateState("awaiting");
+    STAT_VALUES.forEach((stat) => stat.textContent = "---");
+    hidePersonalMessage();
+    updateState(TEST_STATE.IDLE);
+};
+
+export function scrollToTop() {
+    window.scrollTo({ top: 0 });
 };

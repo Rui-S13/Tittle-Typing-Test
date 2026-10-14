@@ -1,26 +1,24 @@
+import { TEST_STATE, FINISH_REASON, GUIDE } from "./constants.js";
 import { getSettings } from "./settings.js";
 import { resetQuote, updateQuote } from "./quotes.js";
-import { updateGuide, hideGuide, updateState, displayStats, updateTimer, refreshDisplay } from "./testDisplay.js";
+import { updateGuide, hideGuide, updateState, displayStats, updateTimer, refreshDisplay, scrollToTop } from "./testDisplay.js";
 import { calculateWPM, calculateAccuracy } from "./calculations.js";
 import { saveLocalTest, saveSessionTest } from "./storage.js";
 import { playSound } from "./sound.js";
-import { updateHistory } from "./sessionInfo.js";
+import { updateHistory, updateSessionSummary } from "./sessionInfo.js";
 import { compareTest } from "./compareTest.js";
-import { updateSessionSummary } from "./sessionInfo.js";
 
 
 const TEST_QUOTE = document.querySelector("#test-quote");
 const TEST_INPUT = document.querySelector("#test-input");
 
-let testFailed = false;
-export let testStarted = false;
-let testFinished = false;
+let testState = TEST_STATE.IDLE;
 let idTestQuote = null;
 let intervalId = null;
 let timerCountdown = null;
 const SETTINGS = {
-    timer: false,
-    sound: false
+    timer: "false",
+    sound: "false"
 };
 const TIME = {
     startTime: null,
@@ -41,14 +39,16 @@ export async function refreshTest() {
     resetQuote();
 
     try {
-        updateGuide("loading");
+        updateGuide(GUIDE.LOADING);
         const QUOTE = await updateQuote();
         idTestQuote = QUOTE.idQuote;
+        TEST_INPUT.value = "";
+        testState = TEST_STATE.IDLE;
         hideGuide();
     } catch (error) {
         console.error(error);
-        testFailed = true;
-        updateGuide("testError");
+        testState = TEST_STATE.FAILED;
+        updateGuide(GUIDE.TEST_ERROR);
     };
 };
 
@@ -57,10 +57,7 @@ function resetValues() {
 
     resetSettings();
 
-    testFailed = false;
-    testStarted = false;
-    testFinished = false;
-    idTestQuote = null;
+    testState = TEST_STATE.LOADING;
 
     TIME.startTime = null;
     TIME.endTime = null;
@@ -75,17 +72,17 @@ export function resetSettings() {
     const CURRENT_SETTINGS = getSettings();
     SETTINGS.timer = CURRENT_SETTINGS.timer;
     SETTINGS.sound = CURRENT_SETTINGS.sound;
-    timerCountdown = SETTINGS.timer;
-    updateTimer(timerCountdown)
+    timerCountdown = SETTINGS.timer === "false" ? null : Number(SETTINGS.timer);
+    updateTimer(SETTINGS.timer);
 };
 
 function startTest() {
     TIME.startTime = Date.now();
-    testStarted = true;
+    testState = TEST_STATE.RUNNING;
 
-    updateState("ongoing");
+    updateState(TEST_STATE.RUNNING);
 
-    if (timerCountdown !== "false") {
+    if (timerCountdown !== null) {
         intervalId = setInterval(tick, 1000);
     };
 };
@@ -98,7 +95,7 @@ function tick() {
     updateTimer(timerCountdown);
 
     if (timerCountdown === 0) {
-        finishTest();
+        finishTest(FINISH_REASON.TIMER);
     };
 };
 
@@ -153,62 +150,67 @@ function updateStats() {
     STATS.accuracy = calculateAccuracy(STATS.keystrokes, STATS.mistakes);
 };
 
-export async function handleInput(input) {
-    if (testFailed) return;
+export function handleInput(input) {
+    if (testState === TEST_STATE.FAILED) return;
 
-    if (TEST_QUOTE.querySelectorAll("span").length === 0) {
+    if (testState === TEST_STATE.LOADING) {
         TEST_INPUT.value = "";
         return;
     };
 
-    if (!testStarted && input === "") return;
-    if (!testStarted) startTest();
-    if (testFinished) return;
+    if (testState === TEST_STATE.FINISHED || testState === TEST_STATE.CANCELLED) return;
+
+    if (testState === TEST_STATE.IDLE) {
+        if (input === "") return;
+        startTest();
+    };
 
     const RESULT = processInput(input);
 
-    if (RESULT && getSettings().sound === "true") {
-        await playSound(RESULT);
+    if (RESULT && SETTINGS.sound === "true") {
+        playSound(RESULT);
     };
 
     updateStats();
     displayStats(STATS);
 
-    const QUOTE_LENGTH = TEST_QUOTE.querySelectorAll("span").length;
-    if (input.length >= QUOTE_LENGTH) {
-        finishTest();
+    if (input.length >= TEST_QUOTE.querySelectorAll("span").length) {
+        finishTest(FINISH_REASON.QUOTE);
     };
 };
 
 export function cancelTest() {
-    if (!testStarted) return;
-    if (testFinished) return;
-    testFinished = true;
+    if (testState !== TEST_STATE.RUNNING) return;
+    testState = TEST_STATE.CANCELLED;
 
-    updateState("cancelled");
+    updateState(TEST_STATE.CANCELLED);
 
     clearInterval(intervalId);
 };
 
-function finishTest() {
-    if (testFinished) return;
-    testFinished = true;
+export function hasTestStarted() {
+    return [TEST_STATE.RUNNING, TEST_STATE.FINISHED, TEST_STATE.CANCELLED].includes(testState);
+};
 
+function finishTest(reason) {
+    if (testState !== TEST_STATE.RUNNING) return;
+    testState = TEST_STATE.FINISHED;
+
+    stopTest(reason);
+    saveResult();
+};
+
+function stopTest(reason) {
     TIME.endTime = Date.now();
-
     clearInterval(intervalId);
-    if (timerCountdown === 0) {
-        updateState("finished-timer");
-    } else {
-        updateState("finished");
-    };
 
-    window.scrollTo({
-        top: 0
-    });
-
+    updateState(TEST_STATE.FINISHED, reason);
     updateStats();
     displayStats(STATS);
+    scrollToTop();
+};
+
+function saveResult() {
     const END_TEST = { ...TIME, ...STATS, timer: SETTINGS.timer, idQuote: idTestQuote };
 
     compareTest(END_TEST);
@@ -216,7 +218,7 @@ function finishTest() {
     const SAVED_LOCAL = saveLocalTest(END_TEST);
     const SAVED_SESSION = saveSessionTest(END_TEST);
     if (!SAVED_LOCAL || !SAVED_SESSION) {
-        updateGuide("failedSave");
+        updateGuide(GUIDE.FAILED_SAVE);
     };
 
     updateSessionSummary();

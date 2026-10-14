@@ -1,6 +1,7 @@
+import { GUIDE } from "./js/constants.js";
 import { loadDarkMode, toggleDarkMode } from "./js/darkMode.js";
 import { saveSettings, loadSettings } from "./js/settings.js";
-import { refreshTest, handleInput, testStarted, resetSettings, cancelTest } from "./js/test.js";
+import { refreshTest, handleInput, hasTestStarted, resetSettings, cancelTest } from "./js/test.js";
 import { hideGuide, updateGuide } from "./js/testDisplay.js";
 import { loadSounds } from "./js/sound.js";
 import { updateHistory } from "./js/sessionInfo.js";
@@ -15,7 +16,7 @@ updateHistory();
 updateSessionSummary();
 
 const BODY = document.querySelector("body");
-const BTN_DARK_MODE = document.querySelector("#btn-dark-mode");
+const BTN_DARK_MODE = document.getElementById("btn-dark-mode");
 const CAPS_WARNING = document.querySelector("#caps-lock-warning-container");
 const TEST_AREA = document.querySelector("#test-area");
 const TEST_INPUT = document.querySelector("#test-input");
@@ -46,7 +47,7 @@ TEST_INPUT.addEventListener("focus", () => {
 });
 
 TEST_INPUT.addEventListener("blur", () => {
-    updateGuide("lostFocus");
+    updateGuide(GUIDE.LOST_FOCUS);
 });
 
 TEST_INPUT.addEventListener("paste", (event) => {
@@ -116,7 +117,7 @@ TEST_INPUT.addEventListener("keydown", (event) => {
 
 SETTING_INPUTS.forEach((option) => {
     option.addEventListener("change", () => {
-        if (testStarted) {
+        if (hasTestStarted()) {
             refreshTest();
         };
         saveSettings();
