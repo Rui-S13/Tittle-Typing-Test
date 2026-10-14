@@ -1,24 +1,16 @@
 import { getSettings } from "./settings.js";
 import { resetQuote, updateQuote } from "./quotes.js";
-import { updateGuide, hideGuide } from "./guide.js";
+import { updateGuide, hideGuide, updateState, displayStats, updateTimer, refreshDisplay } from "./testDisplay.js";
 import { calculateWPM, calculateAccuracy } from "./calculations.js";
-import { updateState } from "./state.js";
-import { updateTimer } from "./timer.js";
 import { saveLocalTest, saveSessionTest } from "./storage.js";
 import { playSound } from "./sound.js";
-import { updateHistory } from "./history.js";
-import { compareTest, hidePersonalMessage } from "./compareTest.js";
-import { updateSessionSummary } from "./sessionSummary.js";
+import { updateHistory } from "./sessionInfo.js";
+import { compareTest } from "./compareTest.js";
+import { updateSessionSummary } from "./sessionInfo.js";
 
 
 const TEST_QUOTE = document.querySelector("#test-quote");
 const TEST_INPUT = document.querySelector("#test-input");
-const TYPING_TEST = document.querySelector("#typing-test");
-const STAT_VALUES = document.querySelectorAll(".stat-value");
-const WPM_VALUE = document.querySelector("#wpm");
-const ACCURACY_VALUE = document.querySelector("#accuracy");
-const MISTAKES_VALUE = document.querySelector("#mistakes");
-
 
 let testFailed = false;
 export let testStarted = false;
@@ -26,7 +18,6 @@ let testFinished = false;
 let idTestQuote = null;
 let intervalId = null;
 let timerCountdown = null;
-
 const SETTINGS = {
     timer: false,
     sound: false
@@ -44,18 +35,15 @@ const STATS = {
 
 
 export async function refreshTest() {
-    STAT_VALUES.forEach((stat) => stat.textContent = "---");
+    resetValues();
+    refreshDisplay();
     TEST_INPUT.value = "";
-    hidePersonalMessage();
-
     resetQuote();
-    updateState("awaiting");
 
     try {
-        resetValues();
         updateGuide("loading");
         const QUOTE = await updateQuote();
-        idTestQuote = await QUOTE.idQuote;
+        idTestQuote = QUOTE.idQuote;
         hideGuide();
     } catch (error) {
         console.error(error);
@@ -88,7 +76,7 @@ export function resetSettings() {
     SETTINGS.timer = CURRENT_SETTINGS.timer;
     SETTINGS.sound = CURRENT_SETTINGS.sound;
     timerCountdown = SETTINGS.timer;
-    updateTimer(timerCountdown);
+    updateTimer(timerCountdown)
 };
 
 function startTest() {
@@ -104,6 +92,7 @@ function startTest() {
 
 function tick() {
     updateStats();
+    displayStats(STATS);
 
     timerCountdown--
     updateTimer(timerCountdown);
@@ -164,12 +153,6 @@ function updateStats() {
     STATS.accuracy = calculateAccuracy(STATS.keystrokes, STATS.mistakes);
 };
 
-function displayStats() {
-    WPM_VALUE.textContent = `${STATS.wpm}`;
-    ACCURACY_VALUE.textContent = `${STATS.accuracy}`;
-    MISTAKES_VALUE.textContent = `${STATS.mistakes}`;
-};
-
 export async function handleInput(input) {
     if (testFailed) return;
 
@@ -189,7 +172,7 @@ export async function handleInput(input) {
     };
 
     updateStats();
-    displayStats();
+    displayStats(STATS);
 
     const QUOTE_LENGTH = TEST_QUOTE.querySelectorAll("span").length;
     if (input.length >= QUOTE_LENGTH) {
@@ -225,7 +208,7 @@ function finishTest() {
     });
 
     updateStats();
-    displayStats();
+    displayStats(STATS);
     const END_TEST = { ...TIME, ...STATS, timer: SETTINGS.timer, idQuote: idTestQuote };
 
     compareTest(END_TEST);

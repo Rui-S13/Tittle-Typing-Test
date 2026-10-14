@@ -1,11 +1,11 @@
 import { loadDarkMode, toggleDarkMode } from "./js/darkMode.js";
 import { saveSettings, loadSettings } from "./js/settings.js";
 import { refreshTest, handleInput, testStarted, resetSettings, cancelTest } from "./js/test.js";
-import { hideGuide, updateGuide } from "./js/guide.js";
+import { hideGuide, updateGuide } from "./js/testDisplay.js";
 import { loadSounds } from "./js/sound.js";
-import { updateHistory } from "./js/history.js";
+import { updateHistory } from "./js/sessionInfo.js";
 import { focusTest, scrollTest } from "./js/testScroll.js";
-import { updateSessionSummary } from "./js/sessionSummary.js";
+import { updateSessionSummary } from "./js/sessionInfo.js";
 
 loadDarkMode();
 loadSettings();
