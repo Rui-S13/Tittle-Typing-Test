@@ -1,4 +1,3 @@
-
 import { readLocalJson } from "./storage.js";
 
 const PROGRESS_CHART = document.querySelector("#progress-chart");
@@ -6,16 +5,16 @@ const PROGRESS_CHART = document.querySelector("#progress-chart");
 let lineChart;
 
 export function fillChart() {
-    const STYLES = getComputedStyle(document.body);                    // changed: read the theme
+    const STYLES = getComputedStyle(document.body);
     const ACCENT = STYLES.getPropertyValue("--accent-color").trim();
     const MUTED = STYLES.getPropertyValue("--muted-color").trim();
     const BORDER = STYLES.getPropertyValue("--border-color").trim();
 
-    const IS_MOBILE = window.matchMedia("(max-width: 600px)").matches;   // changed
+    const IS_MOBILE = window.matchMedia("(max-width: 600px)").matches;
 
     const ALL_TESTS = readLocalJson("tests", []);
-    const SORTED = [...ALL_TESTS].sort((a, b) => a.endTime - b.endTime);   // changed: a copy
-    const VISIBLE = SORTED.slice(IS_MOBILE ? -10 : -30);                   // changed: latest only
+    const SORTED = [...ALL_TESTS].sort((a, b) => a.endTime - b.endTime);
+    const VISIBLE = SORTED.slice(IS_MOBILE ? -10 : -30);
     const OFFSET = SORTED.length - VISIBLE.length;
 
     const labels = VISIBLE.map((test) =>

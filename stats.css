@@ -39,7 +39,7 @@ h3 {
         "best-wpm average-wpm"
         "best-wpm average-accuracy"
         "number-of-tests total-time";
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     grid-template-rows: auto 1fr;
 
     padding: 0px;
@@ -78,6 +78,7 @@ h3 {
 
     padding: 30px;
     min-height: 200px;
+    min-width: 0;
 
     background-color: var(--surface-color);
     border: solid var(--border-color) var(--border-weight);
@@ -116,30 +117,49 @@ h3 {
 }
 
 .stat-info {
+    position: relative;
     display: flex;
     flex-direction: row;
-    gap: 20px;
-
-    flex-wrap: wrap;
-
+    justify-content: center;
     align-items: center;
+    width: 100%;
+}
 
-    justify-self: center;
-    align-self: center;
+#best-wpm-container .stat-info {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
 }
 
 .stat-value {
     font-weight: var(--font-weight-bold);
     font-size: 4rem;
-
-    justify-content: center;
 }
 
 .stat-unit {
+    position: absolute;
+    left: calc(50% + 4rem);
     color: var(--muted-color);
-
     font-size: 1.5rem;
     font-weight: var(--font-weight-light);
+}
+
+#best-wpm-container .stat-unit {
+    text-align: center;
+    position: static;
+}
+
+#total-time-container .stat-info {
+    gap: 15px;
+}
+
+.time-unit-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    white-space: nowrap;
 }
 
 .time-unit {
@@ -232,8 +252,9 @@ h3 {
 
 #delete-data-warning div {
     display: flex;
+    flex-direction: row;
     justify-content: flex-end;
-    gap: 8px;
+    gap: 10px;
 }
 
 #btn-confirm-delete {
@@ -294,5 +315,9 @@ h3 {
 
     .chart-container canvas {
         min-width: 400px;
+    }
+
+    #delete-data-box {
+        flex-direction: column;
     }
 }

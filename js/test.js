@@ -1,35 +1,25 @@
+import { TEST_STATE, FINISH_REASON, GUIDE } from "./constants.js";
 import { getSettings } from "./settings.js";
 import { resetQuote, updateQuote } from "./quotes.js";
-import { updateGuide, hideGuide } from "./guide.js";
+import { updateGuide, hideGuide, updateState, displayStats, updateTimer, refreshDisplay } from "./testDisplay.js";
 import { calculateWPM, calculateAccuracy } from "./calculations.js";
-import { updateState } from "./state.js";
-import { updateTimer } from "./timer.js";
 import { saveLocalTest, saveSessionTest } from "./storage.js";
 import { playSound } from "./sound.js";
-import { updateHistory } from "./history.js";
-import { compareTest, hidePersonalMessage } from "./compareTest.js";
-import { updateSessionSummary } from "./sessionSummary.js";
+import { updateHistory, updateSessionSummary } from "./sessionInfo.js";
+import { compareTest } from "./compareTest.js";
+import { scrollToStatus } from "./testScroll.js";
 
 
 const TEST_QUOTE = document.querySelector("#test-quote");
 const TEST_INPUT = document.querySelector("#test-input");
-const TYPING_TEST = document.querySelector("#typing-test");
-const STAT_VALUES = document.querySelectorAll(".stat-value");
-const WPM_VALUE = document.querySelector("#wpm");
-const ACCURACY_VALUE = document.querySelector("#accuracy");
-const MISTAKES_VALUE = document.querySelector("#mistakes");
 
-
-let testFailed = false;
-export let testStarted = false;
-let testFinished = false;
+let testState = TEST_STATE.IDLE;
 let idTestQuote = null;
 let intervalId = null;
 let timerCountdown = null;
-
 const SETTINGS = {
-    timer: false,
-    sound: false
+    timer: "false",
+    sound: "false"
 };
 const TIME = {
     startTime: null,
@@ -44,35 +34,31 @@ const STATS = {
 
 
 export async function refreshTest() {
-    resetQuote();
-    updateState("awaiting");
+    resetValues();
+    refreshDisplay();
     TEST_INPUT.value = "";
+    resetQuote();
 
     try {
-        resetValues();
-        updateGuide("loading");
+        updateGuide(GUIDE.LOADING);
         const QUOTE = await updateQuote();
-        idTestQuote = await QUOTE.idQuote;
+        idTestQuote = QUOTE.idQuote;
+        TEST_INPUT.value = "";
+        testState = TEST_STATE.IDLE;
         hideGuide();
     } catch (error) {
         console.error(error);
-        testFailed = true;
-        updateGuide("testError");
+        testState = TEST_STATE.FAILED;
+        updateGuide(GUIDE.TEST_ERROR);
     };
 };
 
 function resetValues() {
-    STAT_VALUES.forEach((stat) => stat.textContent = "---");
-    hidePersonalMessage();
-
     clearInterval(intervalId);
 
     resetSettings();
 
-    testFailed = false;
-    testStarted = false;
-    testFinished = false;
-    idTestQuote = null;
+    testState = TEST_STATE.LOADING;
 
     TIME.startTime = null;
     TIME.endTime = null;
@@ -81,71 +67,81 @@ function resetValues() {
     STATS.mistakes = 0;
     STATS.wpm = 0;
     STATS.accuracy = 0;
-
-    TYPING_TEST.className = "";
 };
 
 export function resetSettings() {
     const CURRENT_SETTINGS = getSettings();
     SETTINGS.timer = CURRENT_SETTINGS.timer;
     SETTINGS.sound = CURRENT_SETTINGS.sound;
-    timerCountdown = SETTINGS.timer;
-    updateTimer(timerCountdown);
+    timerCountdown = SETTINGS.timer === "false" ? null : Number(SETTINGS.timer);
+    updateTimer(SETTINGS.timer);
 };
 
 function startTest() {
     TIME.startTime = Date.now();
-    testStarted = true;
+    testState = TEST_STATE.RUNNING;
 
-    updateState("ongoing");
+    updateState(TEST_STATE.RUNNING);
 
-    TYPING_TEST.className = "typing-test-ongoing";
-
-    if (timerCountdown !== "false") {
+    if (timerCountdown !== null) {
         intervalId = setInterval(tick, 1000);
     };
 };
 
 function tick() {
     updateStats();
+    displayStats(STATS);
 
     timerCountdown--
     updateTimer(timerCountdown);
 
     if (timerCountdown === 0) {
-        finishTest();
+        finishTest(FINISH_REASON.TIMER);
     };
 };
 
 function processInput(input) {
     const POSITION = input.length - 1;
-    const INPUTED_CHAR = input[POSITION];
+    const INPUT_CHAR = input[POSITION];
+    const QUOTE_CHARS = TEST_QUOTE.querySelectorAll("span");
+
     let result = null;
 
-    const QUOTE = TEST_QUOTE.querySelectorAll("span");
+    QUOTE_CHARS.forEach((char, index) => {
+        if (index < POSITION) return;
 
-    QUOTE.forEach((char, i) => {
-        if (i < POSITION) {
+        if (index === POSITION) {
+            if (!char.classList.contains("char-idle")) return;
+
+            STATS.keystrokes++;
+
+            const IS_CORRECT = INPUT_CHAR === char.textContent;
+
+            if (!IS_CORRECT) STATS.mistakes++;
+
+            result = IS_CORRECT ? "correct" : "mistake";
+            updateChar(char, result);
             return;
-        } else if (i === POSITION) {
-            if (char.classList.contains("char-idle")) {
-                STATS.keystrokes++;
+        };
 
-                if (INPUTED_CHAR === char.textContent) {
-                    char.className = "char char-correct";
-                    result = "correct";
-                } else {
-                    STATS.mistakes++;
-                    char.className = "char char-mistake";
-                    result = "mistake";
-                }
-            }
+        if (index === POSITION + 1) {
+            updateChar(char, "idle", true);
         } else {
-            const IS_NEXT = i === POSITION + 1;
-            char.className = IS_NEXT ? "char char-idle char-current" : "char char-idle";
+            updateChar(char, "idle");
         };
     });
+
     return result;
+};
+
+function updateChar(char, result, current = false) {
+    let classes = `char char-${result}`;
+
+    if (current) {
+        classes += " char-current"
+    };
+
+    char.className = classes;
 };
 
 function updateStats() {
@@ -155,70 +151,67 @@ function updateStats() {
     STATS.accuracy = calculateAccuracy(STATS.keystrokes, STATS.mistakes);
 };
 
-function displayStats() {
-    WPM_VALUE.textContent = `${STATS.wpm}`;
-    ACCURACY_VALUE.textContent = `${STATS.accuracy}`;
-    MISTAKES_VALUE.textContent = `${STATS.mistakes}`;
-};
+export function handleInput(input) {
+    if (testState === TEST_STATE.FAILED) return;
 
-export async function handleInput(input) {
-    if (testFailed) return;
-
-    if (TEST_QUOTE.querySelectorAll("span").length === 0) {
+    if (testState === TEST_STATE.LOADING) {
         TEST_INPUT.value = "";
         return;
     };
 
-    if (!testStarted && input === "") return;
-    if (!testStarted) startTest();
-    if (testFinished) return;
+    if (testState === TEST_STATE.FINISHED || testState === TEST_STATE.CANCELLED) return;
+
+    if (testState === TEST_STATE.IDLE) {
+        if (input === "") return;
+        startTest();
+    };
 
     const RESULT = processInput(input);
 
-    if (RESULT && getSettings().sound === "true") {
-        await playSound(RESULT);
+    if (RESULT && SETTINGS.sound === "true") {
+        playSound(RESULT);
     };
 
     updateStats();
-    displayStats();
+    displayStats(STATS);
 
-    const QUOTE_LENGTH = TEST_QUOTE.querySelectorAll("span").length;
-    if (input.length >= QUOTE_LENGTH) {
-        finishTest();
+    if (input.length >= TEST_QUOTE.querySelectorAll("span").length) {
+        finishTest(FINISH_REASON.QUOTE);
     };
 };
 
 export function cancelTest() {
-    if (!testStarted) return;
-    if (testFinished) return;
-    testFinished = true;
+    if (testState !== TEST_STATE.RUNNING) return;
+    testState = TEST_STATE.CANCELLED;
 
-    TYPING_TEST.className = "typing-test-cancelled";
-    updateState("cancelled");
+    updateState(TEST_STATE.CANCELLED);
 
     clearInterval(intervalId);
 };
 
-function finishTest() {
-    if (testFinished) return;
-    testFinished = true;
+export function hasTestStarted() {
+    return [TEST_STATE.RUNNING, TEST_STATE.FINISHED, TEST_STATE.CANCELLED].includes(testState);
+};
 
-    TYPING_TEST.className = "typing-test-finished";
+function finishTest(reason) {
+    if (testState !== TEST_STATE.RUNNING) return;
+    testState = TEST_STATE.FINISHED;
+
+    stopTest(reason);
+    saveResult();
+};
+
+function stopTest(reason) {
     TIME.endTime = Date.now();
-
     clearInterval(intervalId);
-    if (timerCountdown === 0) {
-        updateState("finished-timer");
-    } else {
-        updateState("finished");
-    };
 
-    window.scrollTo({
-        top: 0
-    });
-
+    updateState(TEST_STATE.FINISHED, reason);
     updateStats();
-    displayStats();
+    displayStats(STATS);
+    scrollToStatus();
+};
+
+function saveResult() {
     const END_TEST = { ...TIME, ...STATS, timer: SETTINGS.timer, idQuote: idTestQuote };
 
     compareTest(END_TEST);
@@ -226,7 +219,7 @@ function finishTest() {
     const SAVED_LOCAL = saveLocalTest(END_TEST);
     const SAVED_SESSION = saveSessionTest(END_TEST);
     if (!SAVED_LOCAL || !SAVED_SESSION) {
-        updateGuide("failedSave");
+        updateGuide(GUIDE.FAILED_SAVE);
     };
 
     updateSessionSummary();

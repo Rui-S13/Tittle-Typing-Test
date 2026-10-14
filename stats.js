@@ -26,11 +26,8 @@ const AVERAGE_WPM = document.querySelector("#average-wpm");
 const AVERAGE_ACCURACY = document.querySelector("#average-accuracy");
 const NUMBER_OF_TESTS = document.querySelector("#number-of-tests");
 const TOTAL_TIME_DAYS = document.querySelector("#total-time-days");
-const TIME_UNIT_DAYS = document.querySelector(".time-unit-days");
 const TOTAL_TIME_HOURS = document.querySelector("#total-time-hours");
-const TIME_UNIT_HOURS = document.querySelector(".time-unit-hours");
 const TOTAL_TIME_MINUTES = document.querySelector("#total-time-minutes");
-const TIME_UNIT_MINUTES = document.querySelector(".time-unit-minutes");
 const TOTAL_TIME_SECONDS = document.querySelector("#total-time-seconds");
 
 
@@ -59,17 +56,17 @@ function fillStatPage() {
     const REMAINING_SECONDS = SECONDS % 60;
 
     if (DAYS !== 0) {
-        TIME_UNIT_DAYS.hidden = false;
+        TOTAL_TIME_DAYS.closest(".time-unit-group").hidden = false;
         TOTAL_TIME_DAYS.textContent = DAYS;
     };
 
     if (HOURS !== 0) {
-        TIME_UNIT_HOURS.hidden = false;
+        TOTAL_TIME_HOURS.closest(".time-unit-group").hidden = false;
         TOTAL_TIME_HOURS.textContent = HOURS;
     };
 
     if (MINUTES !== 0) {
-        TIME_UNIT_MINUTES.hidden = false;
+        TOTAL_TIME_MINUTES.closest(".time-unit-group").hidden = false;
         TOTAL_TIME_MINUTES.textContent = MINUTES;
     };
 
@@ -86,7 +83,7 @@ const BTN_CONFIRM_DELETE = document.querySelector("#btn-confirm-delete");
 const BTN_CANCEL_DELETE = document.querySelector("#btn-cancel-delete");
 
 BTN_DELETE_DATA.addEventListener("click", () => {
-    DELETE_WARNING.hidden = false;
+    DELETE_DATA_WARNING.hidden = false;
     BTN_DELETE.setAttribute("aria-expanded", "true");
     BTN_CANCEL_DELETE.focus();
 });
@@ -97,7 +94,7 @@ BTN_CONFIRM_DELETE.addEventListener("click", () => {
 });
 
 BTN_CANCEL_DELETE.addEventListener("click", () => {
-    DELETE_WARNING.hidden = true;
+    DELETE_DATA_WARNING.hidden = true;
     BTN_DELETE.setAttribute("aria-expanded", "false");
     BTN_DELETE.focus();
 });
