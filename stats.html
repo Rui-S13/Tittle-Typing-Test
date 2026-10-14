@@ -172,7 +172,14 @@
 
         <section id="chart-container">
             <h2 class="visually-hidden">Progress over time</h2>
-            <canvas id="progress-chart" role="img" aria-label="Line chart of your WPM over recent tests"></canvas>
+
+            <div id="chart-wrapper">
+                <canvas id="progress-chart" role="img"
+                    aria-label="Line chart showing your WPM over your 30 most recent tests">
+                </canvas>
+            </div>
+
+            <p id="chart-warning">Only the 30 most recent tests are shown</p>
         </section>
 
         <section id="test-history">
