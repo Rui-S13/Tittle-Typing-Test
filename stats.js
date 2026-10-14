@@ -2,6 +2,7 @@ import { loadDarkMode, toggleDarkMode } from "./js/darkMode.js";
 import { deleteTestsData, readLocalJson } from "./js/storage.js";
 import { calculateStats } from "./js/calculations.js";
 import { fillChart } from "./js/chart.js";
+import { updateStatsHistory } from "./js/testHistory.js";
 
 loadDarkMode();
 
@@ -75,6 +76,7 @@ function fillStatPage() {
 
 fillStatPage();
 fillChart();
+updateStatsHistory();
 
 
 const BTN_DELETE_DATA = document.querySelector("#btn-delete-data");
